@@ -1,6 +1,7 @@
 import InputStep from "./steps/InputStep";
 import AsciiStep from "./steps/AsciiStep";
 import BinaryStep from "./steps/BinaryStep";
+import PaddingStep from "./steps/PaddingStep";
 
 type Props = {
     currentStep: number;
@@ -26,7 +27,7 @@ function StepViewer({
             return <BinaryStep input={generatedInput} />;
 
         case 3:
-            return <p>Padding Step</p>;
+            return <PaddingStep input={generatedInput} />;
 
         default:
             return <p>Coming soon...</p>;
