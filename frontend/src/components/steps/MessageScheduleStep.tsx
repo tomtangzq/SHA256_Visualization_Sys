@@ -1,20 +1,22 @@
 import { calculatePadding } from "../../utils/padding";
 import { binaryString } from "../../utils/binary";
 import { generateInitialWords } from "../../utils/messageSchedule";
+import type { Word } from "../../utils/messageSchedule";
+
 
 type Props = {
-    input: string;
+    words: Word[];
 };
 
-function MessageScheduleStep({ input }: Props) {
+function MessageScheduleStep({ words }: Props) {
 
-    const binary = binaryString(input);
+    // const binary = binaryString(input);
 
-    const padding = calculatePadding(binary);
+    // const padding = calculatePadding(binary);
 
-    const words = generateInitialWords(
-        padding.finalBlock512
-    );
+    // const words = generateInitialWords(
+    //     padding.finalBlock512
+    // );
 
     return (
 

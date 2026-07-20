@@ -51,3 +51,17 @@ export function sigma1(binary: string): string {
     return uint32ToBinary(result);
 
 }
+
+export function add32(...values: number[]): number {
+
+    let result = 0;
+
+    for (const value of values) {
+
+        result = (result + value) >>> 0;
+
+    }
+
+    return result;
+
+}

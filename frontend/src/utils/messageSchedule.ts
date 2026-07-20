@@ -1,3 +1,5 @@
+import { binaryToHex } from "./binary";
+
 export interface Word {
 
     index: number;
@@ -34,10 +36,10 @@ export function generateInitialWords(block: string): Word[] {
 
 }
 
-export function binaryToHex(binary: string): string {
+// export function binaryToHex(binary: string): string {
 
-    return parseInt(binary, 2)
-        .toString(16)
-        .padStart(8, "0");
+//     return parseInt(binary, 2)
+//         .toString(16)
+//         .padStart(8, "0");
 
-}
+// }
