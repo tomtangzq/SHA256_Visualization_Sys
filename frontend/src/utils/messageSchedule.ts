@@ -6,6 +6,8 @@ export interface Word {
 
     hex: string;
 
+    //decimal: number;
+
 }
 
 export function splitIntoWords(block: string): Word[] {

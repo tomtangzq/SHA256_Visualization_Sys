@@ -3,6 +3,7 @@ import AsciiStep from "./steps/AsciiStep";
 import BinaryStep from "./steps/BinaryStep";
 import PaddingStep from "./steps/PaddingStep";
 import MessageScheduleStep from "./steps/MessageScheduleStep";
+import WordExpansionStep from "./steps/WordExpansionStep";
 
 type Props = {
     currentStep: number;
@@ -32,6 +33,9 @@ function StepViewer({
 
         case 4:
             return <MessageScheduleStep input={generatedInput} />;
+
+        case 5:
+            return <WordExpansionStep input={generatedInput} />;
 
         default:
             return <p>Coming soon...</p>;

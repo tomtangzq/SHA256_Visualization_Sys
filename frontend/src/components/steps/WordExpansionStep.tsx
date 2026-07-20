@@ -1,8 +1,22 @@
+import { binaryString } from "../../utils/binary";
+import { calculatePadding } from "../../utils/padding";
+import { splitIntoWords } from "../../utils/messageSchedule";
+import { calculateWord } from "../../utils/wordExpansion";
+
+
 type Props = {
     input: string;
 };
 
 function WordExpansionStep({ input }: Props) {
+    const binary = binaryString(input);
+
+    const padding = calculatePadding(binary);
+
+    const words = splitIntoWords(padding.finalBlock512);
+
+    const expansion = calculateWord(words, 16);
+
 
     return (
 
@@ -12,25 +26,65 @@ function WordExpansionStep({ input }: Props) {
 
             <h3>Target Word</h3>
 
-            <p>W16</p>
+            <p>
+                <strong>W16</strong>
+            </p>
 
-            <h3>Formula</h3>
+            <table
+                style={{
+                    width: "100%",
+                    borderCollapse: "collapse",
+                }}
+            >
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Hex</th>
+                    </tr>
+                </thead>
 
-            <pre>
+                <tbody>
 
-                σ1(W14)
-                +
-                W9
-                +
-                σ0(W1)
-                +
-                W0
+                    <tr>
+                        <td>σ1(W14)</td>
+                        <td>{expansion.sigma1.hex}</td>
+                    </tr>
 
-            </pre>
+                    <tr>
+                        <td>W9</td>
+                        <td>{expansion.wordMinus7.hex}</td>
+                    </tr>
+
+                    <tr>
+                        <td>σ0(W1)</td>
+                        <td>{expansion.sigma0.hex}</td>
+                    </tr>
+
+                    <tr>
+                        <td>W0</td>
+                        <td>{expansion.wordMinus16.hex}</td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <strong>W16</strong>
+                        </td>
+
+                        <td>
+                            <strong>
+                                {expansion.result.hex}
+                            </strong>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
 
         </>
-
     );
+
 
 }
 

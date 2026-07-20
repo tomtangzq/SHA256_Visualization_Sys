@@ -45,8 +45,12 @@ export function calculateWord(
         throw new Error("Word expansion only starts from W16.");
     }
 
-    if (index >= words.length) {
-        throw new Error("Required previous words do not exist.");
+    // if (index >= words.length) {
+    //     throw new Error("Required previous words do not exist.");
+    // }
+
+    if (words.length < 16) {
+        throw new Error("Need W0-W15 before expansion.");
     }
 
     // Wi-2
