@@ -1,12 +1,13 @@
 import { INITIAL_HASH } from "../../utils/initialHash";
 import { hexToBinary } from "../../utils/binary";
-import { calculateSigma1, calculateT1 } from "../../utils/compressionFunctions";
+import { calculateSigma0, calculateSigma1, calculateT1 } from "../../utils/compressionFunctions";
 import SigmaViewer from "../SigmaViewer";
 import BinaryDisplay from "../BinaryDisplay";
 import { calculateCh } from "../../utils/compressionFunctions";
 import ChViewer from "../ChViewer";
 import type { Word } from "../../utils/messageSchedule";
 import T1Viewer from "../T1Viewer";
+import Sigma0Viewer from "../Sigma0Viewer";
 
 type Props = {
     words: Word[];
@@ -72,6 +73,21 @@ function CompressionStep({ words }: Props) {
     // console.log("W0 Binary =", wBinary);
 
     // console.log("W0 Hex =", words[0].hex);
+
+
+    const a = INITIAL_HASH.find(item => item.name === "a");
+    const b = INITIAL_HASH.find(item => item.name === "b");
+    const c = INITIAL_HASH.find(item => item.name === "c");
+
+    if (!a || !b || !c) {
+        return <p>Unable to find working variables.</p>;
+    }
+
+    const aBinary = hexToBinary(a.hex);
+    const bBinary = hexToBinary(b.hex);
+    const cBinary = hexToBinary(c.hex);
+
+    const sigma0 = calculateSigma0(aBinary);
 
 
     return (
@@ -182,6 +198,16 @@ function CompressionStep({ words }: Props) {
 
             <T1Viewer
                 t1={t1}
+            />
+
+            <Sigma0Viewer
+
+                title="Σ0(a)"
+
+                original={aBinary}
+
+                sigma0={sigma0}
+
             />
 
         </>

@@ -8,6 +8,13 @@ export interface SigmaResult {
     result: string;
 }
 
+export interface Sigma0Result {
+    rotate2: string;
+    rotate13: string;
+    rotate22: string;
+    result: string;
+}
+
 export interface T1Result {
 
     h: string;
@@ -245,6 +252,45 @@ export function calculateT1(
         sum3: uint32ToBinary(sum3),
 
         result: uint32ToBinary(result)
+
+    };
+
+}
+
+
+export function calculateSigma0(binary: string): Sigma0Result {
+
+    const x = binaryToUint32(binary);
+
+    const rotate2 =
+        uint32ToBinary(rightRotate(x, 2));
+
+    const rotate13 =
+        uint32ToBinary(rightRotate(x, 13));
+
+    const rotate22 =
+        uint32ToBinary(rightRotate(x, 22));
+
+    const result =
+        uint32ToBinary(
+            (
+                rightRotate(x, 2)
+                ^
+                rightRotate(x, 13)
+                ^
+                rightRotate(x, 22)
+            ) >>> 0
+        );
+
+    return {
+
+        rotate2,
+
+        rotate13,
+
+        rotate22,
+
+        result
 
     };
 
