@@ -27,7 +27,8 @@ function T1Viewer({ t1 }: Props) {
 
                 {
                     label: "Sum 1",
-                    value: t1.sum1
+                    value: t1.sum1,
+                    bold: true
                 },
 
                 {
@@ -37,7 +38,8 @@ function T1Viewer({ t1 }: Props) {
 
                 {
                     label: "Sum 2",
-                    value: t1.sum2
+                    value: t1.sum2,
+                    bold: true
                 },
 
                 {
@@ -47,7 +49,8 @@ function T1Viewer({ t1 }: Props) {
 
                 {
                     label: "Sum 3",
-                    value: t1.sum3
+                    value: t1.sum3,
+                    bold: true
                 },
 
                 {

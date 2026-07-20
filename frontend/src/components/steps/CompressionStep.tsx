@@ -1,12 +1,12 @@
 import { INITIAL_HASH } from "../../utils/initialHash";
 import { hexToBinary } from "../../utils/binary";
-import { calculateSigma1 } from "../../utils/compressionFunctions";
+import { calculateSigma1, calculateT1 } from "../../utils/compressionFunctions";
 import SigmaViewer from "../SigmaViewer";
 import BinaryDisplay from "../BinaryDisplay";
 import { calculateCh } from "../../utils/compressionFunctions";
 import ChViewer from "../ChViewer";
 import type { Word } from "../../utils/messageSchedule";
-
+import T1Viewer from "../T1Viewer";
 
 type Props = {
     words: Word[];
@@ -57,6 +57,14 @@ function CompressionStep({ words }: Props) {
     const kBinary = hexToBinary("428a2f98");
 
     const wBinary = words[0].binary;
+
+    const t1 = calculateT1(
+        hBinary,
+        sigma.result,
+        ch.result,
+        kBinary,
+        wBinary
+    );
 
     // //test
     // console.log("W0 =", words[0]);
@@ -170,6 +178,10 @@ function CompressionStep({ words }: Props) {
 
                 result={ch.result}
 
+            />
+
+            <T1Viewer
+                t1={t1}
             />
 
         </>
