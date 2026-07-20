@@ -1,13 +1,15 @@
 import { INITIAL_HASH } from "../../utils/initialHash";
 import { hexToBinary } from "../../utils/binary";
-import { calculateSigma0, calculateSigma1, calculateT1 } from "../../utils/compressionFunctions";
+import { calculateSigma0, calculateSigma1, calculateT1, calculateCh, calculateMaj, calculateT2, calculateNextWorkingVariables } from "../../utils/compressionFunctions";
 import SigmaViewer from "../SigmaViewer";
 import BinaryDisplay from "../BinaryDisplay";
-import { calculateCh } from "../../utils/compressionFunctions";
+import T2Viewer from "../T2Viewer";
 import ChViewer from "../ChViewer";
 import type { Word } from "../../utils/messageSchedule";
 import T1Viewer from "../T1Viewer";
 import Sigma0Viewer from "../Sigma0Viewer";
+import MajViewer from "../MajViewer";
+import WorkingVariableUpdateViewer from "../WorkingVariableUpdateViewer";
 
 type Props = {
     words: Word[];
@@ -78,16 +80,62 @@ function CompressionStep({ words }: Props) {
     const a = INITIAL_HASH.find(item => item.name === "a");
     const b = INITIAL_HASH.find(item => item.name === "b");
     const c = INITIAL_HASH.find(item => item.name === "c");
+    const d = INITIAL_HASH.find(item => item.name === "d");
 
-    if (!a || !b || !c) {
+    if (!a || !b || !c || !d) {
         return <p>Unable to find working variables.</p>;
     }
 
     const aBinary = hexToBinary(a.hex);
     const bBinary = hexToBinary(b.hex);
     const cBinary = hexToBinary(c.hex);
+    const dBinary = hexToBinary(d.hex);
+
 
     const sigma0 = calculateSigma0(aBinary);
+
+    const maj = calculateMaj(
+
+        aBinary,
+
+        bBinary,
+
+        cBinary
+
+    );
+
+    const t2 = calculateT2(
+        sigma0.result,
+        maj.result
+    );
+
+
+    const updatedVariables = calculateNextWorkingVariables(
+
+        aBinary,
+
+        bBinary,
+
+        cBinary,
+
+        dBinary,
+
+        eBinary,
+
+        fBinary,
+
+        gBinary,
+
+        hBinary,
+
+        t1.result,
+
+        t2.result
+
+    );
+
+    // // test
+    // console.log(updatedVariables);
 
 
     return (
@@ -207,6 +255,41 @@ function CompressionStep({ words }: Props) {
                 original={aBinary}
 
                 sigma0={sigma0}
+
+            />
+
+            <MajViewer
+
+                originalA={aBinary}
+
+                originalB={bBinary}
+
+                originalC={cBinary}
+
+                maj={maj}
+
+            />
+
+            <T2Viewer
+                t2={t2}
+            />
+
+            <WorkingVariableUpdateViewer
+
+                oldVariables={{
+
+                    a: aBinary,
+                    b: bBinary,
+                    c: cBinary,
+                    d: dBinary,
+                    e: eBinary,
+                    f: fBinary,
+                    g: gBinary,
+                    h: hBinary
+
+                }}
+
+                updatedVariables={updatedVariables}
 
             />
 

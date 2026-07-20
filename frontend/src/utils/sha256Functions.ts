@@ -65,3 +65,11 @@ export function add32(...values: number[]): number {
     return result;
 
 }
+
+export function binaryToHex(binary: string): string {
+
+    return binaryToUint32(binary)
+        .toString(16)
+        .padStart(8, "0");
+
+}

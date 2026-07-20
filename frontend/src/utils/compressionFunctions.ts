@@ -37,6 +37,61 @@ export interface T1Result {
 
 }
 
+export interface T2Result {
+
+    sigma0: string;
+
+    maj: string;
+
+    result: string;
+
+}
+
+export interface ChResult {
+
+    notX: string;
+
+    xAndY: string;
+
+    notXAndZ: string;
+
+    result: string;
+
+}
+
+export interface MajResult {
+
+    xAndY: string;
+
+    xAndZ: string;
+
+    yAndZ: string;
+
+    result: string;
+
+}
+
+
+export interface UpdatedWorkingVariables {
+
+    a: string;
+
+    b: string;
+
+    c: string;
+
+    d: string;
+
+    e: string;
+
+    f: string;
+
+    g: string;
+
+    h: string;
+
+}
+
 
 /*
  * Σ0(x) = ROTR2(x) XOR ROTR13(x) XOR ROTR22(x)
@@ -152,17 +207,7 @@ export function calculateSigma1(binary: string): SigmaResult {
 
 }
 
-export interface ChResult {
 
-    notX: string;
-
-    xAndY: string;
-
-    notXAndZ: string;
-
-    result: string;
-
-}
 export function calculateCh(
     xBinary: string,
     yBinary: string,
@@ -198,6 +243,61 @@ export function calculateCh(
         xAndY,
 
         notXAndZ,
+
+        result
+
+    };
+
+}
+
+
+export function calculateMaj(
+    xBinary: string,
+    yBinary: string,
+    zBinary: string
+): MajResult {
+
+    const x = binaryToUint32(xBinary);
+
+    const y = binaryToUint32(yBinary);
+
+    const z = binaryToUint32(zBinary);
+
+    const xAndY =
+        uint32ToBinary((x & y) >>> 0);
+
+    const xAndZ =
+        uint32ToBinary((x & z) >>> 0);
+
+    const yAndZ =
+        uint32ToBinary((y & z) >>> 0);
+
+    const result =
+        uint32ToBinary(
+
+            (
+
+                (x & y)
+
+                ^
+
+                (x & z)
+
+                ^
+
+                (y & z)
+
+            ) >>> 0
+
+        );
+
+    return {
+
+        xAndY,
+
+        xAndZ,
+
+        yAndZ,
 
         result
 
@@ -258,6 +358,33 @@ export function calculateT1(
 }
 
 
+export function calculateT2(
+    sigma0Binary: string,
+    majBinary: string
+): T2Result {
+
+    const sigma0 = binaryToUint32(sigma0Binary);
+
+    const maj = binaryToUint32(majBinary);
+
+    const result = add32(
+        sigma0,
+        maj
+    );
+
+    return {
+
+        sigma0: sigma0Binary,
+
+        maj: majBinary,
+
+        result: uint32ToBinary(result)
+
+    };
+
+}
+
+
 export function calculateSigma0(binary: string): Sigma0Result {
 
     const x = binaryToUint32(binary);
@@ -291,6 +418,89 @@ export function calculateSigma0(binary: string): Sigma0Result {
         rotate22,
 
         result
+
+    };
+
+}
+
+
+export function calculateNextWorkingVariables(
+
+    aBinary: string,
+
+    bBinary: string,
+
+    cBinary: string,
+
+    dBinary: string,
+
+    eBinary: string,
+
+    fBinary: string,
+
+    gBinary: string,
+
+    hBinary: string,
+
+    t1Binary: string,
+
+    t2Binary: string
+
+): UpdatedWorkingVariables {
+
+    const a = binaryToUint32(aBinary);
+
+    const b = binaryToUint32(bBinary);
+
+    const c = binaryToUint32(cBinary);
+
+    const d = binaryToUint32(dBinary);
+
+    const e = binaryToUint32(eBinary);
+
+    const f = binaryToUint32(fBinary);
+
+    const g = binaryToUint32(gBinary);
+
+    const h = binaryToUint32(hBinary);
+
+    const t1 = binaryToUint32(t1Binary);
+
+    const t2 = binaryToUint32(t2Binary);
+
+    const newA = add32(t1, t2);
+
+    const newB = a;
+
+    const newC = b;
+
+    const newD = c;
+
+    const newE = add32(d, t1);
+
+    const newF = e;
+
+    const newG = f;
+
+    const newH = g;
+
+    return {
+
+        a: uint32ToBinary(newA),
+
+        b: uint32ToBinary(newB),
+
+        c: uint32ToBinary(newC),
+
+        d: uint32ToBinary(newD),
+
+        e: uint32ToBinary(newE),
+
+        f: uint32ToBinary(newF),
+
+        g: uint32ToBinary(newG),
+
+        h: uint32ToBinary(newH)
 
     };
 
