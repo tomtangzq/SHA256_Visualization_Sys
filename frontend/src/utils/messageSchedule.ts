@@ -10,7 +10,7 @@ export interface Word {
 
 }
 
-export function splitIntoWords(block: string): Word[] {
+export function generateInitialWords(block: string): Word[] {
 
     const words: Word[] = [];
 

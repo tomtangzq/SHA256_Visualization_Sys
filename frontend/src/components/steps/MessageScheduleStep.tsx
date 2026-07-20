@@ -1,6 +1,6 @@
 import { calculatePadding } from "../../utils/padding";
 import { binaryString } from "../../utils/binary";
-import { splitIntoWords } from "../../utils/messageSchedule";
+import { generateInitialWords } from "../../utils/messageSchedule";
 
 type Props = {
     input: string;
@@ -12,7 +12,7 @@ function MessageScheduleStep({ input }: Props) {
 
     const padding = calculatePadding(binary);
 
-    const words = splitIntoWords(
+    const words = generateInitialWords(
         padding.finalBlock512
     );
 

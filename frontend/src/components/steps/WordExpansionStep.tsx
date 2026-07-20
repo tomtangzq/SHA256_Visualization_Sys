@@ -1,8 +1,9 @@
 import { binaryString } from "../../utils/binary";
 import { calculatePadding } from "../../utils/padding";
-import { splitIntoWords } from "../../utils/messageSchedule";
+import { generateInitialWords } from "../../utils/messageSchedule";
 import { calculateWord } from "../../utils/wordExpansion";
-
+import { useState } from "react";
+import { expandWords } from "../../utils/wordExpansion";
 
 type Props = {
     input: string;
@@ -13,9 +14,15 @@ function WordExpansionStep({ input }: Props) {
 
     const padding = calculatePadding(binary);
 
-    const words = splitIntoWords(padding.finalBlock512);
+    const words = generateInitialWords(padding.finalBlock512);
 
-    const expansion = calculateWord(words, 16);
+    // const expansion = calculateWord(words, 16);
+    const initialWords = generateInitialWords(padding.finalBlock512);
+
+    const allWords = expandWords(initialWords);
+
+    const [selectedWord, setSelectedWord] = useState(16);
+    const expansion = calculateWord(allWords, selectedWord);
 
 
     return (
@@ -24,11 +31,37 @@ function WordExpansionStep({ input }: Props) {
 
             <h2>Step 6 - Word Expansion</h2>
 
-            <h3>Target Word</h3>
+            <h3>
+                Target Word : W{selectedWord}
+            </h3>
 
-            <p>
-                <strong>W16</strong>
-            </p>
+            <div style={{ marginBottom: "20px" }}>
+                <label>
+                    <strong>Select Word: </strong>
+                </label>
+
+                <select
+                    value={selectedWord}
+                    onChange={(e) =>
+                        setSelectedWord(Number(e.target.value))
+                    }
+                >
+                    {Array.from({ length: 48 }, (_, i) => {
+
+                        const value = i + 16;
+
+                        return (
+                            <option
+                                key={value}
+                                value={value}
+                            >
+                                W{value}
+                            </option>
+                        );
+
+                    })}
+                </select>
+            </div>
 
             <table
                 style={{
@@ -46,28 +79,36 @@ function WordExpansionStep({ input }: Props) {
                 <tbody>
 
                     <tr>
-                        <td>σ1(W14)</td>
+                        <td>
+                            σ1(W{selectedWord - 2})
+                        </td>
                         <td>{expansion.sigma1.hex}</td>
                     </tr>
 
                     <tr>
-                        <td>W9</td>
+                        <td>
+                            W{selectedWord - 7}
+                        </td>
                         <td>{expansion.wordMinus7.hex}</td>
                     </tr>
 
                     <tr>
-                        <td>σ0(W1)</td>
+                        <td>
+                            σ0(W{selectedWord - 15})
+                        </td>
                         <td>{expansion.sigma0.hex}</td>
                     </tr>
 
                     <tr>
-                        <td>W0</td>
+                        <td>
+                            W{selectedWord - 16}
+                        </td>
                         <td>{expansion.wordMinus16.hex}</td>
                     </tr>
 
                     <tr>
                         <td>
-                            <strong>W16</strong>
+                            <strong>W{selectedWord}</strong>
                         </td>
 
                         <td>

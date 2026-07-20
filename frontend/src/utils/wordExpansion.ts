@@ -33,6 +33,7 @@ function binaryToHex(binary: string): string {
         .padStart(8, "0");
 }
 
+
 /**
  * Calculate Wi (i >= 16)
  */
@@ -124,4 +125,21 @@ export function calculateWord(
 
         result: resultWord,
     };
+}
+
+
+export function expandWords(initialWords: Word[]): Word[] {
+
+    const words = [...initialWords];
+
+    for (let i = 16; i < 64; i++) {
+
+        const expansion = calculateWord(words, i);
+
+        words.push(expansion.result);
+
+    }
+
+    return words;
+
 }
