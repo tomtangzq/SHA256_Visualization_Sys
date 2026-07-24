@@ -16,8 +16,8 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>SHA-256 Interactive Learning System</h1>
-        <p>Meeting Demo v0.1</p>
+        <h1>SHA-256 Visualization System</h1>
+        <p>Demo v1.0</p>
       </header>
 
       <main className="layout">

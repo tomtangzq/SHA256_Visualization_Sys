@@ -1,32 +1,25 @@
 import OperationViewer from "./OperationViewer";
+import type { ChResult } from "../utils/compressionFunctions";
 
 type Props = {
-
-    original: string;
-
-    notX: string;
-
-    xAndY: string;
-
-    notXAndZ: string;
-
-    result: string;
-
+    ch: ChResult;
 };
+
 
 function ChViewer({
 
-    original,
-
-    notX,
-
-    xAndY,
-
-    notXAndZ,
-
-    result
+    ch
 
 }: Props) {
+    const {
+        x,
+        y,
+        z,
+        notX,
+        xAndY,
+        notXAndZ,
+        result
+    } = ch;
 
     return (
 
@@ -42,7 +35,7 @@ function ChViewer({
 
                     value: notX,
 
-                    compareValue: original
+                    compareValue: x
 
                 },
 

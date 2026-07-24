@@ -1,11 +1,12 @@
 import OperationViewer from "./OperationViewer";
-import { type T1Result } from "../utils/compressionFunctions";
+import type { T1Result } from "../utils/compressionFunctions";
 
 type Props = {
     t1: T1Result;
 };
 
 function T1Viewer({ t1 }: Props) {
+
 
     return (
 

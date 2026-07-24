@@ -10,14 +10,6 @@ type Props = {
 
 function MessageScheduleStep({ words }: Props) {
 
-    // const binary = binaryString(input);
-
-    // const padding = calculatePadding(binary);
-
-    // const words = generateInitialWords(
-    //     padding.finalBlock512
-    // );
-
     return (
 
         <>

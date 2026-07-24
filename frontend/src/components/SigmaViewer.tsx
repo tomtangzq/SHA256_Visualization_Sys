@@ -1,36 +1,28 @@
 import OperationViewer from "./OperationViewer";
+import type { SigmaResult } from "../utils/compressionFunctions";
 
 type Props = {
 
     title: string;
 
-    original: string;
+    sigma: SigmaResult;
 
-    rotate6: string;
-
-    rotate11: string;
-
-    rotate25: string;
-
-    result: string;
-
-};
+}
 
 function SigmaViewer({
 
     title,
 
-    original,
-
-    rotate6,
-
-    rotate11,
-
-    rotate25,
-
-    result
+    sigma
 
 }: Props) {
+    const {
+        original,
+        rotate6,
+        rotate11,
+        rotate25,
+        result
+    } = sigma;
 
     return (
 

@@ -6,7 +6,7 @@ import MessageScheduleStep from "./steps/MessageScheduleStep";
 import WordExpansionStep from "./steps/WordExpansionStep";
 import CompressionStep from "./steps/CompressionStep";
 import { binaryString } from "../utils/binary";
-import { generateInitialWords } from "../utils/messageSchedule";
+import { generateMessageSchedule } from "../utils/messageSchedule";
 import { calculatePadding } from "../utils/padding";
 
 
@@ -25,9 +25,7 @@ function StepViewer({
 
     const padding = calculatePadding(binary);
 
-    const words = generateInitialWords(
-        padding.finalBlock512
-    );
+    const words = generateMessageSchedule(padding.finalBlock512);
 
     if (!generatedInput)
         return <p>Please enter a message first.</p>;

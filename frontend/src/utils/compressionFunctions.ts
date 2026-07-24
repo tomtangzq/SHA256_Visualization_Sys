@@ -2,6 +2,7 @@ import { binaryToUint32, uint32ToBinary, rightRotate } from "./sha256Functions";
 import { add32 } from "./sha256Functions";
 
 export interface SigmaResult {
+    original: string;
     rotate6: string;
     rotate11: string;
     rotate25: string;
@@ -9,6 +10,7 @@ export interface SigmaResult {
 }
 
 export interface Sigma0Result {
+    original: string;
     rotate2: string;
     rotate13: string;
     rotate22: string;
@@ -49,6 +51,12 @@ export interface T2Result {
 
 export interface ChResult {
 
+    x: string;
+
+    y: string;
+
+    z: string;
+
     notX: string;
 
     xAndY: string;
@@ -60,6 +68,11 @@ export interface ChResult {
 }
 
 export interface MajResult {
+    x: string;
+
+    y: string;
+
+    z: string;
 
     xAndY: string;
 
@@ -90,6 +103,18 @@ export interface UpdatedWorkingVariables {
 
     h: string;
 
+}
+
+
+export interface WorkingVariables {
+    a: string;
+    b: string;
+    c: string;
+    d: string;
+    e: string;
+    f: string;
+    g: string;
+    h: string;
 }
 
 
@@ -144,12 +169,7 @@ export function Ch(
     return uint32ToBinary(result >>> 0);
 }
 
-/*
- * Maj(x,y,z)
- * = (x AND y)
- * XOR (x AND z)
- * XOR (y AND z)
- */
+
 export function Maj(
     xBinary: string,
     yBinary: string,
@@ -194,6 +214,7 @@ export function calculateSigma1(binary: string): SigmaResult {
         );
 
     return {
+        original: binary,
 
         rotate6,
 
@@ -237,6 +258,11 @@ export function calculateCh(
         );
 
     return {
+        x: xBinary,
+
+        y: yBinary,
+
+        z: zBinary,
 
         notX,
 
@@ -292,6 +318,12 @@ export function calculateMaj(
         );
 
     return {
+
+        x: xBinary,
+
+        y: yBinary,
+
+        z: zBinary,
 
         xAndY,
 
@@ -410,6 +442,7 @@ export function calculateSigma0(binary: string): Sigma0Result {
         );
 
     return {
+        original: binary,
 
         rotate2,
 
@@ -426,21 +459,7 @@ export function calculateSigma0(binary: string): Sigma0Result {
 
 export function calculateNextWorkingVariables(
 
-    aBinary: string,
-
-    bBinary: string,
-
-    cBinary: string,
-
-    dBinary: string,
-
-    eBinary: string,
-
-    fBinary: string,
-
-    gBinary: string,
-
-    hBinary: string,
+    workingVariables: WorkingVariables,
 
     t1Binary: string,
 
@@ -448,21 +467,25 @@ export function calculateNextWorkingVariables(
 
 ): UpdatedWorkingVariables {
 
-    const a = binaryToUint32(aBinary);
+    const {
+        a,
+        b,
+        c,
+        d,
+        e,
+        f,
+        g,
+        h
+    } = workingVariables;
 
-    const b = binaryToUint32(bBinary);
-
-    const c = binaryToUint32(cBinary);
-
-    const d = binaryToUint32(dBinary);
-
-    const e = binaryToUint32(eBinary);
-
-    const f = binaryToUint32(fBinary);
-
-    const g = binaryToUint32(gBinary);
-
-    const h = binaryToUint32(hBinary);
+    const aValue = binaryToUint32(a);
+    const bValue = binaryToUint32(b);
+    const cValue = binaryToUint32(c);
+    const dValue = binaryToUint32(d);
+    const eValue = binaryToUint32(e);
+    const fValue = binaryToUint32(f);
+    const gValue = binaryToUint32(g);
+    const hValue = binaryToUint32(h);
 
     const t1 = binaryToUint32(t1Binary);
 
@@ -470,19 +493,19 @@ export function calculateNextWorkingVariables(
 
     const newA = add32(t1, t2);
 
-    const newB = a;
+    const newB = aValue;
 
-    const newC = b;
+    const newC = bValue;
 
-    const newD = c;
+    const newD = cValue;
 
-    const newE = add32(d, t1);
+    const newE = add32(dValue, t1);
 
-    const newF = e;
+    const newF = eValue;
 
-    const newG = f;
+    const newG = fValue;
 
-    const newH = g;
+    const newH = gValue;
 
     return {
 

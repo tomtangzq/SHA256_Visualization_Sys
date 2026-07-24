@@ -21,6 +21,7 @@ body {
 
 .header h1 {
   font-size: 30px;
+  color: gray;
 }
 
 .header p {
@@ -43,6 +44,7 @@ body {
 
 .sidebar h2 {
   margin-bottom: 20px;
+  color: gray;
 }
 
 .sidebar ul {
@@ -63,6 +65,7 @@ body {
 
 .content h2 {
   margin-bottom: 20px;
+  color: gray;
 }
 
 .content p {
