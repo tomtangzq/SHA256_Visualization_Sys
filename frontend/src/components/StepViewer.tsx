@@ -8,6 +8,7 @@ import CompressionStep from "./steps/CompressionStep";
 import { binaryString } from "../utils/binary";
 import { generateMessageSchedule } from "../utils/messageSchedule";
 import { calculatePadding } from "../utils/padding";
+import FinalHashStep from "./steps/FinalHashStep";
 
 
 type Props = {
@@ -52,8 +53,11 @@ function StepViewer({
         case 6:
             return <CompressionStep words={words} />;
 
+        case 7:
+            return <FinalHashStep input={generatedInput} />;
+
         default:
-            return <p>Coming soon...</p>;
+            return <p>Unknown Step</p>;
     }
 }
 

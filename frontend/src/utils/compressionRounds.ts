@@ -56,7 +56,6 @@ export function calculateCompressionRounds(
     initialWorkingVariables: WorkingVariables,
     words: Word[]
 ): CompressionResult {
-    console.log(words.length);
 
     const rounds: RoundResult[] = [];
 

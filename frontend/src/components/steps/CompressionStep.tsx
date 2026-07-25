@@ -3,6 +3,8 @@ import { hexToBinary } from "../../utils/binary";
 import type { Word } from "../../utils/messageSchedule";
 import RoundViewer from "../RoundViewer";
 import { calculateCompressionRounds } from "../../utils/compressionRounds";
+import { calculateFinalHash } from "../../utils/finalHash";
+
 
 type Props = {
     words: Word[];
@@ -39,6 +41,14 @@ function CompressionStep({ words }: Props) {
     const compressionResult = calculateCompressionRounds(
         initialWorkingVariables,
         words
+    );
+
+    const finalHash = calculateFinalHash(
+
+        initialWorkingVariables,
+
+        compressionResult.finalWorkingVariables
+
     );
 
 
@@ -119,6 +129,39 @@ function CompressionStep({ words }: Props) {
                 ))
 
             }
+
+            <h2>Final SHA-256 Hash</h2>
+
+            <table>
+
+                <tbody>
+
+                    <tr>
+                        <td>Binary</td>
+                        <td
+                            style={{
+                                wordBreak: "break-all",
+                                fontFamily: "monospace"
+                            }}
+                        >
+                            {finalHash.binary}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Hex</td>
+                        <td
+                            style={{
+                                fontFamily: "monospace"
+                            }}
+                        >
+                            {finalHash.hex}
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
 
         </>
 

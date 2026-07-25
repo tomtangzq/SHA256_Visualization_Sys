@@ -1,4 +1,26 @@
 import { hexToBinary } from "./binary";
+import { uint32ToBinary } from "./sha256Functions";
+import type { WorkingVariables } from "./compressionFunctions";
+
+export const INITIAL_HASH: WorkingVariables = {
+
+    a: uint32ToBinary(0x6a09e667),
+
+    b: uint32ToBinary(0xbb67ae85),
+
+    c: uint32ToBinary(0x3c6ef372),
+
+    d: uint32ToBinary(0xa54ff53a),
+
+    e: uint32ToBinary(0x510e527f),
+
+    f: uint32ToBinary(0x9b05688c),
+
+    g: uint32ToBinary(0x1f83d9ab),
+
+    h: uint32ToBinary(0x5be0cd19)
+
+};
 
 export const ROUND_CONSTANTS_HEX = [
 
