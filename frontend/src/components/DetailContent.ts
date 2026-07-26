@@ -47,10 +47,22 @@ export const detailContent: StepContent[] = [
 
     {
         title: "Binary Conversion",
-        description: "",
-        goal: "",
-        keyInformation: [],
-        tips: [],
+        description:
+            "The selected ASCII value is converted into an 8-bit binary representation.",
+
+        goal:
+            "Understand how numerical data is represented using binary digits.",
+
+        keyInformation: [
+            "Each ASCII value occupies one byte (8 bits).",
+            "Binary numbers consist only of 0 and 1.",
+            "Leading zeros are preserved to maintain 8-bit length."
+        ],
+
+        tips: [
+            "Every character uses exactly 8 bits in this stage.",
+            "Observe how decimal values map to binary."
+        ]
     },
 
     {

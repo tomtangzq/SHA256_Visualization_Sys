@@ -1,5 +1,6 @@
 import { detailContent } from "./DetailContent";
-import AsciiDetail from "./detail/AsciiDetail";
+import AsciiDetail from "./detail/CharacterSelector";
+
 
 interface DetailPanelProps {
     currentStep: number;
@@ -29,7 +30,7 @@ export default function DetailPanel({
 
             <h3>{current.title}</h3>
 
-            {currentStep === 1 && (
+            {(currentStep === 1 || currentStep === 2) && (
                 <AsciiDetail
                     input={input}
                     selectedCharacterIndex={selectedCharacterIndex}

@@ -46,7 +46,12 @@ function StepViewer({
             );
 
         case 2:
-            return <BinaryStep input={generatedInput} />;
+            return (
+                <BinaryStep
+                    input={generatedInput}
+                    selectedCharacterIndex={selectedCharacterIndex}
+                />
+            );
 
         case 3:
             return <PaddingStep input={generatedInput} />;

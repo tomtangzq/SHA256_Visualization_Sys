@@ -1,61 +1,67 @@
-import { textToBinary } from "../../utils/binary";
+import { getAsciiInfo } from "../../utils/ascii";
 
 type Props = {
     input: string;
+    selectedCharacterIndex: number | null;
 };
 
-function BinaryStep({ input }: Props) {
-    const binary = textToBinary(input);
+function BinaryStep({
+    input,
+    selectedCharacterIndex,
+}: Props) {
+
+    const characters = getAsciiInfo(input);
+
+
+    if (characters.length === 0) {
+        return (
+            <>
+                <h3>Step 3 - Binary Conversion</h3>
+                <p>Please generate a message first.</p>
+            </>
+        );
+    }
+
+    if (selectedCharacterIndex === null) {
+        return (
+            <>
+                <h3>Step 3 - Binary Conversion</h3>
+                <p>Please select a character from the Detail Panel.</p>
+            </>
+        );
+    }
+
+    const currentCharacter = characters[selectedCharacterIndex];
 
     return (
-        <>
-            <h3>Step 3 - Binary Encoding</h3>
 
-            <table
-                style={{
-                    width: "100%",
-                    borderCollapse: "collapse",
-                    marginTop: "20px",
-                }}
-            >
-                <thead>
-                    <tr>
-                        <th style={headerStyle}>Character</th>
-                        <th style={headerStyle}>ASCII</th>
-                        <th style={headerStyle}>Binary (8-bit)</th>
-                    </tr>
-                </thead>
+        <div className="learning-flow">
 
-                <tbody>
-                    {binary.map((item, index) => (
-                        <tr key={index}>
-                            <td style={cellStyle}>{item.character}</td>
-                            <td style={cellStyle}>{item.ascii}</td>
-                            <td
-                                style={{
-                                    ...cellStyle,
-                                    fontFamily: "monospace",
-                                }}
-                            >
-                                {item.binary}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </>
+            <div className="flow-card">
+
+                <h4>ASCII Value</h4>
+
+                <div className="flow-value">
+                    {currentCharacter.ascii}
+                </div>
+
+            </div>
+
+            <div className="flow-arrow">
+                ↓
+            </div>
+
+            <div className="flow-card">
+
+                <h4>Binary</h4>
+
+                <div className="flow-value binary-value">
+                    {currentCharacter.binary}
+                </div>
+
+            </div>
+
+        </div>
     );
 }
-
-const headerStyle = {
-    border: "1px solid #ccc",
-    padding: "10px",
-};
-
-const cellStyle = {
-    border: "1px solid #ccc",
-    padding: "10px",
-    textAlign: "center" as const,
-};
-
 export default BinaryStep;
