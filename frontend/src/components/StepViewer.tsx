@@ -14,12 +14,14 @@ import FinalHashStep from "./steps/FinalHashStep";
 type Props = {
     currentStep: number;
     generatedInput: string;
+    selectedCharacterIndex: number | null;
 
 };
 
 function StepViewer({
     currentStep,
     generatedInput,
+    selectedCharacterIndex,
 }: Props) {
 
     const binary = binaryString(generatedInput);
@@ -36,7 +38,12 @@ function StepViewer({
             return <InputStep input={generatedInput} />;
 
         case 1:
-            return <AsciiStep input={generatedInput} />;
+            return (
+                <AsciiStep
+                    input={generatedInput}
+                    selectedCharacterIndex={selectedCharacterIndex}
+                />
+            );
 
         case 2:
             return <BinaryStep input={generatedInput} />;

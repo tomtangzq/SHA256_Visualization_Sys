@@ -2,84 +2,127 @@ import { useState } from "react";
 import "./App.css";
 import InputPanel from "./components/InputPanel";
 import StepViewer from "./components/StepViewer";
+import DetailPanel from "./components/DetailPanel";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [input, setInput] = useState("");
   const [generatedInput, setGeneratedInput] = useState("");
   const [currentStep, setCurrentStep] = useState(0);
+  const [selectedCharacterIndex, setSelectedCharacterIndex] = useState<number | null>(null);
 
   const handleGenerate = () => {
     setGeneratedInput(input);
     setCurrentStep(0);
+    setSelectedCharacterIndex(null);
   };
+
+  const steps = [
+    "Input",
+    "ASCII",
+    "Binary",
+    "Padding",
+    "Message Schedule",
+    "Compression",
+    "Hash",
+    "Digest",
+  ];
+
+
 
   return (
     <div className="app">
+      {/* Header */}
       <header className="header">
-        <h1>SHA-256 Visualization System</h1>
-        <p>Demo v1.0</p>
+        <h1>SHA-256 Visual</h1>
+        <p>Demo v2.0</p>
       </header>
 
-      <main className="layout">
-        <aside className="sidebar">
-          <h2>Steps</h2>
+      <div className="layout">
 
-          <ul>
-            <li>① Input</li>
-            <li>② ASCII</li>
-            <li>③ Binary</li>
-            <li>④ Padding</li>
-            <li>⑤ Message Block</li>
-            <li>⑥ Message Schedule</li>
-            <li>⑦ Compression</li>
-            <li>⑧ Digest</li>
-          </ul>
-        </aside>
+        <Sidebar
+          currentStep={currentStep}
+          onStepChange={setCurrentStep}
+        />
 
-        <section className="content">
-          <h2>SHA-256 Explorer</h2>
+        {/* Main Layout */}
+        <main className="content">
 
-          <InputPanel
-            input={input}
-            onInputChange={setInput}
-            onGenerate={handleGenerate}
-          />
 
-          <hr style={{ margin: "30px 0" }} />
+          <div className="workspace">
 
-          <StepViewer
-            currentStep={currentStep}
-            generatedInput={generatedInput}
-          />
+            {/* 左侧 */}
+            <div className="main-column">
 
-          <div
-            style={{
-              marginTop: "30px",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <button
-              onClick={() =>
-                setCurrentStep((step) => Math.max(step - 1, 0))
-              }
-            >
-              Previous
-            </button>
+              {/* Input */}
+              <section className="panel input-card">
 
-            <button
-              onClick={() =>
-                setCurrentStep((step) => Math.min(step + 1, 7))
-              }
-            >
-              Next
-            </button>
+                <InputPanel
+                  input={input}
+                  onInputChange={setInput}
+
+                />
+
+                <div className="input-actions">
+                  <button
+                    className="secondary-button"
+                    onClick={() =>
+                      setCurrentStep((step) => Math.max(step - 1, 0))
+                    }
+                  >
+                    ◀ Previous
+                  </button>
+
+                  <button
+                    className="primary-button"
+                    onClick={handleGenerate}
+                  >
+                    Generate
+                  </button>
+
+                  <button
+                    className="secondary-button"
+                    onClick={() =>
+                      setCurrentStep((step) => Math.min(step + 1, steps.length - 1))
+                    }
+                  >
+                    Next ▶
+                  </button>
+                </div>
+              </section>
+
+              {/* Visualization */}
+              <div className="panel visualization-card">
+
+                <h2>Visualization</h2>
+
+                <div className="visualization-content">
+
+                  <StepViewer
+                    currentStep={currentStep}
+                    generatedInput={generatedInput}
+                    selectedCharacterIndex={selectedCharacterIndex}
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Right */}
+            <DetailPanel
+              currentStep={currentStep}
+              input={generatedInput}
+              selectedCharacterIndex={selectedCharacterIndex}
+              onCharacterSelect={setSelectedCharacterIndex}
+            />
+
           </div>
+        </main>
 
+      </div>
 
-
-        </section>
-      </main>
     </div>
   );
 }

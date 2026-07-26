@@ -1,62 +1,65 @@
-import { textToAscii } from "../../utils/ascii";
+import { getAsciiInfo } from "../../utils/ascii";
 
 type Props = {
     input: string;
+    selectedCharacterIndex: number | null;
 };
 
-function AsciiStep({ input }: Props) {
-    const ascii = textToAscii(input);
+function AsciiStep({
+    input,
+    selectedCharacterIndex,
+}: Props) {
+
+    const characters = getAsciiInfo(input);
+
+    if (characters.length === 0) {
+        return (
+            <>
+                <h3>Step 2 - ASCII Encoding</h3>
+                <p>Please generate a message first.</p>
+            </>
+        );
+    }
+
+    if (selectedCharacterIndex === null) {
+        return (
+            <>
+                <h3>Step 2 - ASCII Encoding</h3>
+                <p>Please select a character from the Detail Panel.</p>
+            </>
+        );
+    }
+
+    const currentCharacter = characters[selectedCharacterIndex];
 
     return (
-        <>
-            <h3>Step 2 - ASCII Encoding</h3>
+        <div className="learning-flow">
 
-            <table
-                style={{
-                    width: "100%",
-                    borderCollapse: "collapse",
-                    marginTop: "20px",
-                }}
-            >
-                <thead>
-                    <tr>
-                        <th style={{ border: "1px solid #ccc", padding: "10px" }}>
-                            Character
-                        </th>
+            <div className="flow-card">
 
-                        <th style={{ border: "1px solid #ccc", padding: "10px" }}>
-                            ASCII
-                        </th>
-                    </tr>
-                </thead>
+                <h4>Character</h4>
 
-                <tbody>
-                    {ascii.map((item, index) => (
-                        <tr key={index}>
-                            <td
-                                style={{
-                                    border: "1px solid #ccc",
-                                    textAlign: "center",
-                                    padding: "10px",
-                                }}
-                            >
-                                {item.character}
-                            </td>
+                <div className="flow-value">
+                    {currentCharacter.character}
+                </div>
 
-                            <td
-                                style={{
-                                    border: "1px solid #ccc",
-                                    textAlign: "center",
-                                    padding: "10px",
-                                }}
-                            >
-                                {item.ascii}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </>
+            </div>
+
+            <div className="flow-arrow">
+                ↓
+            </div>
+
+            <div className="flow-card">
+
+                <h4>ASCII Value</h4>
+
+                <div className="flow-value">
+                    {currentCharacter.ascii}
+                </div>
+
+            </div>
+
+        </div>
     );
 }
 
