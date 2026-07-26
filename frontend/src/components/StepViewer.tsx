@@ -16,6 +16,9 @@ type Props = {
     generatedInput: string;
     selectedCharacterIndex: number | null;
     selectedPaddingStep: number;
+
+    scheduleMode: "initial" | "expanded";
+    selectedWord: number;
 };
 
 function StepViewer({
@@ -23,6 +26,8 @@ function StepViewer({
     generatedInput,
     selectedCharacterIndex,
     selectedPaddingStep,
+    scheduleMode,
+    selectedWord,
 }: Props) {
 
     const binary = binaryString(generatedInput);
@@ -61,7 +66,11 @@ function StepViewer({
             />
 
         case 4:
-            return <MessageScheduleStep words={words} />;
+            return <MessageScheduleStep
+                words={words}
+                scheduleMode={scheduleMode}
+                selectedWord={selectedWord}
+            />
 
         case 5:
             return <WordExpansionStep input={generatedInput} />;

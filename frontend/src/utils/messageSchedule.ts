@@ -6,6 +6,8 @@ import {
     add32
 } from "./sha256Functions";
 
+
+
 export interface Word {
 
     index: number;

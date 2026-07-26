@@ -1,14 +1,23 @@
-import { calculatePadding } from "../../utils/padding";
-import { binaryString } from "../../utils/binary";
-import { generateInitialWords } from "../../utils/messageSchedule";
 import type { Word } from "../../utils/messageSchedule";
-
+import { formatBinary } from "../../utils/formatBinary";
 
 type Props = {
     words: Word[];
+    scheduleMode: "initial" | "expanded";
+    selectedWord: number;
 };
 
-function MessageScheduleStep({ words }: Props) {
+function MessageScheduleStep({
+    words,
+    scheduleMode,
+    selectedWord,
+}: Props) {
+
+    const currentWord = words[selectedWord];
+
+    if (!currentWord) {
+        return <p>No word selected.</p>;
+    }
 
     return (
 
@@ -16,52 +25,44 @@ function MessageScheduleStep({ words }: Props) {
 
             <h3>Step 5 - Message Schedule</h3>
 
-            <table
+            <h4>
+                {scheduleMode === "initial"
+                    ? "Initial Words"
+                    : "Expanded Words"}
+            </h4>
+
+            <div
                 style={{
-                    width: "100%",
-                    borderCollapse: "collapse",
+                    border: "1px solid #ccc",
+                    borderRadius: "8px",
+                    padding: "16px",
+                    marginTop: "16px",
                 }}
             >
+                <h3>W{currentWord.index}</h3>
 
-                <thead>
-                    <tr>
-                        <th>Word</th>
-                        <th>Hex</th>
-                        <th>Binary</th>
-                    </tr>
-                </thead>
+                <p>
+                    <strong>Hex</strong>
+                </p>
 
-                <tbody>
-                    {words.map((word) => (
-                        <tr key={word.index}>
+                <pre>{currentWord.hex}</pre>
 
-                            <td>
-                                W{word.index}
-                            </td>
+                <p>
+                    <strong>Binary</strong>
+                </p>
 
-                            <td>
-                                {word.hex}
-                            </td>
-
-                            <td
-                                style={{
-                                    fontFamily: "monospace",
-                                    wordBreak: "break-all",
-                                }}
-                            >
-                                {word.binary}
-                            </td>
-
-                        </tr>
-                    ))}
-                </tbody>
-
-            </table>
-
+                <pre
+                    style={{
+                        fontFamily: "monospace",
+                        whiteSpace: "pre-wrap",
+                        wordBreak: "break-word",
+                    }}
+                >
+                    {formatBinary(currentWord.binary)}
+                </pre>
+            </div>
         </>
-
     );
-
 }
 
 export default MessageScheduleStep;

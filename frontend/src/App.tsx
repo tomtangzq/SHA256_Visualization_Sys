@@ -12,11 +12,17 @@ function App() {
   const [selectedCharacterIndex, setSelectedCharacterIndex] = useState<number | null>(null);
   const [selectedPaddingStep, setSelectedPaddingStep] = useState(3);
 
+  const [scheduleMode, setScheduleMode] = useState<"initial" | "expanded">("initial");
+
+  const [selectedWord, setSelectedWord] = useState(0);
+
   const handleGenerate = () => {
     setGeneratedInput(input);
     setCurrentStep(0);
     setSelectedCharacterIndex(null);
     setSelectedPaddingStep(3);
+    setScheduleMode("initial");
+    setSelectedWord(0);
   };
 
   const steps = [
@@ -105,6 +111,8 @@ function App() {
                     generatedInput={generatedInput}
                     selectedCharacterIndex={selectedCharacterIndex}
                     selectedPaddingStep={selectedPaddingStep}
+                    scheduleMode={scheduleMode}
+                    selectedWord={selectedWord}
                   />
 
                 </div>
@@ -123,6 +131,13 @@ function App() {
 
               selectedPaddingStep={selectedPaddingStep}
               onPaddingStepSelect={setSelectedPaddingStep}
+
+              scheduleMode={scheduleMode}
+              onScheduleModeChange={setScheduleMode}
+
+              selectedWord={selectedWord}
+              onSelectedWordChange={setSelectedWord}
+
             />
 
           </div>

@@ -10,6 +10,18 @@ interface DetailPanelProps {
 
     selectedPaddingStep: number;
     onPaddingStepSelect: (step: number) => void;
+
+    scheduleMode: "initial" | "expanded";
+
+    onScheduleModeChange: (
+        mode: "initial" | "expanded"
+    ) => void;
+
+    selectedWord: number;
+
+    onSelectedWordChange: (
+        word: number
+    ) => void;
 }
 
 
@@ -20,6 +32,10 @@ export default function DetailPanel({
     onCharacterSelect,
     selectedPaddingStep,
     onPaddingStepSelect,
+    scheduleMode,
+    selectedWord,
+    onScheduleModeChange,
+    onSelectedWordChange,
 
 }: DetailPanelProps) {
     const current = detailContent[currentStep];
@@ -93,6 +109,67 @@ export default function DetailPanel({
 
             )}
 
+            {currentStep === 4 && (
+                <div style={controlGroupStyle}>
+                    <div style={controlStyle}>
+                        <label style={labelStyle}>
+                            Learning Mode
+                        </label>
+
+                        <select
+                            style={selectStyle}
+                            value={scheduleMode}
+                            onChange={(e) => {
+                                const mode = e.target.value as "initial" | "expanded";
+
+                                onScheduleModeChange(mode);
+
+                                if (mode === "initial") {
+                                    onSelectedWordChange(0);
+                                } else {
+                                    onSelectedWordChange(16);
+                                }
+                            }}
+                        >
+                            <option value="initial">
+                                Initial Words (W0–W15)
+                            </option>
+
+                            <option value="expanded">
+                                Expanded Words (W16–W63)
+                            </option>
+                        </select>
+                    </div>
+
+                    <div style={controlStyle}>
+                        <label style={labelStyle}>
+                            Selected Word
+                        </label>
+
+                        <select
+                            style={selectStyle}
+                            value={selectedWord}
+                            onChange={(e) =>
+                                onSelectedWordChange(Number(e.target.value))
+                            }
+                        >
+                            {(scheduleMode === "initial"
+                                ? Array.from({ length: 16 }, (_, i) => i)
+                                : Array.from({ length: 48 }, (_, i) => i + 16)
+                            ).map((word) => (
+                                <option
+                                    key={word}
+                                    value={word}
+                                >
+                                    W{word}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+            )}
+
+
             <div className="detail-section">
                 <h4>Description</h4>
                 <p>{current.description}</p>
@@ -128,3 +205,33 @@ export default function DetailPanel({
         </aside>
     );
 }
+
+const controlGroupStyle = {
+    display: "flex",
+    flexDirection: "column" as const,
+    gap: "16px",
+    marginBottom: "20px",
+};
+
+const controlStyle = {
+    display: "flex",
+    flexDirection: "column" as const,
+    gap: "5px",
+};
+
+const labelStyle = {
+    fontSize: "14px",
+    fontWeight: 600,
+};
+
+const selectStyle = {
+    width: "100%",
+    padding: "10px 12px",
+    borderRadius: "8px",
+    border: "1px solid #4b5563",
+    backgroundColor: "#2d2d2d",   // 深灰背景
+    color: "#f9fafb",             // 白色文字
+    fontSize: "14px",
+    cursor: "pointer",
+    outline: "none",
+};
