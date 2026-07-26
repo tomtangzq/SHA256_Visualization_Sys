@@ -10,11 +10,13 @@ function App() {
   const [generatedInput, setGeneratedInput] = useState("");
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedCharacterIndex, setSelectedCharacterIndex] = useState<number | null>(null);
+  const [selectedPaddingStep, setSelectedPaddingStep] = useState(3);
 
   const handleGenerate = () => {
     setGeneratedInput(input);
     setCurrentStep(0);
     setSelectedCharacterIndex(null);
+    setSelectedPaddingStep(3);
   };
 
   const steps = [
@@ -102,6 +104,7 @@ function App() {
                     currentStep={currentStep}
                     generatedInput={generatedInput}
                     selectedCharacterIndex={selectedCharacterIndex}
+                    selectedPaddingStep={selectedPaddingStep}
                   />
 
                 </div>
@@ -114,8 +117,12 @@ function App() {
             <DetailPanel
               currentStep={currentStep}
               input={generatedInput}
+
               selectedCharacterIndex={selectedCharacterIndex}
               onCharacterSelect={setSelectedCharacterIndex}
+
+              selectedPaddingStep={selectedPaddingStep}
+              onPaddingStepSelect={setSelectedPaddingStep}
             />
 
           </div>

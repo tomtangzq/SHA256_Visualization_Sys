@@ -15,13 +15,14 @@ type Props = {
     currentStep: number;
     generatedInput: string;
     selectedCharacterIndex: number | null;
-
+    selectedPaddingStep: number;
 };
 
 function StepViewer({
     currentStep,
     generatedInput,
     selectedCharacterIndex,
+    selectedPaddingStep,
 }: Props) {
 
     const binary = binaryString(generatedInput);
@@ -54,7 +55,10 @@ function StepViewer({
             );
 
         case 3:
-            return <PaddingStep input={generatedInput} />;
+            return <PaddingStep
+                input={generatedInput}
+                selectedPaddingStep={selectedPaddingStep}
+            />
 
         case 4:
             return <MessageScheduleStep words={words} />;
