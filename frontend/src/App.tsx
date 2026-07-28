@@ -42,7 +42,7 @@ function App() {
     <div className="app">
       {/* Header */}
       <header className="header">
-        <h1>SHA-256 Visual</h1>
+        <h1>HashPro</h1>
         <p>Demo v2.0</p>
       </header>
 

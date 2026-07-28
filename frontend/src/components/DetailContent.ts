@@ -2,7 +2,6 @@ export interface StepContent {
     title: string;
     description: string;
     goal: string;
-    keyInformation: string[];
     tips: string[];
 }
 
@@ -16,12 +15,8 @@ export const detailContent: StepContent[] = [
         goal:
             "Understand how a plain-text message enters the hashing process.",
 
-        keyInformation: [
-            "Input can contain letters, numbers and symbols.",
-            "The message will be encoded before hashing.",
-        ],
-
         tips: [
+            "Input can contain letters, numbers and symbols.",
             "Changing even one character produces a completely different hash.",
         ],
     },
@@ -34,11 +29,6 @@ export const detailContent: StepContent[] = [
 
         goal:
             "Understand how text becomes numerical data before binary conversion.",
-
-        keyInformation: [
-            "Each character corresponds to one ASCII value.",
-            "ASCII values are represented using 8 bits.",
-        ],
 
         tips: [
             "Different characters always have different ASCII values.",
@@ -53,15 +43,9 @@ export const detailContent: StepContent[] = [
         goal:
             "Understand how numerical data is represented using binary digits.",
 
-        keyInformation: [
-            "Each ASCII value occupies one byte (8 bits).",
-            "Binary numbers consist only of 0 and 1.",
-            "Leading zeros are preserved to maintain 8-bit length."
-        ],
-
         tips: [
-            "Every character uses exactly 8 bits in this stage.",
-            "Observe how decimal values map to binary."
+            "Each ASCII value occupies one byte (8 bits).",
+            "Leading zeros are preserved to maintain 8-bit length."
         ]
     },
 
@@ -69,15 +53,24 @@ export const detailContent: StepContent[] = [
         title: "Padding",
         description: "",
         goal: "",
-        keyInformation: [],
+
         tips: [],
     },
 
     {
         title: "Message Schedule",
-        description: "",
+        description:
+            `The padded 512-bit message block is divided into
+            sixteen consecutive 32-bit words, forming the
+            initial message schedule entries W0~W15.
+
+            Words W16~W63 are generated from previously
+            computed words. Each word is calculated from W[i~2],
+            W[i~7], W[i~15], and W[i~16], extending the
+            original message into a total of 64 words.`,
+
         goal: "",
-        keyInformation: [],
+
         tips: [],
     },
 
@@ -85,7 +78,7 @@ export const detailContent: StepContent[] = [
         title: "Compression",
         description: "",
         goal: "",
-        keyInformation: [],
+
         tips: [],
     },
 
@@ -93,7 +86,7 @@ export const detailContent: StepContent[] = [
         title: "Hash Accumulation",
         description: "",
         goal: "",
-        keyInformation: [],
+
         tips: [],
     },
 
@@ -101,7 +94,7 @@ export const detailContent: StepContent[] = [
         title: "Digest",
         description: "",
         goal: "",
-        keyInformation: [],
+
         tips: [],
     },
 ];

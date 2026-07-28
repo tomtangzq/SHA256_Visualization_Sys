@@ -9,7 +9,7 @@ import { binaryString } from "../utils/binary";
 import { generateMessageSchedule } from "../utils/messageSchedule";
 import { calculatePadding } from "../utils/padding";
 import FinalHashStep from "./steps/FinalHashStep";
-
+import RotateAnimation from "./animation/RotateAnimation";
 
 type Props = {
     currentStep: number;
@@ -66,14 +66,21 @@ function StepViewer({
             />
 
         case 4:
-            return <MessageScheduleStep
-                words={words}
-                scheduleMode={scheduleMode}
-                selectedWord={selectedWord}
+            // return <MessageScheduleStep
+            //     words={words}
+            //     scheduleMode={scheduleMode}
+            //     selectedWord={selectedWord}
+            // />
+
+            return <RotateAnimation
+                title="ROTR 7"
+                original="00010010001101000101011001111000"
+                rotateBits={7}
             />
 
         case 5:
             return <WordExpansionStep input={generatedInput} />;
+
 
         case 6:
             return <CompressionStep words={words} />;

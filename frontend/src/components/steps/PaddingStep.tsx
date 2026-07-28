@@ -32,7 +32,7 @@ function PaddingStep({
                 <>
                     <h3 style={titleStyle}>Original Binary</h3>
 
-                    <p>
+                    <p style={infoStyle}>
                         Original Length:
                         <strong> {padding.originalLength} bits</strong>
                     </p>

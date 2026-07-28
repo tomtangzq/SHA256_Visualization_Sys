@@ -1,3 +1,4 @@
+import { Weight } from "lucide-react";
 import { detailContent } from "./DetailContent";
 import AsciiDetail from "./detail/CharacterSelector";
 
@@ -172,30 +173,21 @@ export default function DetailPanel({
 
             <div className="detail-section">
                 <h4>Description</h4>
-                <p>{current.description}</p>
+                <p style={pLable}>{current.description}</p>
             </div>
 
             <div className="detail-section">
                 <h4>Learning Goal</h4>
-                <p>{current.goal}</p>
+                <p style={pLable}>{current.goal}</p>
             </div>
 
-            <div className="detail-section">
-                <h4>Key Information</h4>
-
-                <ul>
-                    {current.keyInformation.map((item) => (
-                        <li key={item}>{item}</li>
-                    ))}
-                </ul>
-            </div>
 
             <div className="detail-section">
                 <h4>Tips</h4>
 
                 <ul>
                     {current.tips.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li style={pLable} key={item}>{item}</li>
                     ))}
                 </ul>
             </div>
@@ -221,7 +213,7 @@ const controlStyle = {
 
 const labelStyle = {
     fontSize: "14px",
-    fontWeight: 600,
+    fontWeight: 500,
 };
 
 const selectStyle = {
@@ -235,3 +227,9 @@ const selectStyle = {
     cursor: "pointer",
     outline: "none",
 };
+
+const pLable = {
+    fontSize: "17px",
+    Weight: "400"
+
+}

@@ -11,12 +11,19 @@ import {
 export interface Word {
 
     index: number;
-
     binary: string;
-
     hex: string;
 
-    //decimal: number;
+    sigma0?: number;
+    sigma1?: number;
+
+    wordMinus2?: number;
+    wordMinus7?: number;
+    wordMinus15?: number;
+    wordMinus16?: number;
+
+    sigma0Binary?: string;
+    sigma1Binary?: string;
 
 }
 
@@ -100,7 +107,18 @@ export function generateMessageSchedule(block: string): Word[] {
 
             binary,
 
-            hex: binaryToHex(binary)
+            hex: binaryToHex(binary),
+
+            sigma0: s0,
+            sigma1: s1,
+
+            wordMinus2: i - 2,
+            wordMinus7: i - 7,
+            wordMinus15: i - 15,
+            wordMinus16: i - 16,
+
+            sigma0Binary: uint32ToBinary(s0),
+            sigma1Binary: uint32ToBinary(s1),
 
         });
 
