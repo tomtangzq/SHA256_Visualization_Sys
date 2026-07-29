@@ -46,55 +46,30 @@ function MessageScheduleStep({
 
 
     const formulaItems: FormulaItem[] = [
-
         {
-
-            id: "word16",
-
+            id: `word${currentWord.index - 16}`,
             type: "word",
-
-            wordIndex: 1,
-
-            label: "W1",
-
+            wordIndex: currentWord.index - 16,
+            label: `W${currentWord.index - 16}`,
         },
-
         {
-
-            id: "sigma016",
-
+            id: `sigma0${currentWord.index - 15}`,
             type: "sigma0",
-
-            wordIndex: 2,
-
-            label: "σ0(W2)",
-
+            wordIndex: currentWord.index - 15,
+            label: `σ0(W${currentWord.index - 15})`,
         },
-
         {
-
-            id: "word7",
-
+            id: `word${currentWord.index - 7}`,
             type: "word",
-
-            wordIndex: 10,
-
-            label: "W10",
-
+            wordIndex: currentWord.index - 7,
+            label: `W${currentWord.index - 7}`,
         },
-
         {
-
-            id: "sigma116",
-
+            id: `sigma1${currentWord.index - 2}`,
             type: "sigma1",
-
-            wordIndex: 15,
-
-            label: "σ1(W15)",
-
+            wordIndex: currentWord.index - 2,
+            label: `σ1(W${currentWord.index - 2})`,
         },
-
     ];
 
     const [selectedFormula, setSelectedFormula] = useState(formulaItems[1]);

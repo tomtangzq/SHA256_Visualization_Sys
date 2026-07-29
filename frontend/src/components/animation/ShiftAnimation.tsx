@@ -23,9 +23,10 @@ export default function ShiftAnimation({
 
     const totalBits = 32;
 
+
     const shifted =
         " ".repeat(shiftBits) +
-        original.slice(shiftBits);
+        original.substring(0, totalBits - shiftBits);
 
     const [phase, setPhase] =
         useState<"shift" | "inject">("shift");
@@ -131,8 +132,8 @@ export default function ShiftAnimation({
 
                     const active =
                         phase === "shift" &&
-                        currentBit >= shiftBits &&
-                        index === currentBit;
+                        currentBit <= totalBits - shiftBits - 1 &&
+                        index === currentBit + shiftBits;
 
                     // 新补进去的0
                     const injected =
