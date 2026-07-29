@@ -4,6 +4,8 @@ interface BitCellProps {
 
     active?: boolean;
 
+    injected?: boolean;
+
 }
 
 export default function BitCell({
@@ -11,6 +13,8 @@ export default function BitCell({
     value,
 
     active = false,
+
+    injected = false,
 
 }: BitCellProps) {
 
@@ -33,7 +37,11 @@ export default function BitCell({
 
                 backgroundColor: active
                     ? "#9b6cff"
-                    : "transparent",
+                    : injected
+                        ? "#e53935"
+                        : "transparent",
+
+                opacity: injected ? 1 : 0.95,
 
                 color: active ? "white" : "black",
 

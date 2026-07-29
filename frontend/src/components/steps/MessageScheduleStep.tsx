@@ -2,6 +2,13 @@ import type { Word } from "../../utils/messageSchedule";
 import { formatBinary } from "../../utils/formatBinary";
 import { getSigma0Steps, getSigma1Steps, } from "../../utils/sha256Functions";
 import SigmaCalculation from "../common/SigmaCalculation";
+import FormulaBar from "../formula/FormulaBar";
+import { useState } from "react";
+import DetailViewer from "../detail/DetailViewer";
+import type { FormulaItem } from "../formula/type";
+import WordViewer from "../detail/WordViewer";
+import { Import } from "lucide-react";
+import SigmaViewer from "../detail/SigmaViewer";
 
 type Props = {
     words: Word[];
@@ -36,6 +43,127 @@ function MessageScheduleStep({
         currentWord.index >= 16
             ? getSigma1Steps(words[currentWord.index - 2].binary)
             : null;
+
+
+    const formulaItems: FormulaItem[] = [
+
+        {
+
+            id: "word16",
+
+            type: "word",
+
+            wordIndex: 1,
+
+            label: "W1",
+
+        },
+
+        {
+
+            id: "sigma016",
+
+            type: "sigma0",
+
+            wordIndex: 2,
+
+            label: "σ0(W2)",
+
+        },
+
+        {
+
+            id: "word7",
+
+            type: "word",
+
+            wordIndex: 10,
+
+            label: "W10",
+
+        },
+
+        {
+
+            id: "sigma116",
+
+            type: "sigma1",
+
+            wordIndex: 15,
+
+            label: "σ1(W15)",
+
+        },
+
+    ];
+
+    const [selectedFormula, setSelectedFormula] = useState(formulaItems[1]);
+
+
+
+    let detailContent;
+
+    switch (selectedFormula.type) {
+
+        case "word":
+
+            detailContent = (
+                <WordViewer
+                    wordIndex={selectedFormula.wordIndex}
+                    hex={words[selectedFormula.wordIndex].hex}
+                    binary={words[selectedFormula.wordIndex].binary}
+                    isExpanded={
+                        selectedFormula.wordIndex >= 16
+                    }
+                />
+            );
+            break;
+
+        case "sigma0":
+
+            detailContent = (
+
+                <SigmaViewer
+
+                    sigmaType="sigma0"
+
+                    word={
+
+                        words[selectedFormula.wordIndex]
+
+                    }
+
+                />
+
+            );
+
+            break;
+
+        case "sigma1":
+
+            detailContent = (
+
+                <SigmaViewer
+
+                    sigmaType="sigma1"
+
+                    word={
+
+                        words[selectedFormula.wordIndex]
+
+                    }
+
+                />
+
+            );
+
+            break;
+
+        default:
+
+            detailContent = null;
+    }
+
 
 
     if (!currentWord) {
@@ -85,54 +213,22 @@ function MessageScheduleStep({
 
                     {isExpanded && previousWords && (
                         <>
-                            <h4 style={{ marginTop: "10px", }}>
-                                Calculated From
-                            </h4>
 
-                            <ul
-                                style={{
-                                    paddingLeft: "20px",
-                                    lineHeight: "1.8",
-                                    marginBottom: "8px",
-                                    marginTop: "0px",
-                                }}
-                            >
-                                <li>σ₁(W{previousWords.wordMinus2})</li>
-                                <li>W{previousWords.wordMinus7}</li>
-                                <li>σ₀(W{previousWords.wordMinus15})</li>
-                                <li>W{previousWords.wordMinus16}</li>
-                            </ul>
+                            <FormulaBar
 
+                                items={formulaItems}
 
+                                selected={selectedFormula}
 
-                            {sigma0Steps && (
-                                <SigmaCalculation
-                                    title={`σ₀(W${currentWord.index - 15})`}
-                                    inputBinary={sigma0Steps.original}
-                                    rotate1={sigma0Steps.rotate1}
-                                    rotate2={sigma0Steps.rotate2}
-                                    shift={sigma0Steps.shift}
-                                    result={sigma0Steps.result}
-                                    rotate1Label="ROTR 7"
-                                    rotate2Label="ROTR 18"
-                                    shiftLabel="SHR 3"
-                                />
-                            )}
+                                onSelect={setSelectedFormula}
 
-                            {sigma1Steps && (
-                                <SigmaCalculation
-                                    title={`σ₁(W${currentWord.index - 2})`}
-                                    inputBinary={sigma1Steps.original}
-                                    rotate1={sigma1Steps.rotate1}
-                                    rotate2={sigma1Steps.rotate2}
-                                    shift={sigma1Steps.shift}
-                                    result={sigma1Steps.result}
-                                    rotate1Label="ROTR 17"
-                                    rotate2Label="ROTR 19"
-                                    shiftLabel="SHR 10"
-                                />
-                            )}
+                            />
 
+                            <DetailViewer>
+
+                                {detailContent}
+
+                            </DetailViewer>
 
                         </>
                     )}
