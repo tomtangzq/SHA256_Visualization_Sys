@@ -32,7 +32,7 @@ export default function WordViewer({
                 Word W{wordIndex}
             </h2>
 
-            <p>
+            {/* <p>
 
                 {isExpanded
                     ? "Expanded word generated during message schedule expansion."
@@ -41,13 +41,7 @@ export default function WordViewer({
 
             </p>
 
-            <hr />
-
-            <h3>Hexadecimal</h3>
-
-            <pre>{hex}</pre>
-
-            <hr />
+            <hr /> */}
 
             <h3>Binary</h3>
 

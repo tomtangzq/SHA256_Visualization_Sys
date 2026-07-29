@@ -49,7 +49,7 @@ export default function BitCell({
 
                 fontFamily: "monospace",
 
-                transition: "background-color 0.2s",
+                transition: "background-color 0.01s",
 
             }}
         >

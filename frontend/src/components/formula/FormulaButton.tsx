@@ -28,7 +28,7 @@ export default function FormulaButton({
 
                 padding: "8px 14px",
 
-                borderRadius: 8,
+                borderRadius: 4,
 
                 border: "1px solid #666",
 
@@ -38,11 +38,11 @@ export default function FormulaButton({
 
                 cursor: "pointer",
 
-                fontSize: 16,
+                fontSize: 12,
 
-                fontWeight: 600,
+                fontWeight: 500,
 
-                minWidth: 70,
+                minWidth: 60,
 
             }}
 

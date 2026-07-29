@@ -68,15 +68,13 @@ export default function RotateAnimation({
 
         <div>
 
-            <h3>{title}</h3>
-
-            <p>Original</p>
+            <h3 style={h3Style}>{title}</h3>
 
             <div
                 style={{
                     display: "flex",
                     gap: 2,
-                    marginBottom: 20,
+                    marginBottom: 6,
                 }}
             >
 
@@ -92,7 +90,7 @@ export default function RotateAnimation({
 
             </div>
 
-            <p>Rotated</p>
+            {/* <p>Rotated</p> */}
 
             <div
                 style={{
@@ -121,4 +119,10 @@ export default function RotateAnimation({
     );
 
 }
+
+const h3Style = {
+    marginTop: "15px",
+    marginBottom: "6px",
+
+};
 

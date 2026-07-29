@@ -52,67 +52,18 @@ export default function SigmaViewer({
 
             {/* Title */}
 
-            <h2>
+            <h2 style={{
+                color: "#3b3b3b",
+                marginBottom: "15px",
+            }}>
 
                 {
                     sigmaType === "sigma0"
-                        ? `σ₀(W${word.index})`
-                        : `σ₁(W${word.index})`
+                        ? `σ₀(W${word.index}) = ROTR7 (W${word.index}) ⊕ ROTR18 (W${word.index}) ⊕ SHR3 (W${word.index})`
+                        : `σ₁(W${word.index}) = ROTR17 (W${word.index}) ⊕ ROTR19 (W${word.index}) ⊕ SHR10 (W${word.index})`
                 }
 
             </h2>
-
-            {/* Description */}
-
-            <p>
-
-                {
-                    sigmaType === "sigma0"
-
-                        ? "Small Sigma 0 is calculated by rotating right 7 bits, rotating right 18 bits, and shifting right 3 bits."
-
-                        : "Small Sigma 1 is calculated by rotating right 17 bits, rotating right 19 bits, and shifting right 10 bits."
-
-                }
-
-            </p>
-
-            <hr />
-
-            {/* Formula */}
-
-            <h3>Formula</h3>
-
-            <pre>
-
-                {
-                    sigmaType === "sigma0"
-
-                        ? "σ₀(x)=ROTR⁷(x) ⊕ ROTR¹⁸(x) ⊕ SHR³(x)"
-
-                        : "σ₁(x)=ROTR¹⁷(x) ⊕ ROTR¹⁹(x) ⊕ SHR¹⁰(x)"
-
-                }
-
-            </pre>
-
-            <hr />
-
-            {/* Original */}
-
-            <h3>Original</h3>
-
-            <pre
-                style={{
-                    fontFamily: "monospace",
-                    whiteSpace: "pre-wrap",
-                    wordBreak: "break-word",
-                }}
-            >
-                {formatBinary(steps.original)}
-            </pre>
-
-            <hr />
 
             {/* ROTR 1 */}
 
@@ -126,7 +77,7 @@ export default function SigmaViewer({
 
             />
 
-            <hr />
+
 
             {/* ROTR 2 */}
 
@@ -140,7 +91,7 @@ export default function SigmaViewer({
 
             />
 
-            <hr />
+
 
             {/* SHR */}
 
@@ -154,7 +105,6 @@ export default function SigmaViewer({
 
             />
 
-            <hr />
 
             {/* Final Result */}
 

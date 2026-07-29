@@ -16,13 +16,13 @@ export default function DetailViewer({
 
             style={{
 
-                marginTop: 24,
+                marginTop: 15,
 
                 border: "1px solid #ccc",
 
                 borderRadius: 10,
 
-                padding: 20,
+                padding: 15,
 
                 minHeight: 280,
 

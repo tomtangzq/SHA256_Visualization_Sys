@@ -72,12 +72,6 @@ function StepViewer({
                 selectedWord={selectedWord}
             />
 
-        // return <RotateAnimation
-        //     title="ROTR 7"
-        //     original="00010010001101000101011001111000"
-        //     rotateBits={7}
-        // />
-
         case 5:
             return <WordExpansionStep input={generatedInput} />;
 

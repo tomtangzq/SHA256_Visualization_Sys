@@ -53,7 +53,7 @@ export default function ShiftAnimation({
 
             setCurrentBit((previous) => previous + 1);
 
-        }, 120);
+        }, 250);
 
         return () => clearTimeout(timer);
 
@@ -92,18 +92,17 @@ export default function ShiftAnimation({
     return (
         <div
             style={{
-                marginTop: 20,
-                marginBottom: 30,
+                marginBottom: 15,
             }}
         >
-            <h3>{title}</h3>
+            <h3 style={h3Style}>{title}</h3>
 
             {/* Original */}
             <div
                 style={{
                     display: "flex",
                     gap: 2,
-                    marginBottom: 12,
+                    marginBottom: 6,
                 }}
             >
                 {original.split("").map((bit, index) => (
@@ -159,3 +158,9 @@ export default function ShiftAnimation({
         </div>
     );
 }
+
+const h3Style = {
+    marginTop: "15px",
+    marginBottom: "6px",
+
+};

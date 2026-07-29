@@ -9,6 +9,7 @@ import type { FormulaItem } from "../formula/type";
 import WordViewer from "../detail/WordViewer";
 import { Import } from "lucide-react";
 import SigmaViewer from "../detail/SigmaViewer";
+import { useEffect } from "react";
 
 type Props = {
     words: Word[];
@@ -72,8 +73,12 @@ function MessageScheduleStep({
         },
     ];
 
-    const [selectedFormula, setSelectedFormula] = useState(formulaItems[1]);
+    const [selectedFormula, setSelectedFormula] =
+        useState<FormulaItem>(formulaItems[1]);
 
+    useEffect(() => {
+        setSelectedFormula(formulaItems[1]);
+    }, [selectedWord]);
 
 
     let detailContent;
@@ -149,31 +154,16 @@ function MessageScheduleStep({
 
         <>
 
-            <h3>Step 5 - Message Schedule</h3>
-
-            <h4>
-                {scheduleMode === "initial"
-                    ? "Initial Words"
-                    : "Expanded Words"}
-            </h4>
-
             <div
                 style={{
                     border: "1px solid #ccc",
                     borderRadius: "8px",
                     padding: "16px",
-                    marginTop: "16px",
+                    marginTop: "8px",
                 }}
             >
                 <h3>W{currentWord.index}</h3>
 
-                <p>
-                    <strong>Hex</strong>
-                </p>
-
-                <pre>{currentWord.hex}</pre>
-
-                <strong>Binary</strong>
                 <pre
                     style={{
                         fontFamily: "monospace",
@@ -190,6 +180,10 @@ function MessageScheduleStep({
                         <>
 
                             <FormulaBar
+
+                                currentWordIndex={currentWord.index}
+
+                                resultBinary={formatBinary(currentWord.binary)}
 
                                 items={formulaItems}
 
