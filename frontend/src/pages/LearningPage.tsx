@@ -1,8 +1,11 @@
-export default function LoginPage() {
+import SHA256LearningSystem
+    from "../components/SHA256LearningSystem";
+
+export default function LearningPage() {
 
     return (
 
-        <h1>Login Page</h1>
+        <SHA256LearningSystem />
 
     );
 

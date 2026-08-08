@@ -1,8 +1,12 @@
-export default function LoginPage() {
+export default function ResultPage() {
 
     return (
 
-        <h1>Login Page</h1>
+        <div>
+
+            <h1>Result</h1>
+
+        </div>
 
     );
 

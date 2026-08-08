@@ -1,8 +1,22 @@
-export default function LoginPage() {
+import { useNavigate } from "react-router-dom";
+
+export default function PreTestPage() {
+
+    const navigate = useNavigate();
 
     return (
 
-        <h1>Login Page</h1>
+        <div>
+
+            <h1>Pre-test</h1>
+
+            <button
+                onClick={() => navigate("/learning")}
+            >
+                Finish Pre-test
+            </button>
+
+        </div>
 
     );
 

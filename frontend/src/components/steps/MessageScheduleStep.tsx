@@ -1,15 +1,13 @@
 import type { Word } from "../../utils/messageSchedule";
 import { formatBinary } from "../../utils/formatBinary";
-import { getSigma0Steps, getSigma1Steps, } from "../../utils/sha256Functions";
-import SigmaCalculation from "../common/SigmaCalculation";
+
 import FormulaBar from "../formula/FormulaBar";
-import { useState } from "react";
 import DetailViewer from "../detail/DetailViewer";
 import type { FormulaItem } from "../formula/type";
 import WordViewer from "../detail/WordViewer";
-import { Import } from "lucide-react";
+
 import SigmaViewer from "../detail/SigmaViewer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
     words: Word[];
@@ -19,7 +17,6 @@ type Props = {
 
 function MessageScheduleStep({
     words,
-    scheduleMode,
     selectedWord,
 }: Props) {
 
@@ -34,17 +31,6 @@ function MessageScheduleStep({
             wordMinus16: currentWord.index - 16,
         }
         : null;
-
-    const sigma0Steps =
-        currentWord.index >= 16
-            ? getSigma0Steps(words[currentWord.index - 15].binary)
-            : null;
-
-    const sigma1Steps =
-        currentWord.index >= 16
-            ? getSigma1Steps(words[currentWord.index - 2].binary)
-            : null;
-
 
     const formulaItems: FormulaItem[] = [
         {
@@ -74,74 +60,88 @@ function MessageScheduleStep({
     ];
 
     const [selectedFormula, setSelectedFormula] =
-        useState<FormulaItem>(formulaItems[1]);
+        useState<FormulaItem | null>(null);
 
     useEffect(() => {
-        setSelectedFormula(formulaItems[1]);
-    }, [selectedWord]);
+
+        if (currentWord.index >= 16) {
+
+            setSelectedFormula(formulaItems[1]);
+
+        }
+
+    }, [currentWord.index]);
 
 
-    let detailContent;
+    // useEffect(() => {
+    //     setSelectedFormula(formulaItems[1]);
+    // }, [selectedWord]);
 
-    switch (selectedFormula.type) {
 
-        case "word":
+    let detailContent = null;
 
-            detailContent = (
-                <WordViewer
-                    wordIndex={selectedFormula.wordIndex}
-                    hex={words[selectedFormula.wordIndex].hex}
-                    binary={words[selectedFormula.wordIndex].binary}
-                    isExpanded={
-                        selectedFormula.wordIndex >= 16
-                    }
-                />
-            );
-            break;
 
-        case "sigma0":
+    if (selectedFormula) {
+        switch (selectedFormula.type) {
 
-            detailContent = (
+            case "word":
 
-                <SigmaViewer
+                detailContent = (
+                    <WordViewer
+                        wordIndex={selectedFormula.wordIndex}
+                        hex={words[selectedFormula.wordIndex].hex}
+                        binary={words[selectedFormula.wordIndex].binary}
+                        isExpanded={
+                            selectedFormula.wordIndex >= 16
+                        }
+                    />
+                );
+                break;
 
-                    sigmaType="sigma0"
+            case "sigma0":
 
-                    word={
+                detailContent = (
 
-                        words[selectedFormula.wordIndex]
+                    <SigmaViewer
 
-                    }
+                        sigmaType="sigma0"
 
-                />
+                        word={
 
-            );
+                            words[selectedFormula.wordIndex]
 
-            break;
+                        }
 
-        case "sigma1":
+                    />
 
-            detailContent = (
+                );
 
-                <SigmaViewer
+                break;
 
-                    sigmaType="sigma1"
+            case "sigma1":
 
-                    word={
+                detailContent = (
 
-                        words[selectedFormula.wordIndex]
+                    <SigmaViewer
 
-                    }
+                        sigmaType="sigma1"
 
-                />
+                        word={
 
-            );
+                            words[selectedFormula.wordIndex]
 
-            break;
+                        }
 
-        default:
+                    />
 
-            detailContent = null;
+                );
+
+                break;
+
+            default:
+
+                detailContent = null;
+        }
     }
 
 
@@ -179,19 +179,22 @@ function MessageScheduleStep({
                     {isExpanded && previousWords && (
                         <>
 
-                            <FormulaBar
+                            {selectedFormula && (
 
-                                currentWordIndex={currentWord.index}
+                                <FormulaBar
 
-                                resultBinary={formatBinary(currentWord.binary)}
+                                    currentWordIndex={currentWord.index}
 
-                                items={formulaItems}
+                                    resultBinary={formatBinary(currentWord.binary)}
 
-                                selected={selectedFormula}
+                                    items={formulaItems}
 
-                                onSelect={setSelectedFormula}
+                                    selected={selectedFormula}
 
-                            />
+                                    onSelect={setSelectedFormula}
+
+                                />
+                            )}
 
                             <DetailViewer>
 
