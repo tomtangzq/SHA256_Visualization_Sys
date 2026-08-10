@@ -26,6 +26,16 @@ export default function LoginPage() {
 
             console.log(response.data);
 
+            localStorage.setItem(
+                "token",
+                response.data.token
+            );
+
+            localStorage.setItem(
+                "email",
+                response.data.email
+            );
+
             navigate("/home");
 
         } catch (err: any) {

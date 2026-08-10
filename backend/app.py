@@ -12,6 +12,10 @@ from flask_bcrypt import Bcrypt
 
 from flask_jwt_extended import JWTManager
 
+from models.test_attempt import TestAttempt
+
+from routes.test import test_bp
+
 
 app = Flask(__name__)
 
@@ -23,6 +27,11 @@ CORS(app)
 
 app.register_blueprint(
     auth_bp,
+    url_prefix="/api"
+)
+
+app.register_blueprint(
+    test_bp,
     url_prefix="/api"
 )
 

@@ -19,7 +19,7 @@ export default function HomePage() {
             <button
                 onClick={() => navigate("/pretest")}
             >
-                Start Learning
+                Start Pre-test
             </button>
 
         </div>
