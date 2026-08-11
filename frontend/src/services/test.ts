@@ -43,3 +43,20 @@ export async function submitTest(
     );
 
 }
+
+
+export async function getTestResults() {
+
+    const token =
+        localStorage.getItem("token");
+
+    return api.get(
+        "/test/results",
+        {
+            headers: {
+                Authorization:
+                    `Bearer ${token}`,
+            },
+        }
+    );
+}

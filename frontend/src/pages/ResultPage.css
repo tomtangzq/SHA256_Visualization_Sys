@@ -1,0 +1,412 @@
+.result-page {
+    min-height: 100vh;
+
+    background: #f6f6f7;
+
+    color: #171717;
+}
+
+
+.result-header {
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 36px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.result-brand {
+    font-size: 20px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+.result-header-title {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #555;
+}
+
+
+.result-header-status {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+.result-main {
+    width: min(900px,
+            calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 70px 0;
+}
+
+
+.result-intro {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: 0 auto 48px;
+}
+
+
+.result-eyebrow {
+    margin-bottom: 10px;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.5px;
+
+    color: #777;
+}
+
+
+.result-intro h1 {
+    margin: 0;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1.2px;
+}
+
+
+.result-intro>p:last-child {
+    margin-top: 18px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* Score cards */
+
+.score-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 60px 1fr;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.score-card {
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+
+.score-card.post-score {
+    border-color: #cfcfcf;
+}
+
+
+.score-label {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.4px;
+
+    color: #777;
+}
+
+
+.score-number {
+    font-size: 52px;
+
+    line-height: 1;
+
+    font-weight: 750;
+
+    letter-spacing: -2px;
+}
+
+
+.score-number span {
+    font-size: 22px;
+
+    font-weight: 500;
+
+    color: #888;
+
+    letter-spacing: 0;
+}
+
+
+.score-percentage {
+    margin-top: 12px;
+
+    font-size: 16px;
+
+    font-weight: 650;
+
+    color: #555;
+}
+
+
+.score-description {
+    margin: 8px 0 0;
+
+    font-size: 13px;
+
+    color: #999;
+}
+
+
+.score-arrow {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    color: #999;
+}
+
+
+/* Improvement */
+
+.improvement-card {
+    margin-top: 28px;
+
+    padding: 32px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 16px;
+}
+
+
+.improvement-label {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.4px;
+
+    color: #777;
+}
+
+
+.improvement-value {
+    font-size: 42px;
+
+    font-weight: 750;
+
+    letter-spacing: -1px;
+}
+
+
+.improvement-value span {
+    margin-left: 8px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    color: #888;
+
+    letter-spacing: 0;
+}
+
+
+.improvement-card>p:last-child {
+    margin: 12px auto 0;
+
+    max-width: 500px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* Buttons */
+
+.result-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+
+.result-secondary-button,
+.result-primary-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+}
+
+
+.result-secondary-button {
+    background: #ffffff;
+
+    border: 1px solid #d8d8d8;
+
+    color: #444;
+}
+
+
+.result-primary-button {
+    background: #171717;
+
+    border: 1px solid #171717;
+
+    color: #ffffff;
+}
+
+
+.result-secondary-button:hover {
+    background: #f4f4f4;
+}
+
+
+.result-primary-button:hover {
+    background: #333;
+}
+
+
+/* Loading / Error */
+
+.result-loading,
+.result-error {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.result-error p {
+    color: #777;
+}
+
+
+.result-error button {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #171717;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .result-header {
+        padding: 0 20px;
+    }
+
+    .result-header-title {
+        display: none;
+    }
+
+    .result-main {
+        padding: 45px 0;
+    }
+
+    .result-intro h1 {
+        font-size: 30px;
+    }
+
+    .score-grid {
+        grid-template-columns: 1fr;
+
+    }
+
+    .score-arrow {
+        transform: rotate(90deg);
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-secondary-button,
+    .result-primary-button {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,384 @@
+.final-hash-step {
+    width: 100%;
+}
+
+
+/* =========================
+   Final Hash
+   ========================= */
+
+.final-hash-value {
+    margin-top: 20px;
+
+    padding: 20px 24px;
+
+    background: #f7f7f8;
+
+    border: 1px solid #e3e3e3;
+
+    border-radius: 10px;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    word-break: break-all;
+
+    color: #222;
+}
+
+
+.final-hash-description {
+    margin-top: 14px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   Buttons
+   ========================= */
+
+.digest-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-top: 28px;
+}
+
+
+.digest-secondary-button,
+.digest-primary-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.1s ease;
+}
+
+
+.digest-secondary-button {
+    background: #ffffff;
+
+    color: #444;
+
+    border: 1px solid #d8d8d8;
+}
+
+
+.digest-secondary-button:hover {
+    background: #f5f5f5;
+
+    border-color: #c5c5c5;
+}
+
+
+.digest-primary-button {
+    background: #171717;
+
+    color: #ffffff;
+
+    border: 1px solid #171717;
+}
+
+
+.digest-primary-button:hover {
+    background: #333333;
+}
+
+
+.digest-secondary-button:active,
+.digest-primary-button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   Revert Modal
+   ========================= */
+
+.revert-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(0,
+            0,
+            0,
+            0.45);
+}
+
+
+.revert-modal {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    padding: 36px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 60px rgba(0,
+            0,
+            0,
+            0.18);
+}
+
+
+.revert-close {
+    position: absolute;
+
+    top: 14px;
+
+    right: 16px;
+
+    width: 32px;
+
+    height: 32px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.revert-close:hover {
+    background: #f2f2f2;
+}
+
+
+.revert-icon {
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    background: #f3efff;
+
+    color: #7c3aed;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+.revert-eyebrow {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    color: #777;
+}
+
+
+.revert-modal h3 {
+    margin: 0;
+
+    font-size: 26px;
+
+    letter-spacing: -0.5px;
+
+    color: #171717;
+}
+
+
+.revert-modal>p {
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.revert-comparison {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 26px 0;
+
+    padding: 18px;
+
+    background: #f7f7f8;
+
+    border-radius: 12px;
+}
+
+
+.revert-comparison div:not(.comparison-arrow) {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.revert-comparison span {
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+.revert-comparison strong {
+    font-size: 15px;
+
+    color: #222;
+}
+
+
+.comparison-arrow {
+    font-size: 22px;
+
+    color: #888;
+}
+
+
+.revert-note {
+    padding: 14px 16px;
+
+    margin-top: 0;
+
+    border-left: 3px solid #8b5cf6;
+
+    background: #faf8ff;
+
+    border-radius: 0 8px 8px 0;
+
+    font-size: 14px !important;
+
+    color: #555 !important;
+}
+
+
+.modal-button {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #171717;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.modal-button:hover {
+    background: #333;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .digest-actions {
+        flex-direction: column;
+    }
+
+    .digest-secondary-button,
+    .digest-primary-button {
+        width: 100%;
+    }
+
+    .revert-modal {
+        padding: 28px 24px;
+    }
+
+}

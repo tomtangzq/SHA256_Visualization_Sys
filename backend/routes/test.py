@@ -22,20 +22,6 @@ test_bp = Blueprint(
 @jwt_required()
 def submit_test():
 
-    print("TEST SUBMIT REQUEST")
-    
-    print("Authorization:",
-              request.headers.get("Authorization"))
-    
-    print("DATA:",
-              request.get_json())
-    
-    user_id = get_jwt_identity()
-    
-    print("USER ID:",
-              user_id)
-    
-
     data = request.get_json()
 
     test_type = data.get("test_type")
@@ -92,3 +78,69 @@ def submit_test():
         "total": attempt.total
 
     }), 201
+
+@test_bp.route(
+    "/test/results",
+    methods=["GET"]
+)
+@jwt_required()
+def get_test_results():
+
+    user_id = int(get_jwt_identity())
+
+    attempts = TestAttempt.query.filter_by(
+        user_id=user_id
+    ).order_by(
+        TestAttempt.created_at.desc()
+    ).all()
+
+    pre_attempt = None
+    post_attempt = None
+
+    for attempt in attempts:
+
+        if (
+            attempt.test_type == "pre"
+            and pre_attempt is None
+        ):
+            pre_attempt = attempt
+
+        if (
+            attempt.test_type == "post"
+            and post_attempt is None
+        ):
+            post_attempt = attempt
+
+    return jsonify({
+
+        "success": True,
+
+        "pre": (
+            {
+                "score": pre_attempt.score,
+                "total": pre_attempt.total,
+                "created_at": (
+                    pre_attempt.created_at.isoformat()
+                    if pre_attempt.created_at
+                    else None
+                )
+            }
+            if pre_attempt
+            else None
+        ),
+
+        "post": (
+            {
+                "score": post_attempt.score,
+                "total": post_attempt.total,
+                "created_at": (
+                    post_attempt.created_at.isoformat()
+                    if post_attempt.created_at
+                    else None
+                )
+            }
+            if post_attempt
+            else None
+        )
+
+    }), 200
