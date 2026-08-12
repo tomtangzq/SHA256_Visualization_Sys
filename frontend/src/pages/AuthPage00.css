@@ -1,0 +1,803 @@
+/* =========================================================
+   HASH INSTRUMENTALITY SYSTEM
+   EVA-inspired authentication interface
+========================================================= */
+
+/* .auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% -15%,
+            #242728 0%,
+            #141718 38%,
+            #090b0c 100%);
+
+    color: #e8e5dc;
+} */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 45%,
+            rgba(120, 20, 20, 0.10) 0%,
+            transparent 30%),
+
+        radial-gradient(circle at 50% -15%,
+            #242728 0%,
+            #141718 38%,
+            #090b0c 100%);
+
+    color: #e8e5dc;
+}
+
+
+/* =========================================================
+   Technical grid background
+========================================================= */
+
+.auth-page::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(rgba(255, 159, 0, 0.035) 1px,
+            transparent 1px),
+        linear-gradient(90deg,
+            rgba(255, 159, 0, 0.035) 1px,
+            transparent 1px);
+
+    background-size: 45px 45px;
+
+    mask-image:
+        linear-gradient(to bottom,
+            black,
+            transparent 85%);
+
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   Small technical marks
+========================================================= */
+
+.auth-page::after {
+    content: "SYSTEM / AUTHENTICATION";
+
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 22px;
+
+    color: #454947;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   Brand
+========================================================= */
+
+.auth-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 20px 25px;
+
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    color: #eeeae0;
+}
+
+
+/* Logo */
+
+.brand-mark {
+    width: 10px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+
+    background: #101213;
+
+    border: #101213;
+
+    color: #ff9f00;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+}
+
+
+
+
+/* =========================================================
+   Main
+========================================================= */
+
+.auth-main {
+    width: min(1080px,
+            calc(100% - 40px));
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 430px;
+
+    align-items: center;
+
+    gap: 90px;
+
+    padding: 50px 0;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+/* =========================================================
+   EVA LOGO BACKGROUND
+========================================================= */
+
+.auth-background-logo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: min(450px,
+            55vw);
+
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0.13;
+
+    filter:
+        brightness(0.55) contrast(1.15) saturate(1.15);
+
+    mix-blend-mode: screen;
+}
+
+
+.auth-background-logo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 0 25px rgba(180, 20, 20, 0.18));
+}
+
+
+/* =========================================================
+   Intro
+========================================================= */
+
+
+
+.auth-intro {
+    max-width: 520px;
+}
+
+
+.auth-eyebrow {
+    margin: 0 0 18px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    color: #ff9f00;
+
+    text-transform: uppercase;
+}
+
+
+.auth-intro h1 {
+    margin: 0;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 50px;
+
+    line-height: 0.98;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 700;
+
+    color: #eeeae0;
+
+    text-transform: uppercase;
+}
+
+
+.auth-intro>p:last-child {
+    max-width: 470px;
+
+    margin-top: 26px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    color: #929795;
+}
+
+
+/* =========================================================
+   Auth Card
+========================================================= */
+
+.auth-card {
+    padding: 34px;
+
+    position: relative;
+
+    background:
+        linear-gradient(145deg,
+            rgba(28, 31, 32, 0.98),
+            rgba(13, 15, 16, 0.98));
+
+    border: 1px solid #3a3e3f;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* Orange top marker */
+
+.auth-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -1px;
+
+    left: 20px;
+
+    width: 70px;
+
+    height: 2px;
+
+    background: #ff9f00;
+
+    box-shadow:
+        0 0 10px rgba(255, 159, 0, 0.25);
+}
+
+
+/* Small right marker */
+
+.auth-card::after {
+    content: "01";
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 18px;
+
+    color: #555a58;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+}
+
+
+.auth-card-header h2 {
+    margin: 0;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 26px;
+
+    letter-spacing: 0.2px;
+
+    color: #eeeae0;
+
+    text-transform: uppercase;
+}
+
+
+.auth-card-header p {
+    margin: 8px 0 20px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    color: #777d7b;
+
+    letter-spacing: 0.4px;
+}
+
+
+/* =========================================================
+   Form
+========================================================= */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.auth-form label {
+    margin-top: 8px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color: #a9adab;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+}
+
+
+.auth-form input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid #3b4040;
+
+    border-radius: 3px;
+
+    background: #0b0d0e;
+
+    color: #eeeae0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.auth-form input::placeholder {
+    color: #4f5554;
+}
+
+
+.auth-form input:hover {
+    border-color: #555b59;
+}
+
+
+.auth-form input:focus {
+    border-color: #ff9f00;
+
+    background: #101213;
+
+    box-shadow:
+        0 0 0 2px rgba(255, 159, 0, 0.07),
+
+        0 0 14px rgba(255, 159, 0, 0.08);
+}
+
+
+/* =========================================================
+   Error
+========================================================= */
+
+.auth-error {
+    margin-top: 8px;
+
+    padding: 11px 13px;
+
+    border-radius: 3px;
+
+    background:
+        rgba(100, 20, 20, 0.2);
+
+    border: 1px solid #6e3434;
+
+    color: #e56b67;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.auth-error::before {
+    content: "⚠  ";
+
+    color: #e04c45;
+}
+
+
+/* =========================================================
+   Main Button
+========================================================= */
+
+.auth-primary-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 16px;
+
+    padding: 13px 18px;
+
+    border: 1px solid #bd7600;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(180deg,
+            #f6a000,
+            #d77a00);
+
+    color: #111;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.auth-primary-button:hover {
+    background:
+        linear-gradient(180deg,
+            #ffb01a,
+            #e48600);
+
+    box-shadow:
+        0 0 18px rgba(255, 159, 0, 0.2);
+}
+
+
+.auth-primary-button:active {
+    transform: scale(0.99);
+}
+
+
+.auth-primary-button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   Divider
+========================================================= */
+
+.auth-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 26px 0 20px;
+
+    color: #555b59;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.auth-divider span:first-child,
+.auth-divider span:last-child {
+    flex: 1;
+
+    height: 1px;
+
+    background: #2d3232;
+}
+
+
+/* =========================================================
+   Register / Login Switch
+========================================================= */
+
+.auth-switch {
+    margin: 0;
+
+    text-align: center;
+
+    color: #777d7b;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+}
+
+
+.auth-switch button {
+    margin-left: 5px;
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: #ff9f00;
+
+    font-family: inherit;
+
+    font-size: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.15s ease;
+}
+
+
+.auth-switch button:hover {
+    color: #ffb52e;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   Footer
+========================================================= */
+
+.auth-footer {
+    padding: 24px;
+
+    text-align: center;
+
+    color: #4e5452;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.auth-footer span {
+    margin: 0 9px;
+
+    color: #303535;
+}
+
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .auth-main {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+
+        gap: 35px;
+
+        padding: 30px 0 50px;
+    }
+
+
+    .auth-intro {
+        text-align: center;
+    }
+
+
+    .auth-intro h1 {
+        font-size: 38px;
+    }
+
+
+    .auth-intro>p:last-child {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .auth-brand {
+        padding: 22px;
+    }
+
+
+    .auth-main {
+        width:
+            min(calc(100% - 28px),
+                430px);
+    }
+
+
+    .auth-card {
+        padding: 26px 22px;
+    }
+
+
+    .auth-intro h1 {
+        font-size: 32px;
+
+        letter-spacing: -1.2px;
+    }
+
+}

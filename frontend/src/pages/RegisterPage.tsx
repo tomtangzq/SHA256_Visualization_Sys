@@ -5,6 +5,7 @@ import { register } from "../services/auth";
 
 import "./AuthPage.css";
 
+import evaLogo from "../assets/eva-logo.png";
 
 export default function RegisterPage() {
 
@@ -80,9 +81,9 @@ export default function RegisterPage() {
             /*
              * Registration successful.
              *
-             * We don't automatically log the
-             * user in here. Instead, send them
-             * to the Login page.
+             * The user is sent to Login
+             * instead of being logged in
+             * automatically.
              */
 
             navigate("/login");
@@ -96,15 +97,6 @@ export default function RegisterPage() {
                 error
             );
 
-
-            /*
-             * Flask returns:
-             *
-             * {
-             *   success: false,
-             *   message: "..."
-             * }
-             */
 
             setError(
                 error?.response?.data?.message ||
@@ -126,72 +118,301 @@ export default function RegisterPage() {
 
         <div className="auth-page">
 
-            {/* =========================
-                Brand
-            ========================= */}
+
+            {/* =================================================
+                Background EVA Logo
+            ================================================= */}
+
+            <div className="auth-background-logo">
+
+                <img
+                    src={evaLogo}
+                    alt=""
+                />
+
+            </div>
+
+
+            {/* =================================================
+                HUD Frame
+            ================================================= */}
+
+            <div className="auth-frame">
+
+                <div
+                    className="
+                        frame-corner
+                        frame-top-left
+                    "
+                />
+
+                <div
+                    className="
+                        frame-corner
+                        frame-top-right
+                    "
+                />
+
+                <div
+                    className="
+                        frame-corner
+                        frame-bottom-left
+                    "
+                />
+
+                <div
+                    className="
+                        frame-corner
+                        frame-bottom-right
+                    "
+                />
+
+            </div>
+
+
+            {/* =================================================
+                HUD Markers
+            ================================================= */}
+
+            <div
+                className="
+                    hud-marker
+                    hud-top-center
+                "
+            >
+                +
+            </div>
+
+
+            <div
+                className="
+                    hud-marker
+                    hud-bottom-center
+                "
+            >
+                +
+            </div>
+
+
+            <div
+                className="
+                    hud-side-marker
+                    left-marker
+                "
+            >
+                01
+            </div>
+
+
+            <div
+                className="
+                    hud-side-marker
+                    right-marker
+                "
+            >
+                01
+            </div>
+
+
 
             <header className="auth-brand">
 
                 <div className="brand-mark">
-                    H
+                    #
                 </div>
 
-                <span>
-                    HashPro
-                </span>
+
+                <div className="brand-text">
+
+                    <div className="brand-title">
+                        HASH INSTRUMENTALITY SYSTEM
+                    </div>
+
+                </div>
 
             </header>
 
 
-            {/* =========================
+
+            <div className="system-status">
+
+                <div>
+
+                    <span>
+                        SYSTEM STATUS
+                    </span>
+
+                    <span>
+                        :
+                    </span>
+
+                    <strong>
+                        ONLINE
+                    </strong>
+
+                    <i />
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        MODULE
+                    </span>
+
+                    <span>
+                        :
+                    </span>
+
+                    <span>
+                        REGISTRATION
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SECURITY LEVEL
+                    </span>
+
+                    <span>
+                        :
+                    </span>
+
+                    <span>
+                        01
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            {/* =================================================
                 Main
-            ========================= */}
+            ================================================= */}
 
             <main className="auth-main">
 
 
-                {/* Intro */}
-
                 <section className="auth-intro">
 
+
                     <p className="auth-eyebrow">
-                        INTERACTIVE CRYPTOGRAPHY
+
+                        /// &nbsp;
+                        INSTRUMENTALITY PROJECT
+
                     </p>
 
 
                     <h1>
-                        Start your
+
+                        START YOUR
                         <br />
-                        learning journey.
+
+                        LEARNING
+                        <br />
+
+                        JOURNEY.
+
                     </h1>
 
 
+                    <div className="auth-intro-line" />
+
+
+                    <p className="auth-terminal-title">
+
+                        SHA-256 INTERACTIVE
+                        <br />
+
+                        LEARNING SYSTEM
+
+                    </p>
+
+
                     <p>
+
                         Create an account to explore
                         SHA-256 through interactive
                         visualisations and evaluate
-                        your understanding before and
-                        after learning.
+                        your understanding before
+                        and after learning.
+
                     </p>
+
+
+                    {/* Feature bar */}
+
+                    <div className="auth-feature-bar">
+
+                        <span>
+                            ▶
+                        </span>
+
+                        <span>
+                            SECURE
+                        </span>
+
+                        <b>
+                            •
+                        </b>
+
+                        <span>
+                            LEARN
+                        </span>
+
+                        <b>
+                            •
+                        </b>
+
+                        <span>
+                            EVALUATION
+                        </span>
+
+                        <span>
+                            »
+                        </span>
+
+                    </div>
+
 
                 </section>
 
 
-                {/* Register Card */}
-
                 <section className="auth-card">
+
+
+                    {/* Terminal ID */}
+
+                    <div className="terminal-id">
+                        TERMINAL-02
+                    </div>
+
+
+                    {/* Card Header */}
 
                     <div className="auth-card-header">
 
                         <h2>
-                            Create your account
+                            Registration
                         </h2>
 
+
+                        <div className="auth-card-line" />
+
+
                         <p>
-                            It only takes a moment to get started.
+                            NEW USER REGISTRATION
                         </p>
 
                     </div>
+
+
 
 
                     <div className="auth-form">
@@ -199,11 +420,15 @@ export default function RegisterPage() {
 
                         {/* Username */}
 
-                        <label>
+                        <label htmlFor="register-username">
+
                             Username
+
                         </label>
 
+
                         <input
+                            id="register-username"
                             type="text"
                             value={username}
                             onChange={(e) =>
@@ -218,11 +443,15 @@ export default function RegisterPage() {
 
                         {/* Email */}
 
-                        <label>
+                        <label htmlFor="register-email">
+
                             Email
+
                         </label>
 
+
                         <input
+                            id="register-email"
                             type="email"
                             value={email}
                             onChange={(e) =>
@@ -237,11 +466,15 @@ export default function RegisterPage() {
 
                         {/* Password */}
 
-                        <label>
+                        <label htmlFor="register-password">
+
                             Password
+
                         </label>
 
+
                         <input
+                            id="register-password"
                             type="password"
                             value={password}
                             onChange={(e) =>
@@ -254,13 +487,17 @@ export default function RegisterPage() {
                         />
 
 
-                        {/* Confirm password */}
+                        {/* Confirm Password */}
 
-                        <label>
-                            Confirm password
+                        <label htmlFor="register-confirm-password">
+
+                            Confirm Password
+
                         </label>
 
+
                         <input
+                            id="register-confirm-password"
                             type="password"
                             value={confirmPassword}
                             onChange={(e) =>
@@ -275,7 +512,9 @@ export default function RegisterPage() {
                                 if (
                                     e.key === "Enter"
                                 ) {
+
                                     handleRegister();
+
                                 }
 
                             }}
@@ -287,36 +526,46 @@ export default function RegisterPage() {
                         {error && (
 
                             <div className="auth-error">
+
                                 {error}
+
                             </div>
 
                         )}
 
 
-                        {/* Register button */}
+                        {/* Register Button */}
 
                         <button
+                            type="button"
                             className="auth-primary-button"
                             onClick={handleRegister}
                             disabled={loading}
                         >
 
                             {loading
-                                ? "Creating account..."
-                                : "Create account"}
+                                ? "CREATING ACCOUNT..."
+                                : "CREATE ACCOUNT"
+                            }
+
 
                             {!loading && (
+
                                 <span>
-                                    →
+                                    ▶
                                 </span>
+
                             )}
 
                         </button>
 
+
                     </div>
 
 
-                    {/* Divider */}
+                    {/* =================================================
+                        Divider
+                    ================================================= */}
 
                     <div className="auth-divider">
 
@@ -331,48 +580,48 @@ export default function RegisterPage() {
                     </div>
 
 
-                    {/* Login link */}
+
 
                     <p className="auth-switch">
 
                         Already have an account?
 
                         <button
+                            type="button"
                             onClick={() =>
                                 navigate("/login")
                             }
                         >
-                            Sign in
+
+                            LOGIN
+
                         </button>
 
                     </p>
+
 
                 </section>
 
             </main>
 
 
-            {/* Footer */}
+
 
             <footer className="auth-footer">
 
-                SHA-256
-
                 <span>
-                    •
+                    HASH INSTRUMENTALITY SYSTEM
                 </span>
 
-                HASHING
-
                 <span>
-                    •
+                    SHA-256 / LEARNING TERMINAL
                 </span>
-
-                CRYPTOGRAPHY
 
             </footer>
+
 
         </div>
 
     );
+
 }
