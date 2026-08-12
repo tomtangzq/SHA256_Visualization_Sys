@@ -23,6 +23,14 @@ interface DetailPanelProps {
     onSelectedWordChange: (
         word: number
     ) => void;
+
+    compressionView:
+    "t1" | "t2" | "working";
+
+    onCompressionViewChange:
+    (
+        view: "t1" | "t2" | "working"
+    ) => void;
 }
 
 
@@ -37,6 +45,8 @@ export default function DetailPanel({
     selectedWord,
     onScheduleModeChange,
     onSelectedWordChange,
+    compressionView,
+    onCompressionViewChange,
 
 }: DetailPanelProps) {
     const current = detailContent[currentStep];
@@ -170,6 +180,73 @@ export default function DetailPanel({
                 </div>
             )}
 
+            {currentStep === 5 && (
+
+                <div style={controlGroupStyle}>
+
+                    <button
+                        style={{
+                            ...compressionButtonStyle,
+                            backgroundColor:
+                                compressionView === "t1"
+                                    ? "#1976d2"
+                                    : "#ffffff",
+                            color:
+                                compressionView === "t1"
+                                    ? "#ffffff"
+                                    : "#171717",
+                        }}
+                        onClick={() =>
+                            onCompressionViewChange("t1")
+                        }
+                    >
+                        T1 Formula
+                    </button>
+
+
+                    <button
+                        style={{
+                            ...compressionButtonStyle,
+                            backgroundColor:
+                                compressionView === "t2"
+                                    ? "#1976d2"
+                                    : "#ffffff",
+                            color:
+                                compressionView === "t2"
+                                    ? "#ffffff"
+                                    : "#171717",
+                        }}
+                        onClick={() =>
+                            onCompressionViewChange("t2")
+                        }
+                    >
+                        T2 Formula
+                    </button>
+
+
+                    <button
+                        style={{
+                            ...compressionButtonStyle,
+                            backgroundColor:
+                                compressionView === "working"
+                                    ? "#1976d2"
+                                    : "#ffffff",
+                            color:
+                                compressionView === "working"
+                                    ? "#ffffff"
+                                    : "#171717",
+                        }}
+                        onClick={() =>
+                            onCompressionViewChange("working")
+                        }
+                    >
+                        Working Values
+                    </button>
+
+                </div>
+
+            )}
+
 
             <div className="detail-section">
                 <h4>Description</h4>
@@ -233,3 +310,14 @@ const pLable = {
     Weight: "400"
 
 }
+
+const compressionButtonStyle = {
+    width: "100%",
+    padding: "11px 12px",
+    borderRadius: "8px",
+    border: "1px solid #ccc",
+    fontSize: "14px",
+    fontWeight: 500,
+    cursor: "pointer",
+    textAlign: "left" as const,
+};

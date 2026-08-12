@@ -36,6 +36,10 @@ function SHA256LearningSystem() {
         "Digest",
     ];
 
+    const [compressionView, setCompressionView] = useState<
+        "t1" | "t2" | "working"
+    >("t1");
+
 
 
     return (
@@ -113,6 +117,7 @@ function SHA256LearningSystem() {
                                         selectedPaddingStep={selectedPaddingStep}
                                         scheduleMode={scheduleMode}
                                         selectedWord={selectedWord}
+                                        compressionView={compressionView}
                                     />
 
                                 </div>
@@ -137,6 +142,9 @@ function SHA256LearningSystem() {
 
                             selectedWord={selectedWord}
                             onSelectedWordChange={setSelectedWord}
+
+                            compressionView={compressionView}
+                            onCompressionViewChange={setCompressionView}
 
                         />
 

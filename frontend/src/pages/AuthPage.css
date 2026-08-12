@@ -1,0 +1,473 @@
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(circle at 50% -20%,
+            #eeeeee 0,
+            #f7f7f8 38%,
+            #f7f7f8 100%);
+
+    color: #171717;
+}
+
+
+/* =========================
+   Brand
+   ========================= */
+
+.auth-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 28px 40px;
+
+    font-size: 19px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+.brand-mark {
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 750;
+}
+
+
+/* =========================
+   Main
+   ========================= */
+
+.auth-main {
+    width: min(1080px,
+            calc(100% - 40px));
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 430px;
+
+    align-items: center;
+
+    gap: 90px;
+
+    padding: 50px 0;
+}
+
+
+/* =========================
+   Intro
+   ========================= */
+
+.auth-intro {
+    max-width: 520px;
+}
+
+
+.auth-eyebrow {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.8px;
+
+    color: #777;
+}
+
+
+.auth-intro h1 {
+    margin: 0;
+
+    font-size: 48px;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+
+    font-weight: 760;
+}
+
+
+.auth-intro>p:last-child {
+    max-width: 470px;
+
+    margin-top: 24px;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #777;
+}
+
+
+/* =========================
+   Card
+   ========================= */
+
+.auth-card {
+    padding: 34px;
+
+    background: rgba(255,
+            255,
+            255,
+            0.92);
+
+    border: 1px solid #e1e1e1;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 50px rgba(0,
+            0,
+            0,
+            0.07);
+}
+
+
+.auth-card-header h2 {
+    margin: 0;
+
+    font-size: 25px;
+
+    letter-spacing: -0.7px;
+}
+
+
+.auth-card-header p {
+    margin: 8px 0 28px;
+
+    font-size: 14px;
+
+    color: #888;
+}
+
+
+/* =========================
+   Form
+   ========================= */
+
+.auth-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.auth-form label {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    color: #444;
+}
+
+
+.auth-form input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d9d9d9;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+.auth-form input::placeholder {
+    color: #aaa;
+}
+
+
+.auth-form input:focus {
+    border-color: #777;
+
+    box-shadow:
+        0 0 0 3px rgba(0,
+            0,
+            0,
+            0.06);
+}
+
+
+/* =========================
+   Error
+   ========================= */
+
+.auth-error {
+    margin-top: 8px;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    background: #fff4f4;
+
+    border: 1px solid #f0d1d1;
+
+    color: #a33;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   Main button
+   ========================= */
+
+.auth-primary-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 16px;
+
+    padding: 13px 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.1s ease;
+}
+
+
+.auth-primary-button:hover {
+    background: #333;
+}
+
+
+.auth-primary-button:active {
+    transform: scale(0.99);
+}
+
+
+.auth-primary-button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   Divider
+   ========================= */
+
+.auth-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 26px 0 20px;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 650;
+}
+
+
+.auth-divider span:first-child,
+.auth-divider span:last-child {
+    flex: 1;
+
+    height: 1px;
+
+    background: #e8e8e8;
+}
+
+
+/* =========================
+   Register
+   ========================= */
+
+.auth-switch {
+    margin: 0;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.auth-switch button {
+    margin-left: 5px;
+
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: inherit;
+
+    font-weight: 650;
+
+    cursor: pointer;
+}
+
+
+.auth-switch button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.auth-footer {
+    padding: 24px;
+
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    font-weight: 650;
+
+    letter-spacing: 1.5px;
+}
+
+
+.auth-footer span {
+    margin: 0 9px;
+
+    color: #ccc;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .auth-main {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+
+        gap: 35px;
+
+        padding: 30px 0 50px;
+    }
+
+    .auth-intro {
+        text-align: center;
+    }
+
+    .auth-intro h1 {
+        font-size: 38px;
+    }
+
+    .auth-intro>p:last-child {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .auth-brand {
+        padding: 22px;
+    }
+
+    .auth-main {
+        width: min(100% - 28px,
+                430px);
+    }
+
+    .auth-card {
+        padding: 26px 22px;
+    }
+
+    .auth-intro h1 {
+        font-size: 32px;
+
+        letter-spacing: -1.2px;
+    }
+
+}

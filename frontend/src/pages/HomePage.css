@@ -1,0 +1,784 @@
+.home-page {
+    min-height: 100vh;
+
+    background: #f6f6f7;
+
+    color: #171717;
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+.home-header {
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 38px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+.home-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 19px;
+
+    font-weight: 750;
+
+    letter-spacing: -0.5px;
+}
+
+
+.home-brand-mark {
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 750;
+}
+
+
+.home-header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+
+.home-user {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #444;
+}
+
+
+.home-user-avatar {
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e9e9eb;
+
+    color: #444;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.logout-button {
+    padding: 7px 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+.logout-button:hover {
+    color: #171717;
+}
+
+
+/* =========================
+   Main
+   ========================= */
+
+.home-main {
+    width: min(1120px,
+            calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 62px 0 80px;
+}
+
+
+/* =========================
+   Hero
+   ========================= */
+
+.home-hero {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    margin-bottom: 55px;
+}
+
+
+.home-hero-text {
+    max-width: 680px;
+}
+
+
+.home-eyebrow,
+.section-eyebrow {
+    margin: 0 0 14px;
+
+    font-size: 10px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.8px;
+
+    color: #888;
+}
+
+
+.home-hero h1 {
+    margin: 0;
+
+    font-size: 48px;
+
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+
+    font-weight: 760;
+}
+
+
+.home-hero h1 span {
+    color: #777;
+}
+
+
+.home-hero-description {
+    max-width: 590px;
+
+    margin: 23px 0 0;
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* Hero visual */
+
+.home-hero-symbol {
+    width: 190px;
+
+    height: 190px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #dedede;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px rgba(0,
+            0,
+            0,
+            0.05);
+}
+
+
+.hash-symbol {
+    width: 72px;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: #171717;
+
+    color: #ffffff;
+
+    font-size: 31px;
+
+    font-weight: 700;
+}
+
+
+.hash-lines {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-top: 16px;
+}
+
+
+.hash-lines span {
+    display: block;
+
+    width: 80px;
+
+    height: 4px;
+
+    border-radius: 4px;
+
+    background: #d9d9d9;
+}
+
+
+.hash-lines span:nth-child(2) {
+    width: 60px;
+}
+
+
+.hash-lines span:nth-child(3) {
+    width: 42px;
+}
+
+
+/* =========================
+   Learning Card
+   ========================= */
+
+.learning-card {
+    display: grid;
+
+    grid-template-columns: 1fr 180px;
+
+    min-height: 270px;
+
+    overflow: hidden;
+
+    margin-bottom: 75px;
+
+    border-radius: 18px;
+
+    background: #171717;
+
+    color: #ffffff;
+}
+
+
+.learning-card-content {
+    padding: 40px 42px;
+}
+
+
+.learning-card-label {
+    margin-bottom: 13px;
+
+    font-size: 10px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.5px;
+
+    color: #aaa;
+}
+
+
+.learning-card h2 {
+    margin: 0;
+
+    font-size: 30px;
+
+    letter-spacing: -1px;
+}
+
+
+.learning-card p {
+    max-width: 620px;
+
+    margin: 15px 0 26px;
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.home-primary-button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        background 0.15s ease;
+}
+
+
+.home-primary-button:hover {
+    background: #eeeeee;
+}
+
+
+.home-primary-button:active {
+    transform: scale(0.98);
+}
+
+
+.learning-card-side {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-left: 1px solid #333;
+
+    background: #1d1d1d;
+}
+
+
+.module-number {
+    font-size: 66px;
+
+    line-height: 1;
+
+    font-weight: 750;
+
+    letter-spacing: -3px;
+}
+
+
+.module-caption {
+    margin-top: 9px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   Journey
+   ========================= */
+
+.journey-section {
+    margin-bottom: 78px;
+}
+
+
+.section-heading h2,
+.evaluation-header h2 {
+    margin: 0;
+
+    font-size: 27px;
+
+    letter-spacing: -0.8px;
+}
+
+
+.journey-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    margin-top: 27px;
+
+    border-top: 1px solid #dedede;
+
+    border-left: 1px solid #dedede;
+}
+
+
+.journey-item {
+    min-height: 125px;
+
+    padding: 20px;
+
+    border-right: 1px solid #dedede;
+
+    border-bottom: 1px solid #dedede;
+
+    background: #ffffff;
+}
+
+
+.journey-item>span {
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: #aaa;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+}
+
+
+.journey-item strong {
+    display: block;
+
+    font-size: 14px;
+}
+
+
+.journey-item p {
+    margin: 7px 0 0;
+
+    color: #999;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   Evaluation
+   ========================= */
+
+.evaluation-section {
+    padding-top: 5px;
+}
+
+
+.evaluation-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.evaluation-header>p {
+    max-width: 350px;
+
+    margin: 0;
+
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.evaluation-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 27px;
+}
+
+
+.evaluation-card {
+    padding: 26px;
+
+    border: 1px solid #dedede;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+}
+
+
+.evaluation-card-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: #aaa;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 11px;
+}
+
+
+.evaluation-status {
+    font-family: inherit;
+
+    color: #999;
+}
+
+
+.evaluation-card h3 {
+    margin: 25px 0 8px;
+
+    font-size: 20px;
+
+    letter-spacing: -0.4px;
+}
+
+
+.evaluation-card p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+.evaluation-state {
+    margin-top: 23px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #eeeeee;
+
+    color: #555;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   Footer
+   ========================= */
+
+.home-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 28px;
+
+    border-top: 1px solid #e5e5e5;
+
+    color: #aaa;
+
+    background: #ffffff;
+
+    font-size: 11px;
+}
+
+
+.home-footer span:first-child {
+    color: #777;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 850px) {
+
+    .home-main {
+        width: min(100% - 32px,
+                650px);
+
+        padding-top: 45px;
+    }
+
+
+    .home-hero {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .home-hero-symbol {
+        display: none;
+    }
+
+
+    .home-hero h1 {
+        font-size: 40px;
+    }
+
+
+    .learning-card {
+        grid-template-columns: 1fr;
+    }
+
+
+    .learning-card-side {
+        display: none;
+    }
+
+
+    .journey-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .evaluation-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .home-header {
+        padding: 0 18px;
+    }
+
+
+    .home-user span {
+        display: none;
+    }
+
+
+    .home-main {
+        width: calc(100% - 28px);
+
+        padding-top: 35px;
+    }
+
+
+    .home-hero h1 {
+        font-size: 34px;
+
+        letter-spacing: -1.3px;
+    }
+
+
+    .learning-card-content {
+        padding: 30px 26px;
+    }
+
+
+    .learning-card h2 {
+        font-size: 25px;
+    }
+
+
+    .journey-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .evaluation-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .home-footer {
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+}

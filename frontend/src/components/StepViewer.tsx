@@ -10,6 +10,7 @@ import { generateMessageSchedule } from "../utils/messageSchedule";
 import { calculatePadding } from "../utils/padding";
 import FinalHashStep from "./steps/FinalHashStep";
 import RotateAnimation from "./animation/RotateAnimation";
+import HashStep from "./steps/HashStep";
 
 type Props = {
     currentStep: number;
@@ -19,6 +20,8 @@ type Props = {
 
     scheduleMode: "initial" | "expanded";
     selectedWord: number;
+
+    compressionView: "t1" | "t2" | "working";
 };
 
 function StepViewer({
@@ -28,6 +31,7 @@ function StepViewer({
     selectedPaddingStep,
     scheduleMode,
     selectedWord,
+    compressionView,
 }: Props) {
 
     const binary = binaryString(generatedInput);
@@ -73,11 +77,15 @@ function StepViewer({
             />
 
         case 5:
-            return <WordExpansionStep input={generatedInput} />;
-
+            return (
+                <CompressionStep
+                    words={words}
+                    compressionView={compressionView}
+                />
+            );
 
         case 6:
-            return <CompressionStep words={words} />;
+            return <HashStep input={generatedInput} />;
 
         case 7:
             return <FinalHashStep input={generatedInput} />;
