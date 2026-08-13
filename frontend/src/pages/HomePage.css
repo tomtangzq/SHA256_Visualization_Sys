@@ -1,18 +1,67 @@
+/* =========================================================
+   HOME PAGE
+   HASH INSTRUMENTALITY SYSTEM
+   Terminal Dashboard — V1
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
 .home-page {
     min-height: 100vh;
 
-    background: #f6f6f7;
+    background:
+        linear-gradient(rgba(7, 10, 11, 0.94),
+            rgba(7, 10, 11, 0.94)),
+        repeating-linear-gradient(0deg,
+            transparent 0,
+            transparent 39px,
+            rgba(255, 159, 0, 0.035) 40px),
+        repeating-linear-gradient(90deg,
+            transparent 0,
+            transparent 39px,
+            rgba(255, 159, 0, 0.035) 40px);
 
-    color: #171717;
+    color: #e9e7df;
+
+    font-family: inherit;
+
+    position: relative;
+
+    overflow-x: hidden;
 }
 
 
-/* =========================
-   Header
-   ========================= */
+/* =========================================================
+   Subtle screen grid
+========================================================= */
+
+.home-page::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 50% 30%,
+            rgba(255, 159, 0, 0.035),
+            transparent 38%);
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .home-header {
-    height: 68px;
+    height: 55px;
 
     display: flex;
 
@@ -20,33 +69,79 @@
 
     justify-content: space-between;
 
-    padding: 0 38px;
+    background:
+        rgba(8, 11, 12, 0.94);
 
-    background: #ffffff;
+    border-bottom:
+        1px solid #303434;
 
-    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+
+    z-index: 5;
+
+    box-sizing: border-box;
+
 }
 
+
+/* =========================================================
+   BRAND
+========================================================= */
 
 .home-brand {
     display: flex;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 13px;
 
-    font-size: 19px;
+    letter-spacing: 1px;
 
-    font-weight: 750;
+    color: #d5d3cb;
 
-    letter-spacing: -0.5px;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    margin-left: 30px;
+    margin-bottom: 5px;
+
 }
 
 
-.home-brand-mark {
-    width: 32px;
+.home-brand::after {
+    content:
+        "SHA-256 INTERACTIVE LEARNING TERMINAL";
 
-    height: 32px;
+    position: absolute;
+
+    left: 30px;
+
+    top: 23px;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    letter-spacing: 1.2px;
+
+    color:
+        #c47600;
+}
+
+
+/*
+   BRAND MARK
+*/
+
+.home-brand-mark {
+    width: 34px;
+
+    height: 34px;
 
     display: flex;
 
@@ -54,46 +149,84 @@
 
     justify-content: center;
 
-    border-radius: 8px;
+    border:
+        1px solid #d98200;
 
-    background: #171717;
+    border-radius: 0;
 
-    color: #ffffff;
+    background:
+        rgba(217, 130, 0, 0.04);
 
-    font-size: 15px;
+    color:
+        #f39a00;
 
-    font-weight: 750;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        15px;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        inset 0 0 12px rgba(217, 130, 0, 0.035);
 }
 
+
+/*
+   HEADER RIGHT
+*/
 
 .home-header-right {
     display: flex;
 
     align-items: center;
 
-    gap: 22px;
+    gap: 24px;
+
+    margin-right: 25px;
 }
 
+
+/* =========================================================
+   USER
+========================================================= */
 
 .home-user {
     display: flex;
 
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
-    font-size: 13px;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
 
     font-weight: 600;
 
-    color: #444;
+    letter-spacing: 0.8px;
+
+    color:
+        #b4b5ae;
+
+    text-transform: uppercase;
 }
 
+
+/* =========================================================
+   USER AVATAR
+========================================================= */
 
 .home-user-avatar {
-    width: 30px;
+    width: 31px;
 
-    height: 30px;
+    height: 31px;
 
     display: flex;
 
@@ -101,616 +234,1254 @@
 
     justify-content: center;
 
-    border-radius: 50%;
+    border:
+        1px solid #d98200;
 
-    background: #e9e9eb;
+    border-radius:
+        50%;
 
-    color: #444;
+    background:
+        transparent;
 
-    font-size: 12px;
+    color:
+        #f39a00;
 
-    font-weight: 700;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
 }
 
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 .logout-button {
-    padding: 7px 12px;
+    padding:
+        7px 11px;
 
-    border: none;
+    border:
+        1px solid transparent;
 
-    background: transparent;
+    background:
+        transparent;
 
-    color: #888;
+    color:
+        #7e817d;
 
-    font-family: inherit;
+    font-family:
+        "Courier New",
+        monospace;
 
-    font-size: 12px;
+    font-size:
+        10px;
 
-    cursor: pointer;
-}
+    letter-spacing:
+        0.7px;
 
-
-.logout-button:hover {
-    color: #171717;
-}
-
-
-/* =========================
-   Main
-   ========================= */
-
-.home-main {
-    width: min(1120px,
-            calc(100% - 48px));
-
-    margin: 0 auto;
-
-    padding: 62px 0 80px;
-}
-
-
-/* =========================
-   Hero
-   ========================= */
-
-.home-hero {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 60px;
-
-    margin-bottom: 55px;
-}
-
-
-.home-hero-text {
-    max-width: 680px;
-}
-
-
-.home-eyebrow,
-.section-eyebrow {
-    margin: 0 0 14px;
-
-    font-size: 10px;
-
-    font-weight: 750;
-
-    letter-spacing: 1.8px;
-
-    color: #888;
-}
-
-
-.home-hero h1 {
-    margin: 0;
-
-    font-size: 48px;
-
-    line-height: 1.08;
-
-    letter-spacing: -2px;
-
-    font-weight: 760;
-}
-
-
-.home-hero h1 span {
-    color: #777;
-}
-
-
-.home-hero-description {
-    max-width: 590px;
-
-    margin: 23px 0 0;
-
-    color: #777;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-
-/* Hero visual */
-
-.home-hero-symbol {
-    width: 190px;
-
-    height: 190px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: 1px solid #dedede;
-
-    border-radius: 22px;
-
-    background: #ffffff;
-
-    box-shadow:
-        0 12px 35px rgba(0,
-            0,
-            0,
-            0.05);
-}
-
-
-.hash-symbol {
-    width: 72px;
-
-    height: 72px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 17px;
-
-    background: #171717;
-
-    color: #ffffff;
-
-    font-size: 31px;
-
-    font-weight: 700;
-}
-
-
-.hash-lines {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-    margin-top: 16px;
-}
-
-
-.hash-lines span {
-    display: block;
-
-    width: 80px;
-
-    height: 4px;
-
-    border-radius: 4px;
-
-    background: #d9d9d9;
-}
-
-
-.hash-lines span:nth-child(2) {
-    width: 60px;
-}
-
-
-.hash-lines span:nth-child(3) {
-    width: 42px;
-}
-
-
-/* =========================
-   Learning Card
-   ========================= */
-
-.learning-card {
-    display: grid;
-
-    grid-template-columns: 1fr 180px;
-
-    min-height: 270px;
-
-    overflow: hidden;
-
-    margin-bottom: 75px;
-
-    border-radius: 18px;
-
-    background: #171717;
-
-    color: #ffffff;
-}
-
-
-.learning-card-content {
-    padding: 40px 42px;
-}
-
-
-.learning-card-label {
-    margin-bottom: 13px;
-
-    font-size: 10px;
-
-    font-weight: 750;
-
-    letter-spacing: 1.5px;
-
-    color: #aaa;
-}
-
-
-.learning-card h2 {
-    margin: 0;
-
-    font-size: 30px;
-
-    letter-spacing: -1px;
-}
-
-
-.learning-card p {
-    max-width: 620px;
-
-    margin: 15px 0 26px;
-
-    color: #aaa;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-
-.home-primary-button {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 12px 18px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #ffffff;
-
-    color: #171717;
-
-    font-family: inherit;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
+    cursor:
+        pointer;
 
     transition:
-        transform 0.1s ease,
+        color 0.15s ease,
+        border-color 0.15s ease,
         background 0.15s ease;
 }
 
 
+.logout-button:hover {
+    color:
+        #f39a00;
+
+    border-color:
+        #6f4700;
+
+    background:
+        rgba(217, 130, 0, 0.05);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.home-main {
+    width:
+        min(1180px,
+            calc(100% - 80px));
+
+    margin:
+        0 auto;
+
+    padding:
+        52px 0 70px;
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.home-hero {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        70px;
+
+    margin-bottom:
+        52px;
+}
+
+
+.home-hero-text {
+    max-width:
+        730px;
+}
+
+
+/* =========================================================
+   HERO EYEBROW
+========================================================= */
+
+.home-eyebrow,
+.section-eyebrow {
+    margin:
+        0 0 17px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.8px;
+
+    color:
+        #d98200;
+
+    text-transform:
+        uppercase;
+}
+
+
+.home-eyebrow::before {
+    content:
+        "/// ";
+
+    color:
+        #f39a00;
+}
+
+
+/* =========================================================
+   HERO HEADING
+========================================================= */
+
+.home-hero h1 {
+    margin: 0;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 50px;
+
+    line-height: 0.98;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 700;
+
+    color: #eeeae0;
+
+    text-transform: uppercase;
+}
+
+
+.home-hero h1 span {
+    color:
+        #f39a00;
+}
+
+
+/*
+   HERO DESCRIPTION
+*/
+
+.home-hero-description {
+    max-width:
+        650px;
+
+    margin:
+        23px 0 0;
+
+    padding-left:
+        16px;
+
+    border-left:
+        2px solid #d98200;
+
+    color:
+        #9c9f99;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.75;
+}
+
+
+/*
+   HERO SYMBOL
+*/
+
+.home-hero-symbol {
+    width:
+        210px;
+
+    height:
+        170px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    border:
+        1px solid #4a4c48;
+
+    border-radius:
+        4px;
+
+    background:
+        rgba(10, 13, 14, 0.72);
+
+    box-shadow:
+        inset 0 0 30px rgba(255, 159, 0, 0.025);
+
+    align-items: center;
+}
+
+.home-hero-symbol-text {
+    width: 140px;
+    height: 95px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.6;
+    align-items: center;
+    color: #ed7d31;
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 14px;
+
+}
+
+
+/* corner markers */
+
+.home-hero-symbol::before,
+.home-hero-symbol::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        16px;
+
+    height:
+        16px;
+
+    border-color:
+        #d98200;
+
+    border-style:
+        solid;
+}
+
+
+.home-hero-symbol::before {
+    top:
+        -1px;
+
+    left:
+        -1px;
+
+    border-width:
+        2px 0 0 2px;
+}
+
+
+.home-hero-symbol::after {
+    right:
+        -1px;
+
+    bottom:
+        -1px;
+
+    border-width:
+        0 2px 2px 0;
+}
+
+
+/* =========================================================
+   HASH SYMBOL
+========================================================= */
+
+.hash-symbol {
+    width:
+        70px;
+
+    height:
+        70px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid #d98200;
+
+    border-radius:
+        2px;
+
+    background:
+        rgba(217, 130, 0, 0.035);
+
+    color:
+        #f39a00;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        30px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   HASH LINES
+========================================================= */
+
+.hash-lines {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    margin-top:
+        16px;
+}
+
+
+.hash-lines span {
+    display:
+        block;
+
+    width:
+        80px;
+
+    height:
+        2px;
+
+    border-radius:
+        0;
+
+    background:
+        #454844;
+}
+
+
+.hash-lines span:nth-child(2) {
+    width:
+        60px;
+}
+
+
+.hash-lines span:nth-child(3) {
+    width:
+        42px;
+}
+
+
+/* =========================================================
+   LEARNING CARD
+========================================================= */
+
+.learning-card {
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 210px;
+
+    min-height:
+        270px;
+
+    overflow:
+        hidden;
+
+    margin-bottom:
+        55px;
+
+    position:
+        relative;
+
+    border:
+        1px solid #9a6200;
+
+    border-radius:
+        5px;
+
+    background:
+        rgba(10, 13, 14, 0.86);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+
+/* top-left terminal marker */
+
+.learning-card::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    top:
+        0;
+
+    width:
+        22px;
+
+    height:
+        22px;
+
+    border-top:
+        2px solid #f39a00;
+
+    border-left:
+        2px solid #f39a00;
+}
+
+
+/* =========================================================
+   LEARNING CONTENT
+========================================================= */
+
+.learning-card-content {
+    padding:
+        38px 42px;
+}
+
+
+.learning-card-label {
+    margin-bottom:
+        14px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1.6px;
+
+    color:
+        #d98200;
+
+    text-transform:
+        uppercase;
+}
+
+
+.learning-card-label::before {
+    content:
+        "// ";
+
+    color:
+        #f39a00;
+}
+
+
+.learning-card h2 {
+    margin:
+        0;
+
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size:
+        28px;
+
+    letter-spacing:
+        -0.7px;
+
+    font-weight:
+        700;
+
+    color:
+        #eeece4;
+
+    text-transform:
+        uppercase;
+}
+
+
+.learning-card p {
+    max-width:
+        680px;
+
+    margin:
+        15px 0 26px;
+
+    color:
+        #999d97;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   HOME PRIMARY BUTTON
+========================================================= */
+
+.home-primary-button {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        12px 20px;
+
+    border:
+        1px solid #d98200;
+
+    border-radius:
+        2px;
+
+    background:
+        #d98200;
+
+    color:
+        #080a0b;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.8px;
+
+    cursor:
+        pointer;
+
+    text-transform:
+        uppercase;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.1s ease;
+}
+
+
 .home-primary-button:hover {
-    background: #eeeeee;
+    background:
+        #f39a00;
+
+    color:
+        #080a0b;
+
+    box-shadow:
+        0 0 15px rgba(243, 154, 0, 0.18);
 }
 
 
 .home-primary-button:active {
-    transform: scale(0.98);
+    transform:
+        scale(0.98);
 }
 
 
+/* =========================================================
+   LEARNING SIDE
+========================================================= */
+
 .learning-card-side {
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    border-left: 1px solid #333;
+    border-left:
+        1px solid #303434;
 
-    background: #1d1d1d;
+    background:
+        rgba(20, 23, 23, 0.72);
+
+    position:
+        relative;
+}
+
+
+/* small top label */
+
+.learning-card-side::before {
+    content:
+        "TOTAL STAGES";
+
+    position:
+        absolute;
+
+    top:
+        48px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        1px;
+
+    color:
+        #7e817c;
 }
 
 
 .module-number {
-    font-size: 66px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    line-height: 1;
+    font-size:
+        68px;
 
-    font-weight: 750;
+    line-height:
+        1;
 
-    letter-spacing: -3px;
+    font-weight:
+        400;
+
+    letter-spacing:
+        -4px;
+
+    color:
+        #f39a00;
 }
 
 
 .module-caption {
-    margin-top: 9px;
+    margin-top:
+        12px;
 
-    color: #888;
+    color:
+        #d98200;
 
-    font-size: 11px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    letter-spacing: 0.5px;
+    font-size:
+        9px;
+
+    letter-spacing:
+        1.1px;
+
+    text-transform:
+        uppercase;
 }
 
 
-/* =========================
-   Journey
-   ========================= */
+/* =========================================================
+   JOURNEY
+========================================================= */
 
 .journey-section {
-    margin-bottom: 78px;
+    margin-bottom:
+        58px;
 }
 
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
 
 .section-heading h2,
 .evaluation-header h2 {
-    margin: 0;
+    margin:
+        0;
 
-    font-size: 27px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    letter-spacing: -0.8px;
+    font-size:
+        15px;
+
+    letter-spacing:
+        1.2px;
+
+    font-weight:
+        700;
+
+    color:
+        #d98200;
+
+    text-transform:
+        uppercase;
 }
 
 
+.section-heading h2::before,
+.evaluation-header h2::before {
+    content:
+        "// ";
+
+    color:
+        #f39a00;
+}
+
+
+/* =========================================================
+   JOURNEY GRID
+========================================================= */
+
 .journey-grid {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(4, 1fr);
 
-    margin-top: 27px;
+    margin-top:
+        18px;
 
-    border-top: 1px solid #dedede;
+    border-top:
+        1px solid #343837;
 
-    border-left: 1px solid #dedede;
+    border-left:
+        1px solid #343837;
 }
 
 
 .journey-item {
-    min-height: 125px;
+    min-height:
+        125px;
 
-    padding: 20px;
+    padding:
+        18px;
 
-    border-right: 1px solid #dedede;
+    border-right:
+        1px solid #343837;
 
-    border-bottom: 1px solid #dedede;
+    border-bottom:
+        1px solid #343837;
 
-    background: #ffffff;
+    background:
+        rgba(10, 13, 14, 0.58);
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.journey-item:hover {
+    background:
+        rgba(217, 130, 0, 0.045);
+
+    border-color:
+        #5d4825;
 }
 
 
 .journey-item>span {
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 17px;
+    margin-bottom:
+        16px;
 
-    color: #aaa;
+    color:
+        #d98200;
 
     font-family:
-        "SFMono-Regular",
-        Consolas,
+        "Courier New",
         monospace;
 
-    font-size: 11px;
+    font-size:
+        10px;
+
+    font-weight:
+        700;
 }
 
 
 .journey-item strong {
-    display: block;
+    display:
+        block;
 
-    font-size: 14px;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.5px;
+
+    color:
+        #e5e3dc;
+
+    text-transform:
+        uppercase;
 }
 
 
 .journey-item p {
-    margin: 7px 0 0;
+    margin:
+        7px 0 0;
 
-    color: #999;
+    color:
+        #858983;
 
-    font-size: 11px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    line-height: 1.5;
+    font-size:
+        10px;
+
+    line-height:
+        1.5;
 }
 
 
-/* =========================
-   Evaluation
-   ========================= */
+/* =========================================================
+   EVALUATION
+========================================================= */
 
 .evaluation-section {
-    padding-top: 5px;
+    padding-top:
+        5px;
 }
 
 
 .evaluation-header {
-    display: flex;
+    display:
+        flex;
 
-    align-items: flex-end;
+    align-items:
+        flex-end;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    gap: 30px;
+    gap:
+        30px;
 }
 
 
 .evaluation-header>p {
-    max-width: 350px;
+    max-width:
+        350px;
 
-    margin: 0;
+    margin:
+        0;
 
-    color: #888;
+    color:
+        #858983;
 
-    font-size: 13px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    line-height: 1.6;
+    font-size:
+        10px;
+
+    line-height:
+        1.6;
 }
 
 
+/* =========================================================
+   EVALUATION GRID
+========================================================= */
+
 .evaluation-grid {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap: 18px;
+    gap:
+        14px;
 
-    margin-top: 27px;
+    margin-top:
+        18px;
 }
 
+
+/* =========================================================
+   EVALUATION CARD
+========================================================= */
 
 .evaluation-card {
-    padding: 26px;
+    padding:
+        22px;
 
-    border: 1px solid #dedede;
+    border:
+        1px solid #343837;
 
-    border-radius: 14px;
+    border-radius:
+        3px;
 
-    background: #ffffff;
+    background:
+        rgba(10, 13, 14, 0.58);
+
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease;
 }
 
 
+.evaluation-card:hover {
+    border-color:
+        #6a4b19;
+
+    background:
+        rgba(217, 130, 0, 0.035);
+}
+
+
+/* =========================================================
+   Evaluation Top
+========================================================= */
+
 .evaluation-card-top {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    color: #aaa;
+    color:
+        #777b76;
 
     font-family:
-        "SFMono-Regular",
-        Consolas,
+        "Courier New",
         monospace;
 
-    font-size: 11px;
+    font-size:
+        10px;
 }
 
 
 .evaluation-status {
-    font-family: inherit;
+    font-family:
+        inherit;
 
-    color: #999;
+    color:
+        #7e827d;
 }
 
 
+/* =========================================================
+   Evaluation Heading
+========================================================= */
+
 .evaluation-card h3 {
-    margin: 25px 0 8px;
+    margin:
+        22px 0 8px;
 
-    font-size: 20px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    letter-spacing: -0.4px;
+    font-size:
+        17px;
+
+    letter-spacing:
+        0.4px;
+
+    font-weight:
+        700;
+
+    color:
+        #e6e4dc;
+
+    text-transform:
+        uppercase;
 }
 
 
 .evaluation-card p {
-    margin: 0;
+    margin:
+        0;
 
-    color: #888;
+    color:
+        #858983;
 
-    font-size: 13px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    line-height: 1.6;
+    font-size:
+        10px;
+
+    line-height:
+        1.65;
 }
 
+
+/* =========================================================
+   Evaluation State
+========================================================= */
 
 .evaluation-state {
-    margin-top: 23px;
+    margin-top:
+        20px;
 
-    padding-top: 14px;
+    padding-top:
+        13px;
 
-    border-top: 1px solid #eeeeee;
+    border-top:
+        1px solid #303433;
 
-    color: #555;
+    color:
+        #d98200;
 
-    font-size: 12px;
+    font-family:
+        "Courier New",
+        monospace;
 
-    font-weight: 600;
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.5px;
+
+    text-transform:
+        uppercase;
 }
 
 
-/* =========================
-   Footer
-   ========================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .home-footer {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        space-between;
 
-    gap: 14px;
+    gap:
+        14px;
 
-    padding: 28px;
+    padding:
+        18px 42px;
 
-    border-top: 1px solid #e5e5e5;
+    border-top:
+        1px solid #303433;
 
-    color: #aaa;
+    color:
+        #666a65;
 
-    background: #ffffff;
+    background:
+        rgba(7, 10, 11, 0.94);
 
-    font-size: 11px;
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        1px;
+
+    text-transform:
+        uppercase;
 }
 
 
 .home-footer span:first-child {
-    color: #777;
+    color:
+        #a36b18;
 
-    font-weight: 700;
+    font-weight:
+        700;
 }
 
 
-/* =========================
-   Responsive
-   ========================= */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 950px) {
 
     .home-main {
-        width: min(100% - 32px,
-                650px);
+        width:
+            min(calc(100% - 48px),
+                760px);
 
-        padding-top: 45px;
+        padding-top:
+            45px;
     }
 
 
     .home-hero {
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        align-items: flex-start;
+        align-items:
+            flex-start;
     }
 
 
     .home-hero-symbol {
-        display: none;
+        display:
+            none;
     }
 
 
     .home-hero h1 {
-        font-size: 40px;
+        font-size:
+            40px;
     }
 
 
     .learning-card {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
 
     .learning-card-side {
-        display: none;
+        display:
+            none;
     }
 
 
@@ -721,64 +1492,133 @@
 
 
     .evaluation-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
 }
 
 
-@media (max-width: 550px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
 
     .home-header {
-        padding: 0 18px;
+        height:
+            62px;
+
+        padding:
+            0 18px;
+    }
+
+
+    .home-brand {
+        font-size:
+            13px;
+    }
+
+
+    .home-brand::after {
+        display:
+            none;
+    }
+
+
+    .home-brand-mark {
+        width:
+            29px;
+
+        height:
+            29px;
     }
 
 
     .home-user span {
-        display: none;
+        display:
+            none;
+    }
+
+
+    .home-header-right {
+        gap:
+            10px;
     }
 
 
     .home-main {
-        width: calc(100% - 28px);
+        width:
+            calc(100% - 28px);
 
-        padding-top: 35px;
+        padding:
+            38px 0 55px;
+    }
+
+
+    .home-hero {
+        margin-bottom:
+            40px;
     }
 
 
     .home-hero h1 {
-        font-size: 34px;
+        font-size:
+            31px;
 
-        letter-spacing: -1.3px;
+        letter-spacing:
+            -1px;
+    }
+
+
+    .home-hero-description {
+        font-size:
+            11px;
     }
 
 
     .learning-card-content {
-        padding: 30px 26px;
+        padding:
+            30px 25px;
     }
 
 
     .learning-card h2 {
-        font-size: 25px;
+        font-size:
+            22px;
+    }
+
+
+    .learning-card p {
+        font-size:
+            10px;
     }
 
 
     .journey-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
 
     .evaluation-header {
-        align-items: flex-start;
+        align-items:
+            flex-start;
 
-        flex-direction: column;
+        flex-direction:
+            column;
     }
 
 
     .home-footer {
-        flex-direction: column;
+        flex-direction:
+            column;
 
-        gap: 5px;
+        gap:
+            6px;
+
+        padding:
+            18px;
     }
 
 }

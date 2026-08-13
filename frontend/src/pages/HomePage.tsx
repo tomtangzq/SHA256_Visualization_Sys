@@ -15,21 +15,13 @@ export default function HomePage() {
 
         <div className="home-page">
 
-            {/* =========================
-                Header
-            ========================= */}
+            {/* Header */}
 
             <header className="home-header">
 
                 <div className="home-brand">
 
-                    <div className="home-brand-mark">
-                        H
-                    </div>
-
-                    <span>
-                        HashPro
-                    </span>
+                    HASH INSTRUMENTALITY SYSTEM
 
                 </div>
 
@@ -37,10 +29,6 @@ export default function HomePage() {
                 <div className="home-header-right">
 
                     <div className="home-user">
-
-                        <div className="home-user-avatar">
-                            {username.charAt(0).toUpperCase()}
-                        </div>
 
                         <span>
                             {username}
@@ -92,7 +80,7 @@ export default function HomePage() {
 
 
                         <h1>
-                            Welcome back,
+                            Welcome back
                             <br />
 
                             <span>
@@ -115,22 +103,13 @@ export default function HomePage() {
 
 
                     <div className="home-hero-symbol">
+                        <p className="home-hero-symbol-text">
 
-                        <div className="hash-symbol">
+                            4bb5823a7a64eea941402e91e53ea780db7533c7c6f2bb0f2707ba7d7fddae5d
 
-                            <span>
-                                H
-                            </span>
+                        </p>
 
-                        </div>
 
-                        <div className="hash-lines">
-
-                            <span />
-                            <span />
-                            <span />
-
-                        </div>
 
                     </div>
 

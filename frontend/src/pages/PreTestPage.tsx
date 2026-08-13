@@ -189,11 +189,12 @@ export default function PreTestPage() {
 
                 <header className="pretest-header">
 
-                    <div className="brand">
-                        HashPro
+                    <div className="header-brand">
+                        HASH INSTRUMENTALITY SYSTEM
                     </div>
 
-                    <div className="header-label">
+
+                    <div className="header-center">
                         Pre-test
                     </div>
 
@@ -245,8 +246,8 @@ export default function PreTestPage() {
                                 navigate("/learning")
                             }
                         >
-                            Start Learning
-                            <span>→</span>
+                            Start
+
                         </button>
 
                     </div>
@@ -268,8 +269,8 @@ export default function PreTestPage() {
 
             <header className="pretest-header">
 
-                <div className="brand">
-                    HashPro
+                <div className="header-brand">
+                    HASH INSTRUMENTALITY SYSTEM
                 </div>
 
 
