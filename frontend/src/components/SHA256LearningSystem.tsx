@@ -37,8 +37,8 @@ function SHA256LearningSystem() {
     ];
 
     const [compressionView, setCompressionView] = useState<
-        "t1" | "t2" | "working"
-    >("t1");
+        "overview" | "t1" | "t2" | "working"
+    >("overview");
 
     const username =
         localStorage.getItem("username") || "Learner";

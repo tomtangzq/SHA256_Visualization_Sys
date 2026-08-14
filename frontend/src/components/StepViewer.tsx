@@ -21,7 +21,7 @@ type Props = {
     scheduleMode: "initial" | "expanded";
     selectedWord: number;
 
-    compressionView: "t1" | "t2" | "working";
+    compressionView: "overview" | "t1" | "t2" | "working";
 };
 
 function StepViewer({

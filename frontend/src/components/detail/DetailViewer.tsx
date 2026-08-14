@@ -12,23 +12,7 @@ export default function DetailViewer({
 
     return (
 
-        <div
-
-            style={{
-
-                marginTop: 15,
-
-                border: "1px solid #ccc",
-
-                borderRadius: 10,
-
-                padding: 15,
-
-                minHeight: 280,
-
-            }}
-
-        >
+        <div className="schedule-detail-viewer">
 
             {children}
 

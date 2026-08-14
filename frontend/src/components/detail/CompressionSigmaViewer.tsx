@@ -43,20 +43,11 @@ export default function CompressionSigmaViewer({
         isSigma0 ? 22 : 25;
 
 
-    /*
-     * Input variable
-     */
-
     const original =
         isSigma0
             ? round.workingVariables.a
             : round.workingVariables.e;
 
-
-    /*
-     * Calculated result from the
-     * actual compression algorithm.
-     */
 
     const sigmaResult =
         isSigma0
@@ -105,36 +96,14 @@ export default function CompressionSigmaViewer({
                 Original value
             ================================= */}
 
-            <div
-                style={{
-                    marginTop: "20px",
-                    marginBottom: "25px",
-                    padding: "15px",
-                    border: "1px solid #ddd",
-                    borderRadius: "8px",
-                    background: "#fafafa",
-                }}
-            >
+            <div className="compression-original">
 
-                <div
-                    style={{
-                        fontSize: "12px",
-                        color: "#777",
-                        marginBottom: "8px",
-                    }}
-                >
+                <div className="compression-value-label">
                     {isSigma0 ? "a" : "e"}
                 </div>
 
 
-                <pre
-                    style={{
-                        margin: 0,
-                        fontFamily: "monospace",
-                        whiteSpace: "pre-wrap",
-                        wordBreak: "break-word",
-                    }}
-                >
+                <pre className="compression-binary">
                     {formatBinary(original)}
                 </pre>
 
@@ -145,95 +114,106 @@ export default function CompressionSigmaViewer({
                 ROTR 1
             ================================= */}
 
-            <RotateAnimation
-                title={`ROTR ${rotate1Bits}`}
-                original={original}
-                rotateBits={rotate1Bits}
-            />
+            <div className="sigma-operation">
+
+                <div className="sigma-operation-header">
+
+                    <span>
+                        ROTR
+                    </span>
+
+                    <strong>
+                        {rotate1Bits}
+                    </strong>
+
+                </div>
+
+                <RotateAnimation
+
+                    original={original}
+                    rotateBits={rotate1Bits}
+                />
+            </div>
 
 
             {/* =================================
                 ROTR 2
             ================================= */}
 
-            <RotateAnimation
-                title={`ROTR ${rotate2Bits}`}
-                original={original}
-                rotateBits={rotate2Bits}
-            />
+            <div className="sigma-operation">
+
+                <div className="sigma-operation-header">
+
+                    <span>
+                        ROTR
+                    </span>
+
+                    <strong>
+                        {rotate2Bits}
+                    </strong>
+
+                </div>
+
+                <RotateAnimation
+
+                    original={original}
+                    rotateBits={rotate2Bits}
+                />
+
+            </div>
 
 
             {/* =================================
                 ROTR 3
             ================================= */}
 
-            <RotateAnimation
-                title={`ROTR ${rotate3Bits}`}
-                original={original}
-                rotateBits={rotate3Bits}
-            />
+            <div className="sigma-operation">
+
+                <div className="sigma-operation-header">
+
+                    <span>
+                        ROTR
+                    </span>
+
+                    <strong>
+                        {rotate3Bits}
+                    </strong>
+
+                </div>
+
+                <RotateAnimation
+
+                    original={original}
+                    rotateBits={rotate3Bits}
+                />
+            </div>
 
 
             {/* =================================
                 XOR Result
             ================================= */}
 
-            <div
-                style={{
-                    marginTop: "25px",
-                    padding: "18px",
-                    border: "1px solid #ddd",
-                    borderRadius: "8px",
-                    background: "#fafafa",
-                }}
-            >
+            <div className="compression-xor-result">
 
-                <h4
-                    style={{
-                        marginTop: 0,
-                    }}
-                >
+                <h4 className="compression-xor-title">
                     XOR the three results
                 </h4>
 
 
-                <p
-                    style={{
-                        color: "#666",
-                        fontSize: "14px",
-                        lineHeight: 1.6,
-                    }}
-                >
+                <p className="compression-xor-description">
                     The three rotated values are
                     combined bit by bit using XOR.
                 </p>
 
 
-                <div
-                    style={{
-                        marginTop: "15px",
-                    }}
-                >
+                <div className="compression-xor-value">
 
-                    <div
-                        style={{
-                            fontSize: "12px",
-                            color: "#777",
-                            marginBottom: "8px",
-                        }}
-                    >
+                    <div className="compression-value-label">
                         {title}
                     </div>
 
 
-                    <pre
-                        style={{
-                            margin: 0,
-                            fontFamily: "monospace",
-                            whiteSpace: "pre-wrap",
-                            wordBreak: "break-word",
-                        }}
-                    >
+                    <pre className="compression-binary">
                         {formatBinary(sigmaResult)}
                     </pre>
 

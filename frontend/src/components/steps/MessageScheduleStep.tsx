@@ -73,11 +73,6 @@ function MessageScheduleStep({
     }, [currentWord.index]);
 
 
-    // useEffect(() => {
-    //     setSelectedFormula(formulaItems[1]);
-    // }, [selectedWord]);
-
-
     let detailContent = null;
 
 
@@ -154,14 +149,7 @@ function MessageScheduleStep({
 
         <>
 
-            <div
-                style={{
-                    border: "1px solid #ccc",
-                    borderRadius: "8px",
-                    padding: "16px",
-                    marginTop: "8px",
-                }}
-            >
+            <div className="message-schedule-card">
                 <h3>W{currentWord.index}</h3>
 
                 <pre

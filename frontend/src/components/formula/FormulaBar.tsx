@@ -3,137 +3,57 @@ import type { FormulaItem } from "./type";
 
 interface FormulaBarProps {
     currentWordIndex: number;
-
     resultBinary: string;
-
     items: FormulaItem[];
-
     selected: FormulaItem;
-
     onSelect: (item: FormulaItem) => void;
-
 }
 
 export default function FormulaBar({
-
     items,
     selected,
     onSelect,
     currentWordIndex,
-    resultBinary,
-
 }: FormulaBarProps) {
 
     return (
+        <div className="formula-bar">
 
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                flexWrap: "wrap",
-                gap: "10px",
-                marginBottom: "8px",
-                marginTop: "10px",
-            }}
-        >
-
-            {/* W16 = */}
-
-            <span
-                style={{
-                    fontSize: "28px",
-                    fontWeight: "bold",
-                }}
-            >
-
+            <span className="formula-result">
                 W{currentWordIndex}
-
             </span>
 
-            <span
-                style={{
-                    fontSize: "24px",
-                    fontWeight: "bold",
-                }}
-            >
-
+            <span className="formula-equals">
                 =
-
             </span>
 
             {items.map((item, index) => (
 
                 <div
                     key={item.id}
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                    }}
+                    className="formula-item"
                 >
 
                     <FormulaButton
-
                         label={item.label}
-
-                        selected={selected.id === item.id}
-
-                        onClick={() => onSelect(item)}
-
+                        selected={
+                            selected.id === item.id
+                        }
+                        onClick={() =>
+                            onSelect(item)
+                        }
                     />
 
-                    {
-
-                        index !== items.length - 1 && (
-
-                            <span
-                                style={{
-                                    fontSize: "28px",
-                                    fontWeight: "bold",
-                                }}
-                            >
-
-                                +
-
-                            </span>
-
-                        )
-
-                    }
+                    {index !== items.length - 1 && (
+                        <span className="formula-operator">
+                            +
+                        </span>
+                    )}
 
                 </div>
 
             ))}
 
-            {/* <span
-                style={{
-                    fontSize: "28px",
-                    fontWeight: "bold",
-                }}
-            >
-
-                =
-
-            </span>
-
-            <span
-                style={{
-
-                    fontFamily: "monospace",
-
-                    fontSize: "22px",
-
-                    whiteSpace: "nowrap",
-
-                }}
-            >
-
-                {resultBinary}
-
-            </span> */}
-
         </div>
-
     );
-
 }

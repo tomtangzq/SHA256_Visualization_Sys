@@ -1,42 +1,30 @@
 import type { Word } from "../../utils/messageSchedule";
 
 import {
-
     getSigma0Steps,
-
     getSigma1Steps,
-
 } from "../../utils/sha256Functions";
 
 import RotateAnimation from "../animation/RotateAnimation";
-
 import ShiftAnimation from "../animation/ShiftAnimation";
 
 import { formatBinary } from "../../utils/formatBinary";
 
 interface SigmaViewerProps {
-
     sigmaType: "sigma0" | "sigma1";
-
     word: Word;
-
 }
 
 export default function SigmaViewer({
-
     sigmaType,
-
     word,
-
 }: SigmaViewerProps) {
 
-    // 根据类型计算步骤
     const steps =
         sigmaType === "sigma0"
             ? getSigma0Steps(word.binary)
             : getSigma1Steps(word.binary);
 
-    // 不同 sigma 的参数
     const rotate1Bits =
         sigmaType === "sigma0" ? 7 : 17;
 
@@ -46,82 +34,123 @@ export default function SigmaViewer({
     const shiftBits =
         sigmaType === "sigma0" ? 3 : 10;
 
+    const sigmaLabel =
+        sigmaType === "sigma0"
+            ? "SIGMA₀"
+            : "SIGMA₁";
+
+    const formula =
+        sigmaType === "sigma0"
+            ? `σ₀(W${word.index}) = ROTR7(W${word.index}) ⊕ ROTR18(W${word.index}) ⊕ SHR3(W${word.index})`
+            : `σ₁(W${word.index}) = ROTR17(W${word.index}) ⊕ ROTR19(W${word.index}) ⊕ SHR10(W${word.index})`;
+
     return (
 
-        <div>
+        <div className="sigma-viewer">
 
-            {/* Title */}
+            {/* Formula Header */}
 
-            <h2 style={{
-                color: "#3b3b3b",
-                marginBottom: "15px",
-            }}>
+            <div className="sigma-formula">
 
-                {
-                    sigmaType === "sigma0"
-                        ? `σ₀(W${word.index}) = ROTR7 (W${word.index}) ⊕ ROTR18 (W${word.index}) ⊕ SHR3 (W${word.index})`
-                        : `σ₁(W${word.index}) = ROTR17 (W${word.index}) ⊕ ROTR19 (W${word.index}) ⊕ SHR10 (W${word.index})`
-                }
+                <div className="sigma-formula-label">
+                    {sigmaLabel} OPERATION
+                </div>
 
-            </h2>
+                <div className="sigma-formula-value">
+                    {formula}
+                </div>
+
+            </div>
+
 
             {/* ROTR 1 */}
 
-            <RotateAnimation
+            <div className="sigma-operation">
 
-                title={`ROTR ${rotate1Bits}`}
+                <div className="sigma-operation-header">
 
-                original={steps.original}
+                    <span>
+                        ROTR
+                    </span>
 
-                rotateBits={rotate1Bits}
+                    <strong>
+                        {rotate1Bits}
+                    </strong>
 
-            />
+                </div>
 
+                <RotateAnimation
+                    // title={`ROTR ${rotate1Bits}`}
+                    original={steps.original}
+                    rotateBits={rotate1Bits}
+                />
+
+            </div>
 
 
             {/* ROTR 2 */}
 
-            <RotateAnimation
+            <div className="sigma-operation">
 
-                title={`ROTR ${rotate2Bits}`}
+                <div className="sigma-operation-header">
 
-                original={steps.original}
+                    <span>
+                        ROTR
+                    </span>
 
-                rotateBits={rotate2Bits}
+                    <strong>
+                        {rotate2Bits}
+                    </strong>
 
-            />
+                </div>
 
+                <RotateAnimation
+                    // title={`ROTR ${rotate2Bits}`}
+                    original={steps.original}
+                    rotateBits={rotate2Bits}
+                />
+
+            </div>
 
 
             {/* SHR */}
 
-            <ShiftAnimation
+            <div className="sigma-operation">
 
-                title={`SHR ${shiftBits}`}
+                <div className="sigma-operation-header">
 
-                original={steps.original}
+                    <span>
+                        SHR
+                    </span>
 
-                shiftBits={shiftBits}
+                    <strong>
+                        {shiftBits}
+                    </strong>
 
-            />
+                </div>
+
+                <ShiftAnimation
+                    original={steps.original}
+                    shiftBits={shiftBits}
+                />
+
+            </div>
 
 
             {/* Final Result */}
 
-            <h3>Result</h3>
+            <div className="sigma-result">
 
-            <pre
-                style={{
-                    fontFamily: "monospace",
-                    whiteSpace: "pre-wrap",
-                    wordBreak: "break-word",
-                }}
-            >
-                {formatBinary(steps.result)}
-            </pre>
+                <div className="sigma-result-header">
+                    RESULT
+                </div>
+
+                <pre className="sigma-result-value">
+                    {formatBinary(steps.result)}
+                </pre>
+
+            </div>
 
         </div>
-
     );
-
 }

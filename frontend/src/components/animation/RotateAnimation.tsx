@@ -18,13 +18,11 @@ interface RotateAnimationProps {
 
     rotateBits: number;
 
-    title: string;
 
 }
 
 export default function RotateAnimation({
 
-    title,
 
     original,
 
@@ -68,7 +66,6 @@ export default function RotateAnimation({
 
         <div>
 
-            <h3 style={h3Style}>{title}</h3>
 
             <div
                 style={{
@@ -89,8 +86,6 @@ export default function RotateAnimation({
                 ))}
 
             </div>
-
-            {/* <p>Rotated</p> */}
 
             <div
                 style={{
@@ -120,9 +115,4 @@ export default function RotateAnimation({
 
 }
 
-const h3Style = {
-    marginTop: "15px",
-    marginBottom: "6px",
-
-};
 

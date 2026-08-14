@@ -7,8 +7,6 @@ interface ShiftAnimationProps {
 
     shiftBits: number;
 
-    title: string;
-
 }
 
 export default function ShiftAnimation({
@@ -17,7 +15,6 @@ export default function ShiftAnimation({
 
     shiftBits,
 
-    title,
 
 }: ShiftAnimationProps) {
 
@@ -95,7 +92,6 @@ export default function ShiftAnimation({
                 marginBottom: 15,
             }}
         >
-            <h3 style={h3Style}>{title}</h3>
 
             {/* Original */}
             <div
@@ -159,8 +155,3 @@ export default function ShiftAnimation({
     );
 }
 
-const h3Style = {
-    marginTop: "15px",
-    marginBottom: "6px",
-
-};

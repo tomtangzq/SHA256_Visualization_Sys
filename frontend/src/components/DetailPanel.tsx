@@ -25,11 +25,11 @@ interface DetailPanelProps {
     ) => void;
 
     compressionView:
-    "t1" | "t2" | "working";
+    | "overview" | "t1" | "t2" | "working";
 
     onCompressionViewChange:
     (
-        view: "t1" | "t2" | "working"
+        view: "overview" | "t1" | "t2" | "working"
     ) => void;
 }
 
@@ -202,9 +202,21 @@ export default function DetailPanel({
                 <div className="detail-compression-controls">
 
                     <button
+                        className={`compression-option ${compressionView === "overview"
+                            ? "selected"
+                            : ""
+                            }`}
+                        onClick={() =>
+                            onCompressionViewChange("overview")
+                        }
+                    >
+                        Overview
+                    </button>
+
+                    <button
                         className={`compression-option ${compressionView === "t1"
-                                ? "selected"
-                                : ""
+                            ? "selected"
+                            : ""
                             }`}
                         onClick={() =>
                             onCompressionViewChange("t1")
@@ -216,8 +228,8 @@ export default function DetailPanel({
 
                     <button
                         className={`compression-option ${compressionView === "t2"
-                                ? "selected"
-                                : ""
+                            ? "selected"
+                            : ""
                             }`}
                         onClick={() =>
                             onCompressionViewChange("t2")
@@ -229,8 +241,8 @@ export default function DetailPanel({
 
                     <button
                         className={`compression-option ${compressionView === "working"
-                                ? "selected"
-                                : ""
+                            ? "selected"
+                            : ""
                             }`}
                         onClick={() =>
                             onCompressionViewChange("working")

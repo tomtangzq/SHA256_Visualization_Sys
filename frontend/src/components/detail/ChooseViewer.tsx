@@ -78,17 +78,6 @@ export default function ChooseViewer({
     ] = useState("");
 
 
-    /*
-     * Current bit being demonstrated.
-     *
-     * During the first three bits:
-     *
-     * currentIndex = revealedCount
-     *
-     * After that:
-     *
-     * currentIndex = 3 + autoRevealedCount
-     */
 
     const currentIndex =
         revealedCount < 3
@@ -225,17 +214,12 @@ export default function ChooseViewer({
 
         <div>
 
-            <h3>
+            <h3 className="operation-title">
                 Choose Function
             </h3>
 
 
-            <p
-                style={{
-                    color: "#666",
-                    lineHeight: 1.6,
-                }}
-            >
+            <p className="operation-description">
                 The Choose function selects a bit
                 from f or g according to the
                 corresponding bit in e.
@@ -303,16 +287,7 @@ export default function ChooseViewer({
 
             {revealedCount < 3 && (
 
-                <div
-                    style={{
-                        marginTop: "20px",
-                        padding: "14px 16px",
-                        borderRadius: "8px",
-                        background: "#eef5ff",
-                        border:
-                            "1px solid #c9dcff",
-                    }}
-                >
+                <div className="choose-instruction-card">
 
                     <strong>
                         Bit {revealedCount + 1}
@@ -349,19 +324,7 @@ export default function ChooseViewer({
             {revealedCount >= 3 &&
                 !allBitsVisible && (
 
-                    <div
-                        style={{
-                            marginTop: "20px",
-                            padding:
-                                "12px 16px",
-                            borderRadius: "8px",
-                            background:
-                                "#f5f9ff",
-                            border:
-                                "1px solid #d7e5ff",
-                            color: "#555",
-                        }}
-                    >
+                    <div className="choose-progress-card">
 
                         Automatically
                         computing the remaining
@@ -378,19 +341,7 @@ export default function ChooseViewer({
 
             {errorMessage && (
 
-                <div
-                    style={{
-                        marginTop: "12px",
-                        padding:
-                            "12px 14px",
-                        borderRadius: "8px",
-                        background:
-                            "#fff3f3",
-                        border:
-                            "1px solid #f0b8b8",
-                        color: "#b42318",
-                    }}
-                >
+                <div className="choose-error-card">
                     {errorMessage}
                 </div>
 
@@ -448,6 +399,12 @@ export default function ChooseViewer({
                                 index ===
                                 currentIndex;
 
+                            const waitingForUser =
+                                isCurrent && !automaticRevealed;
+
+                            const waitingForReveal =
+                                !visible && !waitingForUser;
+
 
                             return (
 
@@ -457,29 +414,46 @@ export default function ChooseViewer({
                                         minWidth: 0,
                                         height: "30px",
 
-                                        display:
-                                            "flex",
+                                        display: "flex",
 
-                                        alignItems:
-                                            "center",
+                                        alignItems: "center",
 
-                                        justifyContent:
-                                            "center",
+                                        justifyContent: "center",
+
+                                        background:
+                                            "#111516",
+
+                                        animation:
+                                            isCurrent && !userRevealed
+                                                ? "choosePulse 1.3s ease-in-out infinite"
+                                                : "none",
+
+                                        outline: "none",
+                                        boxShadow: "none",
 
                                         border:
                                             isCurrent
-                                                ? "2px solid #1976d2"
-                                                : userRevealed
-                                                    ? "1px solid #9bd4a8"
-                                                    : "1px solid #ccc",
+                                                ? "2px solid #d99000"
+                                                : visible
+                                                    ? "1px solid #d99000"
+                                                    : "1px solid #333936",
+
+
+                                        // background:
+                                        //     isCurrent
+                                        //         ? "#d99000"
+                                        //         : visible
+                                        //             ? "#171a1b"
+                                        //             : "#111516",
 
                                         borderRadius:
                                             "4px",
 
-                                        background:
-                                            visible
-                                                ? "#f5f5f5"
-                                                : "#ffffff",
+
+                                        color:
+                                            isCurrent
+                                                ? "#111"
+                                                : "#d5d3cb",
 
                                         fontFamily:
                                             "monospace",
@@ -490,12 +464,12 @@ export default function ChooseViewer({
                                         transition:
                                             "all 0.2s ease",
 
-                                        animation:
-                                            automaticRevealed &&
-                                                index ===
-                                                currentIndex
-                                                ? "bitReveal 0.3s ease"
-                                                : "none",
+                                        // animation:
+                                        //     automaticRevealed &&
+                                        //         index ===
+                                        //         currentIndex
+                                        //         ? "bitReveal 0.3s ease"
+                                        //         : "none",
                                     }}
                                 >
 
@@ -522,35 +496,14 @@ export default function ChooseViewer({
 
             {allBitsVisible && (
 
-                <div
-                    style={{
-                        marginTop: "22px",
-                        padding: "18px",
-                        border:
-                            "1px solid #b7dfc0",
-                        borderRadius: "8px",
-                        background:
-                            "#f3fff5",
-                    }}
-                >
+                <div className="choose-result-card">
 
-                    <h4
-                        style={{
-                            marginTop: 0,
-                            color: "#176b2c",
-                        }}
-                    >
+                    <h4>
                         Ch(e, f, g) Result
                     </h4>
 
 
-                    <code
-                        style={{
-                            display: "block",
-                            wordBreak: "break-all",
-                            lineHeight: 1.7,
-                        }}
-                    >
+                    <code>
                         {correctBits.join("")}
                     </code>
 
@@ -756,17 +709,21 @@ function BitRow({
 
                                         border:
                                             shouldPulse
-                                                ? "2px solid #1976d2"
-                                                : "1px solid #ccc",
+                                                ? "2px solid #d99000"
+                                                : "1px solid #333936",
 
                                         borderRadius:
                                             "4px",
 
                                         background:
-                                            "#ffffff",
+                                            shouldPulse
+                                                ? "#d99000"
+                                                : "#111516",
 
                                         color:
-                                            "#171717",
+                                            shouldPulse
+                                                ? "#111"
+                                                : "#d5d3cb",
 
                                         cursor:
                                             isCurrentButton
@@ -826,14 +783,21 @@ function BitRow({
                                     border:
                                         isControlCurrent ||
                                             shouldHighlight
-                                            ? "2px solid #1976d2"
-                                            : "1px solid #ccc",
+                                            ? "2px solid #d99000"
+                                            : "1px solid #333936",
 
                                     borderRadius:
                                         "4px",
 
                                     background:
-                                        "#fafafa",
+                                        isControlCurrent || shouldHighlight
+                                            ? "#d99000"
+                                            : "#111516",
+
+                                    color:
+                                        isControlCurrent || shouldHighlight
+                                            ? "#111"
+                                            : "#d5d3cb",
 
                                     fontFamily:
                                         "monospace",

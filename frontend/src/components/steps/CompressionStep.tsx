@@ -27,7 +27,8 @@ type Props = {
     words: Word[];
 
     compressionView:
-    "t1"
+    | "overview"
+    | "t1"
     | "t2"
     | "working";
 
@@ -77,22 +78,79 @@ export default function CompressionStep({
             }}
         >
 
-            <h2>
-                Compression
-            </h2>
+            {compressionView === "overview" && (
+
+                <div className="compression-overview">
+
+                    <div className="overview-label">
+            // COMPRESSION OVERVIEW
+                    </div>
+
+                    <h2>
+                        SHA-256 Compression
+                    </h2>
+
+                    <p className="overview-description">
+                        SHA-256 processes the message through 64 rounds.
+                        Each round follows the same computational structure,
+                        using different working values, message words,
+                        and round constants.
+                    </p>
 
 
-            <p
-                style={{
-                    color: "#666",
-                    lineHeight: 1.6,
-                }}
-            >
-                SHA-256 processes the message
-                through 64 rounds. This
-                visualisation focuses on the
-                first round.
-            </p>
+                    <div className="overview-round">
+
+                        <div className="overview-round-label">
+                            REPRESENTATIVE ROUND
+                        </div>
+
+                        <div className="overview-round-number">
+                            ROUND 01 / 64
+                        </div>
+
+                        <p>
+                            To make the compression process easier to understand,
+                            this module visualises the first round as a
+                            representative example.
+                        </p>
+
+                    </div>
+
+
+                    <div className="overview-code">
+
+                        <div className="overview-code-label">
+                // ROUND PSEUDOCODE
+                        </div>
+
+                        <pre>
+                            {`for i from 0 to 63
+        T1 := h + Σ1(e) + Ch(e,f,g) + k[i] + w[i]
+        T2 := Σ0(a) + Maj(a,b,c)
+ 
+        h := g
+        g := f
+        f := e
+        e := d + T1
+        d := c
+        c := b
+        b := a
+        a := T1 + T2`}
+                        </pre>
+
+                    </div>
+
+
+                    <div className="overview-hint">
+
+                        Use the controls in Step Details to explore
+                        the algorithm in more detail.
+
+                    </div>
+
+                </div>
+
+            )}
 
 
             {compressionView === "t1" && (
@@ -420,51 +478,21 @@ function FormulaButton({
     onClick,
 }: {
     children: React.ReactNode;
-
     selected: boolean;
-
     onClick: () => void;
 }) {
 
     return (
-
         <button
             onClick={onClick}
-            style={{
-                padding: "12px 18px",
-
-                borderRadius: "8px",
-
-                border: selected
-                    ? "2px solid #1976d2"
-                    : "1px solid #ccc",
-
-                background: selected
-                    ? "#eaf2ff"
-                    : "#ffffff",
-
-                color: "#171717",
-
-                fontFamily: "monospace",
-
-                fontSize: "15px",
-
-                fontWeight: selected
-                    ? 600
-                    : 400,
-
-                cursor: "pointer",
-
-                transition:
-                    "all 0.15s ease",
-            }}
+            className={`compression-formula-button ${selected ? "selected" : ""
+                }`}
         >
             {children}
         </button>
-
     );
-
 }
+
 
 
 
@@ -596,16 +624,18 @@ function HViewer({
                     marginTop: "20px",
                     padding: "16px",
                     border: "1px solid #ccc",
-                    borderRadius: "8px",
-                    background: "#fafafa",
+                    borderRadius: "6px",
+                    background: "#0b0e0f",
                 }}
             >
 
                 <div
                     style={{
-                        fontSize: "13px",
-                        color: "#777",
-                        marginBottom: "8px",
+                        fontSize: "12px",
+                        color: "#aaa",
+                        marginBottom: "10px",
+                        fontFamily: "monospace",
+                        letterSpacing: "0.08em",
                     }}
                 >
                     h
@@ -618,6 +648,9 @@ function HViewer({
                         fontFamily: "monospace",
                         whiteSpace: "pre-wrap",
                         wordBreak: "break-word",
+                        color: "#e6e1d8",
+                        lineHeight: 1.7,
+                        letterSpacing: "0.04em",
                     }}
                 >
                     {round.workingVariables.h}
@@ -664,52 +697,76 @@ function W0Viewer({
                 }}
             >
 
+                {/* =========================
+                    Index
+                ========================= */}
+
                 <div
                     style={{
                         padding: "16px",
-                        border: "1px solid #ccc",
-                        borderRadius: "8px",
-                        background: "#fafafa",
+                        border: "1px solid #3a3d3f",
+                        borderRadius: "6px",
+                        background: "#0b0e0f",
                     }}
                 >
 
                     <div
                         style={{
                             fontSize: "12px",
-                            color: "#777",
-                            marginBottom: "8px",
+                            color: "#aaa",
+                            marginBottom: "10px",
+                            fontFamily: "monospace",
+                            letterSpacing: "0.08em",
                         }}
                     >
                         Index
                     </div>
 
-                    <strong>
+                    <strong
+                        style={{
+                            color: "#e6e1d8",
+                            fontFamily: "monospace",
+                            fontSize: "16px",
+                        }}
+                    >
                         W{word.index}
                     </strong>
 
                 </div>
 
 
+                {/* =========================
+                    Hex
+                ========================= */}
+
                 <div
                     style={{
                         padding: "16px",
-                        border: "1px solid #ccc",
-                        borderRadius: "8px",
-                        background: "#fafafa",
+                        border: "1px solid #3a3d3f",
+                        borderRadius: "6px",
+                        background: "#0b0e0f",
                     }}
                 >
 
                     <div
                         style={{
                             fontSize: "12px",
-                            color: "#777",
-                            marginBottom: "8px",
+                            color: "#aaa",
+                            marginBottom: "10px",
+                            fontFamily: "monospace",
+                            letterSpacing: "0.08em",
                         }}
                     >
                         Hex
                     </div>
 
-                    <code>
+                    <code
+                        style={{
+                            color: "#e6e1d8",
+                            fontFamily: "monospace",
+                            fontSize: "15px",
+                        }}
+                    >
                         {word.hex}
                     </code>
 
@@ -718,21 +775,27 @@ function W0Viewer({
             </div>
 
 
+            {/* =========================
+                Binary
+            ========================= */}
+
             <div
                 style={{
                     marginTop: "12px",
                     padding: "16px",
-                    border: "1px solid #ccc",
-                    borderRadius: "8px",
-                    background: "#fafafa",
+                    border: "1px solid #3a3d3f",
+                    borderRadius: "6px",
+                    background: "#0b0e0f",
                 }}
             >
 
                 <div
                     style={{
                         fontSize: "12px",
-                        color: "#777",
-                        marginBottom: "8px",
+                        color: "#aaa",
+                        marginBottom: "10px",
+                        fontFamily: "monospace",
+                        letterSpacing: "0.08em",
                     }}
                 >
                     Binary
@@ -745,6 +808,9 @@ function W0Viewer({
                         fontFamily: "monospace",
                         whiteSpace: "pre-wrap",
                         wordBreak: "break-word",
+                        color: "#e6e1d8",
+                        lineHeight: 1.7,
+                        letterSpacing: "0.04em",
                     }}
                 >
                     {word.binary}
@@ -784,8 +850,9 @@ function KViewer() {
                     marginTop: "20px",
                     maxHeight: "360px",
                     overflowY: "auto",
-                    border: "1px solid #ddd",
-                    borderRadius: "8px",
+                    border: "1px solid #3a3d3f",
+                    borderRadius: "6px",
+                    background: "#0b0e0f",
                 }}
             >
 
@@ -801,15 +868,35 @@ function KViewer() {
                                 gap: "15px",
                                 padding:
                                     "9px 14px",
+
                                 borderBottom:
-                                    "1px solid #eee",
+                                    index !==
+                                        ROUND_CONSTANTS_BINARY.length - 1
+                                        ? "1px solid #303335"
+                                        : "none",
+
                                 fontFamily:
                                     "monospace",
+
                                 fontSize: "13px",
+
+                                color: "#e6e1d8",
+
+                                background:
+                                    index === 0
+                                        ? "#14181a"
+                                        : "transparent",
                             }}
                         >
 
-                            <strong>
+                            <strong
+                                style={{
+                                    color:
+                                        index === 0
+                                            ? "#d99100"
+                                            : "#d6d0c7",
+                                }}
+                            >
                                 K{index}
                             </strong>
 
@@ -818,6 +905,9 @@ function KViewer() {
                                 style={{
                                     wordBreak:
                                         "break-all",
+                                    color: "#aaa",
+                                    letterSpacing:
+                                        "0.03em",
                                 }}
                             >
                                 {constant}

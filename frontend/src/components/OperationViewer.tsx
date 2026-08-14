@@ -1,94 +1,78 @@
 import BinaryDisplay from "./BinaryDisplay";
 
 export interface OperationRow {
-
     label: string;
-
     value: string;
-
     compareValue?: string;
-
     bold?: boolean;
-
 }
 
 type Props = {
-
     title: string;
-
     rows: OperationRow[];
-
 };
 
 function OperationViewer({
-
     title,
-
-    rows
-
+    rows,
 }: Props) {
 
     return (
+        <div className="operation-viewer">
 
-        <>
+            {/* Operation title */}
 
-            <h3>{title}</h3>
+            <div className="operation-title">
+                {title}
+            </div>
 
-            <table
-                style={{
-                    width: "100%",
-                    borderCollapse: "collapse"
-                }}
-            >
 
-                <tbody>
+            {/* Operation rows */}
 
-                    {rows.map((row) => (
+            <div className="operation-rows">
 
-                        <tr key={row.label}>
+                {rows.map((row, index) => (
 
-                            <td>
+                    <div
+                        className={`operation-row ${row.bold
+                                ? "operation-row-result"
+                                : ""
+                            }`}
+                        key={row.label}
+                    >
 
-                                {
+                        <div
+                            className="operation-label"
+                        >
+                            {row.bold ? (
+                                <strong>
+                                    {row.label}
+                                </strong>
+                            ) : (
+                                row.label
+                            )}
+                        </div>
 
-                                    row.bold
 
-                                        ?
+                        <div className="operation-value">
 
-                                        <strong>{row.label}</strong>
-
-                                        :
-
-                                        row.label
-
+                            <BinaryDisplay
+                                binary={row.value}
+                                compareBinary={
+                                    row.compareValue
                                 }
+                            />
 
-                            </td>
+                        </div>
 
-                            <td>
+                    </div>
 
-                                <BinaryDisplay
+                ))}
 
-                                    binary={row.value}
+            </div>
 
-                                    compareBinary={row.compareValue}
-
-                                />
-
-                            </td>
-
-                        </tr>
-
-                    ))}
-
-                </tbody>
-
-            </table>
-
-        </>
-
+        </div>
     );
-
 }
 
 export default OperationViewer;

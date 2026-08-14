@@ -32,16 +32,6 @@ export default function WordViewer({
                 Word W{wordIndex}
             </h2>
 
-            {/* <p>
-
-                {isExpanded
-                    ? "Expanded word generated during message schedule expansion."
-                    : "Initial 32-bit word extracted from the padded message."
-                }
-
-            </p>
-
-            <hr /> */}
 
             <h3>Binary</h3>
 
