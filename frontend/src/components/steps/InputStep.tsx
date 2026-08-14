@@ -5,7 +5,7 @@ type Props = {
 function InputStep({ input }: Props) {
     return (
         <>
-            <h3>Step 1 - Input</h3>
+            {/* <h3>Step 1 - Input</h3> */}
 
             <pre>{input}</pre>
         </>
@@ -13,3 +13,4 @@ function InputStep({ input }: Props) {
 }
 
 export default InputStep;
+

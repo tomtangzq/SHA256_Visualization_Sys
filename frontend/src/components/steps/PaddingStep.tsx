@@ -8,7 +8,6 @@ type Props = {
     selectedPaddingStep: number;
 };
 
-
 function PaddingStep({
     input,
     selectedPaddingStep,
@@ -29,106 +28,110 @@ function PaddingStep({
         case 0:
 
             return (
-                <>
-                    <h3 style={titleStyle}>Original Binary</h3>
+                <div className="padding-stage">
 
-                    <p style={infoStyle}>
+                    <h3 className="padding-title">
+                        Original Binary
+                    </h3>
+
+                    <p className="padding-info">
                         Original Length:
-                        <strong> {padding.originalLength} bits</strong>
+                        <strong>
+                            {" "}
+                            {padding.originalLength} bits
+                        </strong>
                     </p>
 
-                    <pre style={preStyle}>
+                    <pre className="padding-binary">
                         {formatBinary(padding.originalBinary)}
                     </pre>
-                </>
+
+                </div>
             );
+
 
         case 1:
 
             return (
-                <>
-                    <h3 style={titleStyle}>Append '1'</h3>
+                <div className="padding-stage">
 
-                    <p style={infoStyle}>
+                    <h3 className="padding-title">
+                        Append '1'
+                    </h3>
+
+                    <p className="padding-info">
                         Current Length:
-                        <strong> {padding.lengthAfterAppendOne} bits</strong>
+                        <strong>
+                            {" "}
+                            {padding.lengthAfterAppendOne} bits
+                        </strong>
                     </p>
 
-                    <pre style={preStyle}>
+                    <pre className="padding-binary">
                         {formatBinary(padding.afterAppendOne)}
                     </pre>
-                </>
+
+                </div>
             );
+
 
         case 2:
 
             return (
-                <>
-                    <h3 style={titleStyle}>Append Zero Bits</h3>
+                <div className="padding-stage">
 
-                    <p style={infoStyle}>
+                    <h3 className="padding-title">
+                        Append Zero Bits
+                    </h3>
+
+                    <p className="padding-info">
                         Zero Padding Length:
-                        <strong> {padding.zeroPaddingLength} bits</strong>
+                        <strong>
+                            {" "}
+                            {padding.zeroPaddingLength} bits
+                        </strong>
                     </p>
 
-                    <pre style={preStyle}>
+                    <pre className="padding-binary">
                         {formatBinary(padding.afterZeroPadding)}
                     </pre>
-                </>
+
+                </div>
             );
 
 
         case 3:
 
             return (
-                <>
-                    <h3 style={titleStyle}>Final 512-bit Message Block</h3>
-                    <p style={infoStyle}>After appending original message length</p>
+                <div className="padding-stage">
 
-                    <p style={infoStyle}>
-                        Message Length:
-                        <strong> {padding.finalLength} bits</strong>
+                    <h3 className="padding-title">
+                        Final 512-bit Message Block
+                    </h3>
+
+                    <p className="padding-description">
+                        After appending original message length
                     </p>
 
-                    <pre style={preStyle}>
+                    <p className="padding-info">
+                        Message Length:
+                        <strong>
+                            {" "}
+                            {padding.finalLength} bits
+                        </strong>
+                    </p>
 
+                    <pre className="padding-binary padding-final">
                         {formatBinary(padding.finalBlock512)}
-
                     </pre>
 
-                </>
+                </div>
             );
 
-        default:
 
+        default:
             return null;
     }
-
-
 }
 
-const preStyle = {
-
-    whiteSpace: "pre-wrap",
-
-    wordBreak: "break-all" as const,
-
-    border: "1px solid #ccc",
-
-    padding: "12px",
-
-    borderRadius: "8px",
-
-};
-
-const titleStyle = {
-    marginBottom: "8px",
-};
-
-const infoStyle = {
-    display: "block",
-    marginBottom: "8px",
-};
-
 export default PaddingStep;
-

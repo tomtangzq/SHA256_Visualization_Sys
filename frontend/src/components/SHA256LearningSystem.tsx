@@ -40,15 +40,38 @@ function SHA256LearningSystem() {
         "t1" | "t2" | "working"
     >("t1");
 
+    const username =
+        localStorage.getItem("username") || "Learner";
+
 
 
     return (
         <div className="app">
+
+
             {/* Header */}
-            <header className="header">
-                <h1>HashPro</h1>
-                <p>Demo v2.0</p>
+            <header className="home-header">
+
+                <div className="home-brand">
+
+                    HASH INSTRUMENTALITY SYSTEM
+
+                </div>
+
+
+                <div className="home-header-right">
+
+                    <div className="home-user">
+
+                        <span>
+                            {username}
+                        </span>
+
+                    </div>
+                </div>
             </header>
+
+
 
             <div className="layout">
 
@@ -76,30 +99,45 @@ function SHA256LearningSystem() {
                                 />
 
                                 <div className="input-actions">
-                                    <button
-                                        className="secondary-button"
-                                        onClick={() =>
-                                            setCurrentStep((step) => Math.max(step - 1, 0))
-                                        }
-                                    >
-                                        ◀ Previous
-                                    </button>
 
-                                    <button
-                                        className="primary-button"
-                                        onClick={handleGenerate}
-                                    >
-                                        Generate
-                                    </button>
+                                    {!generatedInput && (
+                                        <button
+                                            className="primary-button"
+                                            onClick={handleGenerate}
+                                        >
+                                            Generate
+                                        </button>
+                                    )}
 
-                                    <button
-                                        className="secondary-button"
-                                        onClick={() =>
-                                            setCurrentStep((step) => Math.min(step + 1, steps.length - 1))
-                                        }
-                                    >
-                                        Next ▶
-                                    </button>
+                                    {generatedInput && (
+                                        <>
+                                            <button
+                                                className="secondary-button"
+                                                onClick={() =>
+                                                    setCurrentStep((step) =>
+                                                        Math.max(step - 1, 0)
+                                                    )
+                                                }
+                                            >
+                                                ◀ Previous
+                                            </button>
+
+                                            <button
+                                                className="secondary-button"
+                                                onClick={() =>
+                                                    setCurrentStep((step) =>
+                                                        Math.min(
+                                                            step + 1,
+                                                            steps.length - 1
+                                                        )
+                                                    )
+                                                }
+                                            >
+                                                Next ▶
+                                            </button>
+                                        </>
+                                    )}
+
                                 </div>
                             </section>
 

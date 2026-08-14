@@ -80,7 +80,7 @@ export default function DetailPanel({
 
             {currentStep === 3 && (
 
-                <div style={{ marginBottom: "20px" }}>
+                <div className="detail-padding-controls">
 
                     <h3>Padding Steps</h3>
 
@@ -88,30 +88,21 @@ export default function DetailPanel({
 
                         <button
                             key={index}
-                            onClick={() => onPaddingStepSelect(index)}
-                            style={{
-                                display: "block",
-                                width: "100%",
-                                marginBottom: "8px",
-                                padding: "10px",
-                                cursor: "pointer",
-
-                                background:
-                                    selectedPaddingStep === index
-                                        ? "#1976d2"
-                                        : "#ffffff",
-
-                                color:
-                                    selectedPaddingStep === index
-                                        ? "white"
-                                        : "black",
-
-                                border: "1px solid #ccc",
-
-                                borderRadius: "6px",
-                            }}
+                            className={`detail-padding-button ${selectedPaddingStep === index
+                                ? "selected"
+                                : ""
+                                }`}
+                            onClick={() =>
+                                onPaddingStepSelect(index)
+                            }
                         >
-                            {step}
+                            <span className="detail-padding-number">
+                                0{index + 1}
+                            </span>
+
+                            <span>
+                                {step}
+                            </span>
                         </button>
 
                     ))}
@@ -121,17 +112,23 @@ export default function DetailPanel({
             )}
 
             {currentStep === 4 && (
-                <div style={controlGroupStyle}>
-                    <div style={controlStyle}>
-                        <label style={labelStyle}>
+
+                <div className="detail-schedule-controls">
+
+                    <div className="detail-control">
+
+                        <label className="detail-control-label">
                             Learning Mode
                         </label>
 
                         <select
-                            style={selectStyle}
+                            className="detail-select"
                             value={scheduleMode}
                             onChange={(e) => {
-                                const mode = e.target.value as "initial" | "expanded";
+
+                                const mode =
+                                    e.target.value as
+                                    "initial" | "expanded";
 
                                 onScheduleModeChange(mode);
 
@@ -140,8 +137,10 @@ export default function DetailPanel({
                                 } else {
                                     onSelectedWordChange(16);
                                 }
+
                             }}
                         >
+
                             <option value="initial">
                                 Initial Words (W0–W15)
                             </option>
@@ -149,53 +148,64 @@ export default function DetailPanel({
                             <option value="expanded">
                                 Expanded Words (W16–W63)
                             </option>
+
                         </select>
+
                     </div>
 
-                    <div style={controlStyle}>
-                        <label style={labelStyle}>
+
+                    <div className="detail-control">
+
+                        <label className="detail-control-label">
                             Selected Word
                         </label>
 
                         <select
-                            style={selectStyle}
+                            className="detail-select"
                             value={selectedWord}
                             onChange={(e) =>
-                                onSelectedWordChange(Number(e.target.value))
+                                onSelectedWordChange(
+                                    Number(e.target.value)
+                                )
                             }
                         >
+
                             {(scheduleMode === "initial"
-                                ? Array.from({ length: 16 }, (_, i) => i)
-                                : Array.from({ length: 48 }, (_, i) => i + 16)
+                                ? Array.from(
+                                    { length: 16 },
+                                    (_, i) => i
+                                )
+                                : Array.from(
+                                    { length: 48 },
+                                    (_, i) => i + 16
+                                )
                             ).map((word) => (
+
                                 <option
                                     key={word}
                                     value={word}
                                 >
                                     W{word}
                                 </option>
+
                             ))}
+
                         </select>
+
                     </div>
+
                 </div>
             )}
 
             {currentStep === 5 && (
 
-                <div style={controlGroupStyle}>
+                <div className="detail-compression-controls">
 
                     <button
-                        style={{
-                            ...compressionButtonStyle,
-                            backgroundColor:
-                                compressionView === "t1"
-                                    ? "#1976d2"
-                                    : "#ffffff",
-                            color:
-                                compressionView === "t1"
-                                    ? "#ffffff"
-                                    : "#171717",
-                        }}
+                        className={`compression-option ${compressionView === "t1"
+                                ? "selected"
+                                : ""
+                            }`}
                         onClick={() =>
                             onCompressionViewChange("t1")
                         }
@@ -205,17 +215,10 @@ export default function DetailPanel({
 
 
                     <button
-                        style={{
-                            ...compressionButtonStyle,
-                            backgroundColor:
-                                compressionView === "t2"
-                                    ? "#1976d2"
-                                    : "#ffffff",
-                            color:
-                                compressionView === "t2"
-                                    ? "#ffffff"
-                                    : "#171717",
-                        }}
+                        className={`compression-option ${compressionView === "t2"
+                                ? "selected"
+                                : ""
+                            }`}
                         onClick={() =>
                             onCompressionViewChange("t2")
                         }
@@ -225,17 +228,10 @@ export default function DetailPanel({
 
 
                     <button
-                        style={{
-                            ...compressionButtonStyle,
-                            backgroundColor:
-                                compressionView === "working"
-                                    ? "#1976d2"
-                                    : "#ffffff",
-                            color:
-                                compressionView === "working"
-                                    ? "#ffffff"
-                                    : "#171717",
-                        }}
+                        className={`compression-option ${compressionView === "working"
+                                ? "selected"
+                                : ""
+                            }`}
                         onClick={() =>
                             onCompressionViewChange("working")
                         }
@@ -244,7 +240,6 @@ export default function DetailPanel({
                     </button>
 
                 </div>
-
             )}
 
 

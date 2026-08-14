@@ -15,7 +15,7 @@ function AsciiStep({
     if (characters.length === 0) {
         return (
             <>
-                <h3>Step 2 - ASCII Encoding</h3>
+                {/* <h3>Step 2 - ASCII Encoding</h3> */}
                 <p>Please generate a message first.</p>
             </>
         );
@@ -24,7 +24,7 @@ function AsciiStep({
     if (selectedCharacterIndex === null) {
         return (
             <>
-                <h3>Step 2 - ASCII Encoding</h3>
+                {/* <h3>Step 2 - ASCII Encoding</h3> */}
                 <p>Please select a character from the Detail Panel.</p>
             </>
         );

@@ -1,6 +1,6 @@
-/* ===========================
-   Global
-=========================== */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
   margin: 0;
@@ -9,562 +9,1932 @@
 }
 
 body {
-  background: #f4f5f7;
-  font-family: "Inter", sans-serif;
-  color: #222;
+  background: #0d1011;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  color: #d8d6ce;
 }
 
 button {
   cursor: pointer;
-  transition: 0.25s;
+
+  transition:
+    0.2s ease;
 }
 
-/* ===========================
-   App
-=========================== */
+
+/* =========================================================
+   APP
+========================================================= */
 
 .app {
   min-height: 100vh;
+
+  background:
+    #0d1011;
+
+  color:
+    #d8d6ce;
 }
 
 .app h2 {
-  color: #d8d8d8;
+  color:
+    #e5e2d9;
 }
 
 
-
-/* ===========================
-   Header
-=========================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
-  height: 50px;
-  background: #3f4b8b;
+  height: 58px;
 
-  color: white;
+  background:
+    #090c0d;
+
+  color:
+    #e8e5dc;
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    center;
+
+  padding:
+    0 28px;
+
+  border-bottom:
+    1px solid #343837;
+
+  box-shadow:
+    none;
+
+  position:
+    relative;
+}
+
+
+/* top orange line */
+
+.header::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    28px;
+
+  width:
+    110px;
+
+  height:
+    2px;
+
+  background:
+    #d98200;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-header {
+  height: 55px;
 
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
 
-  padding: 0 36px;
+  justify-content: space-between;
 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+  background:
+    rgba(8, 11, 12, 0.94);
+
+  border-bottom:
+    1px solid #303434;
+
+  position: relative;
+
+  z-index: 5;
+
+  box-sizing: border-box;
+
 }
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.home-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  letter-spacing: 1px;
+
+  color: #d5d3cb;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  margin-left: 30px;
+  margin-bottom: 5px;
+
+}
+
+
+.home-brand::after {
+  content:
+    "SHA-256 INTERACTIVE LEARNING TERMINAL";
+
+  position: absolute;
+
+  left: 30px;
+
+  top: 23px;
+
+  font-size: 8px;
+
+  font-weight: 400;
+
+  letter-spacing: 1.2px;
+
+  color:
+    #c47600;
+}
+
+.home-header-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+
+  margin-right: 25px;
+}
+
+
+/* =========================================================
+   USER
+========================================================= */
+
+.home-user {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.8px;
+
+  color:
+    #b4b5ae;
+
+  text-transform: uppercase;
+  margin-right: 25px;
+}
+
+/* Header title */
 
 .header h1 {
-  font-size: 25px;
-  font-weight: 300;
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    14px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1px;
+
+  color:
+    #e8e5dc;
+
+  text-transform:
+    uppercase;
 }
+
+
+/* Header secondary text */
 
 .header p {
-  opacity: .8;
+  opacity:
+    1;
+
+  color:
+    #777c77;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.8px;
 }
 
-/* ===========================
-   Main Layout
-=========================== */
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
 
 .layout {
-  display: grid;
+  display:
+    grid;
 
-  grid-template-columns: 240px 1fr;
+  grid-template-columns:
+    220px minmax(0, 1fr);
 
-  height: calc(100vh - 50px);
+  height:
+    calc(100vh - 58px);
 
+  background:
+    #0d1011;
 }
 
-/* ===========================
-   Sidebar
-=========================== */
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
 .sidebar {
-  background: #2d2d2d;
+  background:
+    #101415;
 
-  color: white;
+  color:
+    #d8d6ce;
 
-  padding: 15px 12px;
+  padding:
+    25px 12px;
+
+  border-right:
+    1px solid #303534;
+
+  overflow-y:
+    auto;
+
+  position:
+    relative;
 }
+
+
+/* small orange line at top */
+
+.sidebar::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    0;
+
+  left:
+    0;
+
+  width:
+    38px;
+
+  height:
+    2px;
+
+  background:
+    #d98200;
+}
+
+
+/* Sidebar title */
 
 .sidebar h2 {
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 20px;
-  margin-left: 10px;
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    11px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1.5px;
+
+  color:
+    #d98200;
+
+  margin-bottom:
+    18px;
+
+  margin-left:
+    8px;
+
+  text-transform:
+    uppercase;
 }
+
+
+.sidebar h2::before {
+  content:
+    "// ";
+
+  color:
+    #f39a00;
+}
+
+
+/* Step text */
 
 .sidebar span {
-  font-size: 16px;
-  font-weight: 400;
+  font-family:
+    "Courier New",
+    monospace;
 
+  font-size:
+    10px;
+
+  font-weight:
+    400;
+
+  color:
+    #9a9e99;
+
+  letter-spacing:
+    0.2px;
 }
+
+
+/* Step list */
 
 .sidebar ul {
-  list-style: none;
+  list-style:
+    none;
 }
+
+
+/* =========================================================
+   SIDEBAR STEP
+========================================================= */
 
 .sidebar li {
-  display: flex;
-  align-items: left;
-  gap: 12px;
+  display:
+    flex;
 
-  padding: 14px 16px;
+  align-items:
+    center;
 
-  margin-bottom: 8px;
+  gap:
+    10px;
 
-  border-radius: 10px;
+  padding:
+    11px 10px;
 
-  transition: .2s;
+  margin-bottom:
+    4px;
+
+  border:
+    1px solid transparent;
+
+  border-radius:
+    2px;
+
+  background:
+    transparent;
+
+  transition:
+    0.2s ease;
 }
+
+
+/* Hover */
 
 .sidebar li:hover {
-  background: rgba(255, 255, 255, .08);
-  transform: translateX(4px);
+  background:
+    rgba(217, 130, 0, 0.045);
+
+  border-color:
+    #373a39;
+
+  transform:
+    none;
 }
+
+
+/* Active */
 
 .sidebar li.active {
-  background: #4a5db3;
-  font-weight: 600;
+  background:
+    rgba(217, 130, 0, 0.09);
+
+  border:
+    1px solid #6b4c18;
+
+  font-weight:
+    600;
+
+  box-shadow:
+    inset 3px 0 0 #d98200;
 }
 
 
-/* ===========================
-   Detail Panel
-=========================== */
+/* Active text */
+
+.sidebar li.active span {
+  color:
+    #e6e3da;
+}
+
+
+/* =========================================================
+   STEP NUMBER
+========================================================= */
+
+.step-number {
+  width:
+    24px;
+
+  height:
+    24px;
+
+  border-radius:
+    2px;
+
+  background:
+    #171b1b;
+
+  border:
+    1px solid #3b3f3e;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  color:
+    #777c77;
+
+  flex-shrink:
+    0;
+}
+
+
+/* Active number */
+
+.sidebar li.active .step-number {
+  background:
+    #d98200;
+
+  border-color:
+    #d98200;
+
+  color:
+    #0b0d0e;
+}
+
+
+/* Step title */
+
+.step-title {
+  flex:
+    1;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    10px;
+
+  letter-spacing:
+    0.2px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  height:
+    100%;
+
+  overflow:
+    hidden;
+
+  padding:
+    10px;
+}
+
+
+/* =========================================================
+   WORKSPACE
+========================================================= */
+
+.workspace {
+  display:
+    grid;
+
+  grid-template-columns:
+    minmax(0, 1fr) 320px;
+
+  gap:
+    10px;
+
+  align-items:
+    stretch;
+
+  height:
+    100%;
+
+  min-height:
+    0;
+}
+
+
+/* =========================================================
+   MAIN COLUMN
+========================================================= */
+
+.main-column {
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    10px;
+
+  height:
+    100%;
+
+  min-height:
+    0;
+}
+
+
+/* =========================================================
+   GENERAL PANEL
+========================================================= */
+
+.panel {
+  background:
+    #111516;
+
+  border:
+    1px solid #363a39;
+
+  border-radius:
+    3px;
+
+  padding:
+    18px;
+
+  box-shadow:
+    none;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  position:
+    relative;
+}
+
+
+/* small corner decoration */
+
+.panel::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -1px;
+
+  left:
+    -1px;
+
+  width:
+    18px;
+
+  height:
+    18px;
+
+  border-top:
+    2px solid #d98200;
+
+  border-left:
+    2px solid #d98200;
+
+  pointer-events:
+    none;
+}
+
+
+/* Panel headings */
+
+.panel h2 {
+  margin-top:
+    0;
+
+  margin-bottom:
+    16px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    20px;
+
+  font-weight:
+    700;
+
+  color:
+    #e8e5dc;
+}
+
+
+/* =========================================================
+   VISUALIZATION CARD
+========================================================= */
+
+.visualization-card {
+  flex:
+    1;
+
+  min-height:
+    0;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+}
+
+
+/* =========================================================
+   VISUALIZATION CONTENT
+========================================================= */
+
+.visualization-content {
+  flex:
+    1;
+
+  min-height:
+    0;
+
+  overflow-y:
+    auto;
+
+  color:
+    #d2d0c8;
+}
+
+.visualization-content pre {
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    16px;
+
+  font-weight:
+    500;
+
+  line-height:
+    1.5;
+
+  color:
+    #e8e5dc;
+
+
+}
+
+/* Scrollbar */
+
+.visualization-content::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar,
+.detail-panel::-webkit-scrollbar {
+  width:
+    6px;
+}
+
+.visualization-content::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track,
+.detail-panel::-webkit-scrollbar-track {
+  background:
+    #101313;
+}
+
+.visualization-content::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb,
+.detail-panel::-webkit-scrollbar-thumb {
+  background:
+    #3d4140;
+
+  border-radius:
+    0;
+}
+
+.visualization-content::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover,
+.detail-panel::-webkit-scrollbar-thumb:hover {
+  background:
+    #d98200;
+}
+
+
+/* =========================================================
+   DETAIL PANEL
+========================================================= */
 
 .detail-panel {
+  background:
+    #111516;
 
-  background: white;
+  border:
+    1px solid #363a39;
 
-  border-radius: 8px;
+  border-radius:
+    3px;
 
-  padding: 20px;
+  padding:
+    18px;
 
-  box-shadow: 0 4px 14px rgba(0, 0, 0, .08);
+  box-shadow:
+    none;
 
-  position: sticky;
+  position:
+    sticky;
 
-  top: 20px;
+  top:
+    10px;
 
-  height: 100%;
+  height:
+    100%;
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
+  color:
+    #d2d0c8;
 }
 
-.step-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 14px;
-  margin-bottom: 18px;
 
-  background: #eef2ff;
-  color: #4f46e5;
-
-  border-radius: 999px;
-
-  font-size: 13px;
-  font-weight: 600;
-}
+/* Detail heading */
 
 .detail-panel h2 {
-  color: #d8d8d8;
+  color:
+    #e8e5dc;
 }
+
+
+/* Detail title */
 
 .detail-panel h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
+  margin-bottom:
+    10px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    19px;
+
+  color:
+    #e5e2d9;
 }
+
+
+/* Detail text */
 
 .detail-panel p {
-  line-height: 1.7;
-  color: #555;
+  line-height:
+    1.7;
+
+  color:
+    #949994;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    10px;
 }
+
+
+/* Detail h4 */
 
 .detail-panel h4 {
+  margin-top:
+    10px;
 
-  margin-top: 10px;
+  margin-bottom:
+    10px;
 
-  margin-bottom: 10px;
+  font-family:
+    "Courier New",
+    monospace;
 
+  font-size:
+    10px;
+
+  letter-spacing:
+    1px;
+
+  color:
+    #d98200;
+
+  text-transform:
+    uppercase;
 }
 
 
+/* Detail list */
+
 .detail-panel ul {
+  margin-left:
+    18px;
 
-  margin-left: 18px;
-
-  margin-top: 0px;
-
+  margin-top:
+    0;
 }
 
 .detail-panel li {
+  margin-bottom:
+    5px;
 
-  margin-bottom: 0px;
+  color:
+    #929690;
 
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    10px;
 }
 
+/* =========================================================
+   DETAIL PANEL — PADDING
+========================================================= */
 
-/* ===========================
-   Workspace
-=========================== */
-
-.content {
-  display: flex;
-
-  flex-direction: column;
-
-  height: 100%;
-
-  overflow: hidden;
-
-  padding: 10px 10px;
-}
-
-.workspace {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  gap: 10px;
-  align-items: stretch;
-  height: 100%;
-}
-
-.main-column {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 10px;
-
-  height: 100%;
-
-  min-height: 0;
-}
-
-.panel {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-}
-
-.panel h2 {
-  margin-top: 0;
+.detail-padding-controls {
   margin-bottom: 20px;
-  font-size: 20px;
 }
 
-.visualization-card {
-  flex: 1;
+.detail-padding-controls h3 {
+  margin: 0 0 12px;
 
-  min-height: 0;
+  color: #777b76;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+
+.detail-padding-button {
+  width: 100%;
 
   display: flex;
 
-  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 6px;
+
+  padding: 10px 11px;
+
+  border: 1px solid #343938;
+
+  border-radius: 2px;
+
+  background: #0d1010;
+
+  color: #969a94;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.3px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
 }
+
+
+.detail-padding-button:hover {
+  background:
+    rgba(217, 130, 0, 0.045);
+
+  border-color:
+    #76551e;
+
+  color:
+    #d9d5ca;
+}
+
+
+.detail-padding-button.selected {
+  background:
+    rgba(217, 130, 0, 0.09);
+
+  border-color:
+    #9a681c;
+
+  color:
+    #e89a00;
+
+  box-shadow:
+    inset 3px 0 0 #d98200;
+}
+
+
+.detail-padding-number {
+  width: 22px;
+
+  flex-shrink: 0;
+
+  color: #666b66;
+
+  font-size: 8px;
+
+  letter-spacing: 0;
+}
+
+
+.detail-padding-button.selected .detail-padding-number {
+  color: #d98200;
+}
+
+/* detail panel - message schedule */
+.detail-schedule-controls {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+
+.detail-control {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.detail-control-label {
+  color: #777b76;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+
+.detail-select {
+  width: 100%;
+
+  padding: 10px 11px;
+
+  border: 1px solid #3b403e;
+
+  border-radius: 2px;
+
+  background: #0b0e0e;
+
+  color: #d8d5cc;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+
+.detail-select:hover {
+  border-color: #76551e;
+}
+
+
+.detail-select:focus {
+  border-color: #d98200;
+
+  box-shadow:
+    0 0 0 1px rgba(217, 130, 0, 0.12);
+}
+
+
+.detail-select option {
+  background: #101313;
+
+  color: #d8d5cc;
+}
+
+
+/* detail panel - compression */
+.detail-compression-controls {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  margin-bottom: 20px;
+}
+
+
+.compression-option {
+  width: 100%;
+
+  padding: 11px 12px;
+
+  border: 1px solid #343938;
+
+  border-radius: 2px;
+
+  background: #0d1010;
+
+  color: #969a94;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.7px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+
+.compression-option:hover {
+  background:
+    rgba(217, 130, 0, 0.045);
+
+  border-color:
+    #76551e;
+
+  color:
+    #d9d5ca;
+}
+
+
+.compression-option.selected {
+  background:
+    rgba(217, 130, 0, 0.09);
+
+  border-color:
+    #9a681c;
+
+  color:
+    #e89a00;
+
+  box-shadow:
+    inset 3px 0 0 #d98200;
+}
+
+
+/* =========================================================
+   STEP BADGE
+========================================================= */
+
+.step-badge {
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  padding:
+    5px 10px;
+
+  margin-bottom:
+    16px;
+
+  background:
+    rgba(217, 130, 0, 0.06);
+
+  color:
+    #d98200;
+
+  border:
+    1px solid #654a1d;
+
+  border-radius:
+    2px;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.8px;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* =========================================================
+   DETAIL SECTION
+========================================================= */
+
+.detail-section {
+  margin-top:
+    22px;
+
+  margin-left:
+    0;
+
+  padding-top:
+    14px;
+
+  border-top:
+    1px solid #292d2c;
+}
+
+
+.detail-section h4 {
+  margin-bottom:
+    9px;
+
+  color:
+    #d98200;
+
+  font-size:
+    10px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    1px;
+}
+
+
+.detail-section p {
+  line-height:
+    1.65;
+
+  color:
+    #91958f;
+
+  font-size:
+    10px;
+}
+
+
+.detail-section ul {
+  margin:
+    0;
+
+  padding-left:
+    18px;
+}
+
+
+.detail-section li {
+  margin-bottom:
+    7px;
+
+  line-height:
+    1.5;
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
 
 .message-input {
-  border-radius: 8px;
+  border-radius:
+    2px;
 
-  min-height: 30px;
+  min-height:
+    30px;
 
-  max-height: 120px;
+  max-height:
+    120px;
 
-  resize: none;
+  resize:
+    none;
 
-  overflow-y: auto;
-  padding: 8px;
+  overflow-y:
+    auto;
 
+  padding:
+    9px;
+
+  background:
+    #0d1011;
+
+  color:
+    #e5e3dc;
+
+  border:
+    1px solid #3b403e;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    11px;
+
+  outline:
+    none;
 }
 
-.visualization-content {
 
-  flex: 1;
+.message-input:focus {
+  border-color:
+    #d98200;
 
-  min-height: 0;
-
-  overflow-y: auto;
-
+  box-shadow:
+    0 0 0 1px rgba(217, 130, 0, 0.12);
 }
+
+
+/* =========================================================
+   INPUT ACTIONS
+========================================================= */
 
 .input-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
+
+  align-items: center;
+
+  justify-content: right;
+
+  gap: 5px;
+
   margin-top: 10px;
+
   flex-shrink: 0;
 }
 
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
 .primary-button {
-  background: #6366f1;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  height: 32px;
-  width: 100px;
-  cursor: pointer;
+  background:
+    #d98200;
+
+  color:
+    #0b0d0e;
+
+  border:
+    1px solid #d98200;
+
+  border-radius:
+    2px;
+
+  height:
+    32px;
+
+  min-width:
+    100px;
+
+  padding:
+    0 14px;
+
+  cursor:
+    pointer;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.7px;
+
+  text-transform:
+    uppercase;
+
+  margin-top:
+    0px;
 }
 
-.secondary-button {
-  background: #6366f1;
-  border: 1px solid #d1d5db;
-  border-radius: 5px;
-  height: 32px;
-  width: 100px;
-  cursor: pointer;
-}
-
-.secondary-button:hover {
-  background: #4f46e5;
-}
 
 .primary-button:hover {
-  background: #4f46e5;
+  background:
+    #f39a00;
+
+  border-color:
+    #f39a00;
+
+  box-shadow:
+    0 0 10px rgba(243, 154, 0, 0.14);
+
 }
 
-.step-number {
 
-  width: 24px;
-  height: 24px;
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
 
-  border-radius: 50%;
+.secondary-button {
+  background:
+    transparent;
 
-  background: rgba(255, 255, 255, .15);
+  background:
+    #d98200;
+
+  color:
+    #0b0d0e;
+
+  /* color:
+    #a2a59f; */
+
+  border:
+    1px solid #d98200;
+
+  border-radius:
+    2px;
+
+  height:
+    32px;
+
+  min-width:
+    100px;
+
+  padding:
+    0 14px;
+
+  cursor:
+    pointer;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    9px;
+
+  font-weight:
+    700;
+
+  letter-spacing:
+    0.7px;
+
+  text-transform:
+    uppercase;
+}
+
+
+.secondary-button:hover {
+  background:
+    rgba(217, 130, 0, 0.05);
+
+  border-color:
+    #79551d;
+
+  color:
+    #d98200;
+}
+
+
+/*ascii*/
+
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.character-button {
+  width: 42px;
+  height: 42px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 12px;
-  font-weight: 600;
+  border: 1px solid #383b3c;
+  border-radius: 2px;
 
-  flex-shrink: 0;
-}
+  background: #0d0f0f;
+  color: #aaa79e;
 
-.step-title {
-
-  flex: 1;
-
-  font-size: 14px;
-
-}
-
-.sidebar li {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-}
-
-.sidebar li.active .step-number {
-
-  background: white;
-
-  color: #4a5db3;
-
-}
-
-.detail-section {
-  margin-top: 24px;
-  margin-left: 10px;
-}
-
-.detail-section h4 {
-  margin-bottom: 10px;
-  color: #4f46e5;
+  font-family: "Courier New", monospace;
   font-size: 15px;
-  font-weight: 600;
-}
-
-.detail-section p {
-  line-height: 1.6;
-  color: #555;
-}
-
-.detail-section ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.detail-section li {
-  margin-bottom: 8px;
-  line-height: 1.5;
-}
-
-.character-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.character-button {
-
-  width: 42px;
-  height: 42px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  background: #ececec;
 
   cursor: pointer;
 
-  font-size: 16px;
-
-  transition: .2s;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.12s ease;
 }
 
 .character-button:hover {
-
-  background: #d8d8d8;
-
+  border-color: #b87900;
+  color: #e5a000;
+  background: #15130e;
 }
 
 .character-button.selected {
+  background: #d88900;
+  border-color: #e89a00;
 
-  background: #4f46e5;
+  color: #080909;
 
-  color: white;
-
+  box-shadow:
+    0 0 0 1px rgba(232, 154, 0, 0.25),
+    0 0 12px rgba(232, 154, 0, 0.12);
 }
+
+
 
 .learning-flow {
-  margin-top: 40px;
+  margin-top: 36px;
 
   display: flex;
-  flex-direction: column;
-
-  align-items: center;
-
-  gap: 20px;
-}
-
-.flow-card {
-
-  width: 260px;
-
-  background: white;
-
-  border: 1px solid #ddd;
-
-  border-radius: 10px;
-
-  padding: 20px;
-
-  text-align: center;
-
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-
-}
-
-.flow-card h4 {
-
-  color: #4f46e5;
-
-  margin-bottom: 12px;
-
-}
-
-.flow-value {
-
-  font-size: 34px;
-
-  font-weight: 700;
-
-}
-
-.flow-arrow {
-
-  font-size: 28px;
-
-  color: #999;
-
-}
-
-.binary-value {
-
-  font-family: Consolas, monospace;
-
-  font-size: 28px;
-
-  letter-spacing: 2px;
-
-  word-break: break-all;
-
-}
-
-.binary-detail {
-
-  display: flex;
-
   flex-direction: column;
 
   align-items: center;
 
   gap: 16px;
-
-  margin-top: 20px;
-
 }
 
-.detail-value-card {
+.flow-card {
+  width: 260px;
 
-  width: 100%;
+  padding: 22px 24px;
 
-  border: 1px solid #ddd;
+  background: #0b0d0d;
 
-  border-radius: 10px;
-
-  padding: 16px;
+  border: 1px solid #383b3c;
+  border-radius: 2px;
 
   text-align: center;
 
-  background: #fafafa;
+  box-shadow: none;
 
+  position: relative;
 }
 
-.detail-value-card h4 {
+.flow-card::before {
+  content: "";
 
-  margin-bottom: 8px;
+  position: absolute;
 
-  color: #4f46e5;
+  top: -1px;
+  left: -1px;
 
+  width: 28px;
+  height: 2px;
+
+  background: #e89a00;
 }
 
-.detail-value {
+.flow-card::after {
+  content: "";
 
-  font-size: 28px;
+  position: absolute;
 
-  font-weight: 700;
+  bottom: -1px;
+  right: -1px;
 
+  width: 28px;
+  height: 2px;
+
+  background: #e89a00;
 }
 
-.detail-binary {
+.flow-card h4 {
+  margin: 0 0 14px;
 
-  font-family: Consolas, monospace;
+  color: #e89a00;
 
-  font-size: 20px;
+  font-family: "Courier New", monospace;
 
+  font-size: 11px;
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.flow-value {
+  color: #e5e2d9;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 34px;
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  letter-spacing: 1px;
+}
+
+.flow-arrow {
+  font-family: "Courier New", monospace;
+
+  font-size: 22px;
+
+  color: #e89a00;
+
+  line-height: 1;
+
+  opacity: 0.85;
+}
+
+
+/* binary */
+
+.binary-value {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 18px 20px;
+
+  background: #0b0d0d;
+
+  border: 1px solid #383b3c;
+  border-radius: 2px;
+
+  color: #d8d5cc;
+
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  font-weight: 400;
+
+  line-height: 1.8;
   letter-spacing: 2px;
 
   word-break: break-all;
 
+  position: relative;
+}
+
+
+.binary-detail {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 28px;
+
+  width: 100%;
+}
+
+.detail-value-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 18px 20px;
+
+  border: 1px solid #383b3c;
+  border-radius: 2px;
+
+  background: #0b0d0d;
+
+  text-align: center;
+
+  position: relative;
+}
+
+.detail-value-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: -1px;
+
+  width: 24px;
+  height: 2px;
+
+  background: #e89a00;
+}
+
+.detail-value-card h4 {
+  margin: 0 0 12px;
+
+  color: #e89a00;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.detail-value {
+  color: #e5e2d9;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}
+
+.detail-binary {
+  color: #d8d5cc;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1.8;
+
+  letter-spacing: 2px;
+
+  word-break: break-all;
 }
 
 .detail-arrow {
+  font-family: "Courier New", monospace;
+
+  font-size: 20px;
+
+  color: #e89a00;
+
+  line-height: 1;
+}
+
+
+/* Padding Step */
+.padding-stage {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding-top: 4px;
+}
+
+.padding-title {
+  margin: 0 0 18px;
+
+  color: #e5e2d9;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   font-size: 24px;
+  font-weight: 600;
 
-  color: #999;
+  letter-spacing: -0.3px;
 
+  line-height: 1.3;
 }
+
+.padding-description {
+  margin: -8px 0 12px;
+
+  color: #77766f;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 0.5px;
+}
+
+.padding-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+
+  margin: 0 0 14px;
+
+  color: #85837c;
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 0.8px;
+}
+
+
+.padding-info strong {
+  color: #e89a00;
+
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}
+
+
+
+.padding-binary {
+  position: relative;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 18px 20px;
+
+  background: #0a0c0c;
+
+  border: 1px solid #353839;
+
+  border-radius: 2px;
+
+  color: #d7d4cc;
+
+  font-family:
+    "Courier New",
+    Consolas,
+    monospace;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  letter-spacing: 1.5px;
+
+  white-space: pre-wrap;
+
+  word-break: break-all;
+
+  overflow-x: auto;
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.padding-binary::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: -1px;
+
+  width: 34px;
+  height: 2px;
+
+  background: #e89a00;
+}
+
+.padding-final {
+  border-color: #5b4925;
+
+  background:
+    linear-gradient(90deg,
+      rgba(232, 154, 0, 0.025),
+      transparent 35%);
+
+  box-shadow:
+    inset 0 0 24px rgba(232, 154, 0, 0.035);
+}
+
 
 
 @keyframes choosePulse {
