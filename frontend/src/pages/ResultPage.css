@@ -1,11 +1,17 @@
 .result-page {
     min-height: 100vh;
 
-    background: #f6f6f7;
+    background: #0f1213;
 
-    color: #171717;
+    color: #d5d3cb;
+
+    font-family: monospace;
 }
 
+
+/* =========================
+   Header
+========================= */
 
 .result-header {
     height: 68px;
@@ -18,11 +24,10 @@
 
     padding: 0 36px;
 
-    background: #ffffff;
+    background: #0b0e0f;
 
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #2d3031;
 }
-
 
 .result-brand {
     font-size: 20px;
@@ -30,24 +35,28 @@
     font-weight: 750;
 
     letter-spacing: -0.5px;
-}
 
+    color: #f0eee8;
+}
 
 .result-header-title {
     font-size: 14px;
 
     font-weight: 600;
 
-    color: #555;
+    color: #d5d3cb;
 }
-
 
 .result-header-status {
     font-size: 12px;
 
-    color: #888;
+    color: #777;
 }
 
+
+/* =========================
+   Main
+========================= */
 
 .result-main {
     width: min(900px,
@@ -59,6 +68,10 @@
 }
 
 
+/* =========================
+   Introduction
+========================= */
+
 .result-intro {
     text-align: center;
 
@@ -66,7 +79,6 @@
 
     margin: 0 auto 48px;
 }
-
 
 .result-eyebrow {
     margin-bottom: 10px;
@@ -77,9 +89,8 @@
 
     letter-spacing: 1.5px;
 
-    color: #777;
+    color: #d99100;
 }
-
 
 .result-intro h1 {
     margin: 0;
@@ -89,8 +100,9 @@
     line-height: 1.15;
 
     letter-spacing: -1.2px;
-}
 
+    color: #f0eee8;
+}
 
 .result-intro>p:last-child {
     margin-top: 18px;
@@ -103,7 +115,9 @@
 }
 
 
-/* Score cards */
+/* =========================
+   Score Cards
+========================= */
 
 .score-grid {
     display: grid;
@@ -116,24 +130,40 @@
     gap: 18px;
 }
 
-
 .score-card {
     padding: 32px;
 
-    background: #ffffff;
+    background: #111516;
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid #3a3d3f;
 
-    border-radius: 16px;
+    border-radius: 8px;
 
     text-align: center;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
+.score-card:hover {
+    border-color: #555;
+
+    box-shadow:
+        0 0 14px rgba(217,
+            145,
+            0,
+            0.06);
+}
 
 .score-card.post-score {
-    border-color: #cfcfcf;
+    border-color: #d99100;
 }
 
+
+/* =========================
+   Score Text
+========================= */
 
 .score-label {
     margin: 0 0 18px;
@@ -144,9 +174,8 @@
 
     letter-spacing: 1.4px;
 
-    color: #777;
+    color: #d99100;
 }
-
 
 .score-number {
     font-size: 52px;
@@ -156,19 +185,19 @@
     font-weight: 750;
 
     letter-spacing: -2px;
-}
 
+    color: #f0eee8;
+}
 
 .score-number span {
     font-size: 22px;
 
     font-weight: 500;
 
-    color: #888;
+    color: #777;
 
     letter-spacing: 0;
 }
-
 
 .score-percentage {
     margin-top: 12px;
@@ -177,18 +206,16 @@
 
     font-weight: 650;
 
-    color: #555;
+    color: #d5d3cb;
 }
-
 
 .score-description {
     margin: 8px 0 0;
 
     font-size: 13px;
 
-    color: #999;
+    color: #777;
 }
-
 
 .score-arrow {
     display: flex;
@@ -199,11 +226,13 @@
 
     font-size: 28px;
 
-    color: #999;
+    color: #d99100;
 }
 
 
-/* Improvement */
+/* =========================
+   Improvement
+========================= */
 
 .improvement-card {
     margin-top: 28px;
@@ -212,13 +241,12 @@
 
     text-align: center;
 
-    background: #ffffff;
+    background: #111516;
 
-    border: 1px solid #e2e2e2;
+    border: 1px solid #3a3d3f;
 
-    border-radius: 16px;
+    border-radius: 8px;
 }
-
 
 .improvement-label {
     margin: 0 0 8px;
@@ -229,9 +257,8 @@
 
     letter-spacing: 1.4px;
 
-    color: #777;
+    color: #d99100;
 }
-
 
 .improvement-value {
     font-size: 42px;
@@ -239,8 +266,9 @@
     font-weight: 750;
 
     letter-spacing: -1px;
-}
 
+    color: #f0eee8;
+}
 
 .improvement-value span {
     margin-left: 8px;
@@ -249,11 +277,10 @@
 
     font-weight: 500;
 
-    color: #888;
+    color: #777;
 
     letter-spacing: 0;
 }
-
 
 .improvement-card>p:last-child {
     margin: 12px auto 0;
@@ -268,7 +295,9 @@
 }
 
 
-/* Buttons */
+/* =========================
+   Buttons
+========================= */
 
 .result-actions {
     display: flex;
@@ -279,7 +308,6 @@
 
     margin-top: 34px;
 }
-
 
 .result-secondary-button,
 .result-primary-button {
@@ -293,7 +321,7 @@
 
     padding: 12px 20px;
 
-    border-radius: 9px;
+    border-radius: 6px;
 
     font-family: inherit;
 
@@ -302,38 +330,59 @@
     font-weight: 650;
 
     cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease,
+        transform 0.1s ease;
 }
 
+
+/* Secondary */
 
 .result-secondary-button {
-    background: #ffffff;
+    background: #111516;
 
-    border: 1px solid #d8d8d8;
+    border: 1px solid #3a3d3f;
 
-    color: #444;
+    color: #d5d3cb;
 }
-
-
-.result-primary-button {
-    background: #171717;
-
-    border: 1px solid #171717;
-
-    color: #ffffff;
-}
-
 
 .result-secondary-button:hover {
-    background: #f4f4f4;
+    background: #171a1b;
+
+    border-color: #666;
+
+    color: #f0eee8;
 }
 
+
+/* Primary */
+
+.result-primary-button {
+    background: #d99100;
+
+    border: 1px solid #d99100;
+
+    color: #111516;
+}
 
 .result-primary-button:hover {
-    background: #333;
+    background: #e3a21a;
+
+    border-color: #e3a21a;
+}
+
+.result-secondary-button:active,
+.result-primary-button:active {
+    transform: scale(0.98);
 }
 
 
-/* Loading / Error */
+/* =========================
+   Loading / Error
+========================= */
 
 .result-loading,
 .result-error {
@@ -348,30 +397,46 @@
     justify-content: center;
 
     gap: 12px;
+
+    background: #0f1213;
+
+    color: #d5d3cb;
 }
 
+.result-loading {
+    font-family: monospace;
+}
 
 .result-error p {
-    color: #777;
+    color: #888;
 }
-
 
 .result-error button {
     padding: 10px 18px;
 
-    border: none;
+    border: 1px solid #d99100;
 
-    border-radius: 8px;
+    border-radius: 6px;
 
-    background: #171717;
+    background: #d99100;
 
-    color: white;
+    color: #111516;
+
+    font-family: monospace;
 
     cursor: pointer;
 }
 
+.result-error button:hover {
+    background: #e3a21a;
 
-/* Responsive */
+    border-color: #e3a21a;
+}
+
+
+/* =========================
+   Responsive
+========================= */
 
 @media (max-width: 700px) {
 
@@ -393,7 +458,6 @@
 
     .score-grid {
         grid-template-columns: 1fr;
-
     }
 
     .score-arrow {
@@ -408,5 +472,4 @@
     .result-primary-button {
         width: 100%;
     }
-
 }

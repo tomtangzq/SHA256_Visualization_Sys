@@ -1,4 +1,3 @@
-import { Weight } from "lucide-react";
 import { detailContent } from "./DetailContent";
 import AsciiDetail from "./detail/CharacterSelector";
 
@@ -282,49 +281,9 @@ export default function DetailPanel({
     );
 }
 
-const controlGroupStyle = {
-    display: "flex",
-    flexDirection: "column" as const,
-    gap: "16px",
-    marginBottom: "20px",
-};
-
-const controlStyle = {
-    display: "flex",
-    flexDirection: "column" as const,
-    gap: "5px",
-};
-
-const labelStyle = {
-    fontSize: "14px",
-    fontWeight: 500,
-};
-
-const selectStyle = {
-    width: "100%",
-    padding: "10px 12px",
-    borderRadius: "8px",
-    border: "1px solid #4b5563",
-    backgroundColor: "#2d2d2d",   // 深灰背景
-    color: "#f9fafb",             // 白色文字
-    fontSize: "14px",
-    cursor: "pointer",
-    outline: "none",
-};
-
 const pLable = {
     fontSize: "17px",
     Weight: "400"
 
 }
 
-const compressionButtonStyle = {
-    width: "100%",
-    padding: "11px 12px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
-    fontSize: "14px",
-    fontWeight: 500,
-    cursor: "pointer",
-    textAlign: "left" as const,
-};

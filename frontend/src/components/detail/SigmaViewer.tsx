@@ -70,7 +70,7 @@ export default function SigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        ROTR
+                        Right Rotate
                     </span>
 
                     <strong>
@@ -95,7 +95,7 @@ export default function SigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        ROTR
+                        Right Rotate
                     </span>
 
                     <strong>
@@ -120,7 +120,7 @@ export default function SigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        SHR
+                        Right Shift
                     </span>
 
                     <strong>

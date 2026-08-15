@@ -10,13 +10,13 @@
 .final-hash-value {
     margin-top: 20px;
 
-    padding: 20px 24px;
+    padding: 18px 20px;
 
-    background: #f7f7f8;
+    background: #111516;
 
-    border: 1px solid #e3e3e3;
+    border: 1px solid #d99100;
 
-    border-radius: 10px;
+    border-radius: 8px;
 
     font-family:
         "SFMono-Regular",
@@ -30,14 +30,19 @@
 
     word-break: break-all;
 
-    color: #222;
+    color: #d5d3cb;
+
+    box-shadow:
+        0 0 12px rgba(217, 145, 0, 0.12);
 }
 
 
 .final-hash-description {
-    margin-top: 14px;
+    margin-top: 16px;
 
     color: #777;
+
+    font-family: monospace;
 
     font-size: 14px;
 
@@ -74,7 +79,7 @@
 
     padding: 12px 20px;
 
-    border-radius: 9px;
+    border-radius: 4px;
 
     font-family: inherit;
 
@@ -92,32 +97,34 @@
 
 
 .digest-secondary-button {
-    background: #ffffff;
+    background: #111516;
 
-    color: #444;
+    color: #d5d3cb;
 
-    border: 1px solid #d8d8d8;
+    border: 1px solid #3a3d3f;
 }
 
-
 .digest-secondary-button:hover {
-    background: #f5f5f5;
+    background: #171a1b;
 
-    border-color: #c5c5c5;
+    border-color: #666;
+
+    color: #ffffff;
 }
 
 
 .digest-primary-button {
-    background: #171717;
+    background: #d99100;
 
-    color: #ffffff;
+    color: #111516;
 
-    border: 1px solid #171717;
+    border: 1px solid #d99100;
 }
 
-
 .digest-primary-button:hover {
-    background: #333333;
+    background: #e3a21a;
+
+    border-color: #e3a21a;
 }
 
 
@@ -146,10 +153,7 @@
 
     padding: 24px;
 
-    background: rgba(0,
-            0,
-            0,
-            0.45);
+    background: rgba(0, 0, 0, 0.72);
 }
 
 
@@ -160,17 +164,18 @@
 
     max-width: 520px;
 
-    padding: 36px;
+    padding: 32px;
 
-    background: #ffffff;
+    background: #111516;
 
-    border-radius: 18px;
+    border: 1px solid #3a3d3f;
+
+    border-radius: 8px;
 
     box-shadow:
-        0 20px 60px rgba(0,
-            0,
-            0,
-            0.18);
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+    color: #d5d3cb;
 }
 
 
@@ -185,9 +190,9 @@
 
     height: 32px;
 
-    border: none;
+    border: 1px solid #3a3d3f;
 
-    border-radius: 50%;
+    border-radius: 4px;
 
     background: transparent;
 
@@ -200,10 +205,14 @@
     cursor: pointer;
 }
 
-
 .revert-close:hover {
-    background: #f2f2f2;
+    background: #171a1b;
+
+    color: #d99100;
+
+    border-color: #d99100;
 }
+
 
 
 .revert-icon {
@@ -219,11 +228,13 @@
 
     margin-bottom: 20px;
 
-    border-radius: 12px;
+    border-radius: 6px;
 
-    background: #f3efff;
+    background: #1b1810;
 
-    color: #7c3aed;
+    border: 1px solid #d99100;
+
+    color: #d99100;
 
     font-size: 24px;
 
@@ -234,35 +245,38 @@
 .revert-eyebrow {
     margin: 0 0 8px;
 
+    font-family: monospace;
+
     font-size: 11px;
 
     font-weight: 700;
 
     letter-spacing: 1.4px;
 
-    color: #777;
+    color: #d99100;
 }
-
 
 .revert-modal h3 {
     margin: 0;
 
-    font-size: 26px;
+    font-family: inherit;
 
-    letter-spacing: -0.5px;
+    font-size: 24px;
 
-    color: #171717;
+    letter-spacing: 0;
+
+    color: #f0eee8;
 }
-
 
 .revert-modal>p {
-    color: #666;
+    color: #888;
 
-    font-size: 15px;
+    font-family: monospace;
 
-    line-height: 1.6;
+    font-size: 14px;
+
+    line-height: 1.7;
 }
-
 
 .revert-comparison {
     display: flex;
@@ -277,9 +291,11 @@
 
     padding: 18px;
 
-    background: #f7f7f8;
+    background: #111516;
 
-    border-radius: 12px;
+    border: 1px solid #3a3d3f;
+
+    border-radius: 6px;
 }
 
 
@@ -295,23 +311,27 @@
 
 
 .revert-comparison span {
+    font-family: monospace;
+
     font-size: 12px;
 
-    color: #888;
+    color: #777;
 }
-
 
 .revert-comparison strong {
+    font-family: monospace;
+
     font-size: 15px;
 
-    color: #222;
+    color: #d5d3cb;
 }
 
-
 .comparison-arrow {
+    font-family: monospace;
+
     font-size: 22px;
 
-    color: #888;
+    color: #d99100;
 }
 
 
@@ -320,15 +340,19 @@
 
     margin-top: 0;
 
-    border-left: 3px solid #8b5cf6;
+    border-left: 3px solid #d99100;
 
-    background: #faf8ff;
+    background: #171510;
 
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 6px 6px 0;
 
-    font-size: 14px !important;
+    font-family: monospace;
 
-    color: #555 !important;
+    font-size: 13px !important;
+
+    line-height: 1.7;
+
+    color: #888 !important;
 }
 
 
@@ -339,26 +363,31 @@
 
     padding: 12px 18px;
 
-    border: none;
+    border: 1px solid #d99100;
 
-    border-radius: 9px;
+    border-radius: 6px;
 
-    background: #171717;
+    background: #d99100;
 
-    color: white;
+    color: #111516;
 
-    font-family: inherit;
+    font-family: monospace;
 
     font-size: 14px;
 
     font-weight: 600;
 
     cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
 }
 
-
 .modal-button:hover {
-    background: #333;
+    background: #e3a21a;
+
+    border-color: #e3a21a;
 }
 
 

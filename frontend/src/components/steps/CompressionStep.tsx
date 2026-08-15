@@ -184,7 +184,7 @@ export default function CompressionStep({
 
                     <p
                         style={{
-                            color: "#666",
+                            color: "#777",
                             lineHeight: 1.6,
                         }}
                     >
@@ -195,6 +195,7 @@ export default function CompressionStep({
                     <h4>
                         Initial Working Variables
                     </h4>
+
 
                     <div
                         style={{
@@ -220,9 +221,11 @@ export default function CompressionStep({
                                 key={variable}
                                 style={{
                                     padding: "15px",
-                                    border: "1px solid #ccc",
-                                    borderRadius: "8px",
-                                    background: "#fafafa",
+                                    border:
+                                        "1px solid #d99100",
+                                    borderRadius: "4px",
+                                    background: "#111516",
+                                    color: "#d5d3cb",
                                     textAlign: "center",
                                     fontFamily: "monospace",
                                 }}
@@ -244,16 +247,7 @@ export default function CompressionStep({
                     </h4>
 
 
-                    <div
-                        style={{
-                            padding: "20px",
-                            border: "1px solid #ddd",
-                            borderRadius: "10px",
-                            background: "#fafafa",
-                            fontFamily: "monospace",
-                            lineHeight: 2,
-                        }}
-                    >
+                    <div className="choose-instruction-card" >
 
                         <div>
                             a = T1 + T2

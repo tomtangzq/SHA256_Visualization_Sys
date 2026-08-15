@@ -171,19 +171,21 @@ export default function ResultPage() {
 
             {/* Header */}
 
-            <header className="result-header">
+            <header className="pretest-header">
 
-                <div className="result-brand">
-                    HashPro
+                <div className="home-brand">
+
+                    HASH INSTRUMENTALITY SYSTEM
+
                 </div>
 
 
-                <div className="result-header-title">
+                <div className="header-center">
                     Learning Results
                 </div>
 
 
-                <div className="result-header-status">
+                <div className="header-status">
                     Evaluation
                 </div>
 

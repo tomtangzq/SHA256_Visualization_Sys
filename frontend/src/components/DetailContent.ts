@@ -51,10 +51,14 @@ export const detailContent: StepContent[] = [
 
     {
         title: "Padding",
-        description: "",
-        goal: "",
+        description:
+            "Extends the message to a fixed 512-bit block by adding padding bits and the original message length.",
+        goal:
+            "Understand why SHA-256 pads messages before processing them.",
 
-        tips: [],
+        tips: [
+            "The padded message must end at a 512-bit boundary."
+        ],
     },
 
     {
@@ -65,36 +69,50 @@ export const detailContent: StepContent[] = [
             initial message schedule entries W0~W15.
 
             Words W16~W63 are generated from previously
-            computed words. Each word is calculated from W[i~2],
-            W[i~7], W[i~15], and W[i~16], extending the
-            original message into a total of 64 words.`,
+            computed words.`,
 
-        goal: "",
+        goal:
+            "Understand how the initial 16 words are expanded into the full message schedule.",
 
-        tips: [],
+        tips: [
+            "W0–W15 come directly from the padded message",
+            "W16–W63 words are derived from earlier words."
+        ],
     },
 
     {
         title: "Compression",
-        description: "",
-        goal: "",
+        description:
+            "Processes the message schedule through 64 rounds using logical functions, constants, and working variables.",
+        goal:
+            "Understand how SHA-256 transforms the current state during each compression round.",
 
-        tips: [],
+        tips: [
+            "Follow the highlighted values and formulas to see how each round contributes to the next state."
+        ],
     },
 
     {
         title: "Hash Accumulation",
-        description: "",
-        goal: "",
+        description:
+            "Combines the final working variables with the initial hash state to produce the final hash values.",
+        goal:
+            "Understand how the compression result is accumulated into the SHA-256 hash state.",
 
-        tips: [],
+        tips: [
+            "The eight final values are combined in order to form the 256-bit hash."
+        ],
     },
 
     {
         title: "Digest",
-        description: "",
-        goal: "",
+        description:
+            "Presents the final 256-bit SHA-256 digest generated from the input message.",
+        goal:
+            "Recognise the digest as the final fixed-length output of the hashing process.",
 
-        tips: [],
+        tips: [
+            "A small change to the input produces a completely different digest."
+        ],
     },
 ];

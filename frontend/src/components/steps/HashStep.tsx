@@ -132,9 +132,9 @@ export default function HashStep({
                 style={{
                     marginTop: "20px",
                     padding: "18px 20px",
-                    border: "1px solid #ddd",
-                    borderRadius: "10px",
-                    background: "#fafafa",
+                    border: "1px solid #3a3d3f",
+                    borderRadius: "8px",
+                    background: "#111516",
                 }}
             >
                 <h3
@@ -151,8 +151,7 @@ export default function HashStep({
                         display: "grid",
                         gridTemplateColumns:
                             "repeat(2, minmax(0, 1fr))",
-                        columnGap: "40px",
-                        rowGap: "10px",
+                        gap: "10px",
                     }}
                 >
                     {updatedValues.map((_, index) => {
@@ -166,11 +165,13 @@ export default function HashStep({
                             <div
                                 key={index}
                                 style={{
-                                    fontFamily:
-                                        "monospace",
+                                    fontFamily: "monospace",
                                     fontSize: "15px",
-                                    padding:
-                                        "7px 0",
+                                    padding: "10px 14px",
+                                    border: "1px solid #cf7d02d3",
+                                    borderRadius: "6px",
+                                    background: "#111516",
+                                    color: "#d5d3cb",
                                 }}
                             >
                                 h{index}' = h{index} + {variable}
@@ -190,9 +191,9 @@ export default function HashStep({
                 style={{
                     marginTop: "20px",
                     padding: "20px 22px",
-                    border: "1px solid #ddd",
-                    borderRadius: "10px",
-                    background: "#fafafa",
+                    border: "1px solid #3a3d3f",
+                    borderRadius: "8px",
+                    background: "#111516",
                 }}
             >
                 <h3
@@ -219,8 +220,9 @@ export default function HashStep({
                     <div
                         style={{
                             padding: "14px 18px",
-                            background: "#ffffff",
-                            border: "1px solid #ddd",
+                            background: "#111516",
+                            border: "1px solid #cf7d02d3",
+                            color: "#d5d3cb",
                             borderRadius: "8px",
                             fontFamily: "monospace",
                             fontSize: "15px",
@@ -278,9 +280,9 @@ export default function HashStep({
                     <div
                         style={{
                             padding: "14px 18px",
-                            background: "#ffffff",
-                            border: "1px solid #ddd",
-                            borderRadius: "8px",
+                            background: "#111516",
+                            border: "1px solid #3a3d3f",
+                            borderRadius: "6px",
                         }}
                     >
 
@@ -303,8 +305,10 @@ export default function HashStep({
 
                                         borderBottom:
                                             index < 7
-                                                ? "1px solid #f0f0f0"
+                                                ? "1px solid #3a3d3f"
                                                 : "none",
+
+                                        color: "#d5d3cb",
                                     }}
                                 >
 
@@ -313,7 +317,7 @@ export default function HashStep({
                                             width: "42px",
                                             flexShrink: 0,
 
-                                            color: "#777",
+                                            color: "#d99100",
 
                                             fontSize: "12px",
 

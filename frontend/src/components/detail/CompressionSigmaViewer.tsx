@@ -119,7 +119,7 @@ export default function CompressionSigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        ROTR
+                        Right Rotate
                     </span>
 
                     <strong>
@@ -145,7 +145,7 @@ export default function CompressionSigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        ROTR
+                        Right Rotate
                     </span>
 
                     <strong>
@@ -172,7 +172,7 @@ export default function CompressionSigmaViewer({
                 <div className="sigma-operation-header">
 
                     <span>
-                        ROTR
+                        Right Rotate
                     </span>
 
                     <strong>

@@ -195,8 +195,8 @@ export default function PostTestPage() {
 
                 <header className="pretest-header">
 
-                    <div className="brand">
-                        HashPro
+                    <div className="header-brand">
+                        HASH INSTRUMENTALITY SYSTEM
                     </div>
 
                     <div className="header-center">
@@ -286,8 +286,8 @@ export default function PostTestPage() {
 
             <header className="pretest-header">
 
-                <div className="brand">
-                    HashPro
+                <div className="header-brand">
+                    HASH INSTRUMENTALITY SYSTEM
                 </div>
 
 

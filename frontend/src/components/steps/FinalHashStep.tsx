@@ -58,7 +58,7 @@ export default function FinalHashStep({ input }: Props) {
 
             {/* Final hash */}
 
-            <div className="final-hash-value">
+            <div className="choose-instruction-card">
 
                 {finalHash.hex}
 
@@ -80,12 +80,12 @@ export default function FinalHashStep({ input }: Props) {
             <div className="digest-actions">
 
                 <button
-                    className="digest-secondary-button"
+                    className="digest-primary-button"
                     onClick={() =>
                         setShowRevertExplanation(true)
                     }
                 >
-                    ↶ Revert
+                    ↶ Try to Revert
                 </button>
 
 
