@@ -327,29 +327,19 @@ export default function MajorityViewer({
 
             {revealedCount < 3 && (
 
-                <div
-                    style={{
-                        marginTop: "20px",
-                        padding: "14px 16px",
-                        borderRadius: "8px",
-                        background: "#eef5ff",
-                        border:
-                            "1px solid #c9dcff",
-                    }}
-                >
+                <div className="choose-instruction-card">
 
-                    <strong>
+                    <strong
+                        style={{
+                            color: "#d99100",
+                            fontFamily: "monospace",
+                        }}
+                    >
                         Bit {revealedCount + 1}
                     </strong>
 
 
-                    <p
-                        style={{
-                            margin:
-                                "7px 0 0",
-                            color: "#555",
-                        }}
-                    >
+                    <p>
 
                         {currentOnes >= 2
 
@@ -362,15 +352,7 @@ export default function MajorityViewer({
                     </p>
 
 
-                    <p
-                        style={{
-                            margin:
-                                "7px 0 0",
-                            color: "#777",
-                            fontFamily:
-                                "monospace",
-                        }}
-                    >
+                    <p>
 
                         {aBits[currentIndex]}
                         {"  "}
@@ -391,19 +373,7 @@ export default function MajorityViewer({
 
             {errorMessage && (
 
-                <div
-                    style={{
-                        marginTop: "12px",
-                        padding:
-                            "12px 14px",
-                        borderRadius: "8px",
-                        background:
-                            "#fff3f3",
-                        border:
-                            "1px solid #f0b8b8",
-                        color: "#b42318",
-                    }}
-                >
+                <div className="choose-error-card">
                     {errorMessage}
                 </div>
 
@@ -511,14 +481,14 @@ export default function MajorityViewer({
                                             fontSize:
                                                 "13px",
 
-                                            color: "#171717",
+                                            color: "#d5d3cb",
 
                                             border:
                                                 errorMessage
 
                                                     ? "2px solid #d92d20"
 
-                                                    : "2px solid #1976d2",
+                                                    : "2px solid #d99000",
 
                                             borderRadius:
                                                 "4px",
@@ -528,13 +498,13 @@ export default function MajorityViewer({
 
                                             background:
                                                 errorMessage
-                                                    ? "#fff8f7"
-                                                    : "#ffffff",
+                                                    ? "#171a1b"
+                                                    : "#111516",
 
                                             caretColor:
                                                 errorMessage
                                                     ? "#d92d20"
-                                                    : "#1976d2",
+                                                    : "#d99000",
 
                                             transition:
                                                 "border 0.2s ease, background 0.2s ease",
@@ -567,18 +537,20 @@ export default function MajorityViewer({
 
                                         border:
                                             isCurrent
-                                                ? "2px solid #1976d2"
-                                                : userRevealed
-                                                    ? "1px solid #9bd4a8"
-                                                    : "1px solid #ccc",
+                                                ? "2px solid #d99100"
+                                                : userRevealed || automaticRevealed
+                                                    ? "1px solid #d99100"
+                                                    : "1px solid #3a3d3f",
 
                                         borderRadius:
                                             "4px",
 
                                         background:
                                             visible
-                                                ? "#f5f5f5"
-                                                : "#ffffff",
+                                                ? "#111516"
+                                                : "#111516",
+
+                                        color: "#d5d3cb",
 
                                         fontFamily:
                                             "monospace",
@@ -622,19 +594,7 @@ export default function MajorityViewer({
             {revealedCount >= 3 &&
                 !allBitsVisible && (
 
-                    <div
-                        style={{
-                            marginTop: "20px",
-                            padding:
-                                "12px 16px",
-                            borderRadius: "8px",
-                            background:
-                                "#f5f9ff",
-                            border:
-                                "1px solid #d7e5ff",
-                            color: "#555",
-                        }}
-                    >
+                    <div className="choose-progress-card">
                         Automatically computing
                         the remaining bits...
                     </div>
@@ -648,36 +608,14 @@ export default function MajorityViewer({
 
             {allBitsVisible && (
 
-                <div
-                    style={{
-                        marginTop: "22px",
-                        padding: "18px",
-                        border:
-                            "1px solid #b7dfc0",
-                        borderRadius: "8px",
-                        background:
-                            "#f3fff5",
-                    }}
-                >
+                <div className="choose-result-card">
 
-                    <h4
-                        style={{
-                            marginTop: 0,
-                            color: "#176b2c",
-                        }}
-                    >
+                    <h4>
                         Maj(a, b, c) Result
                     </h4>
 
 
-                    <code
-                        style={{
-                            display: "block",
-                            wordBreak:
-                                "break-all",
-                            lineHeight: 1.7,
-                        }}
-                    >
+                    <code>
                         {correctBits.join("")}
                     </code>
 
@@ -804,15 +742,18 @@ function MajorityBitRow({
                                     border:
                                         isMajorityBit
 
-                                            ? "2px solid #1976d2"
+                                            ? "2px solid #d99100"
 
-                                            : "1px solid #ccc",
+                                            : "1px solid #3a3d3f",
 
                                     borderRadius:
                                         "4px",
 
                                     background:
-                                        "#fafafa",
+                                        "#111516",
+
+                                    color:
+                                        "#d5d3cb",
 
                                     fontFamily:
                                         "monospace",
