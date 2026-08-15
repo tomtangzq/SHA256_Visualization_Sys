@@ -369,23 +369,26 @@ export default function ResultPage() {
                     <button
                         className="result-secondary-button"
                         onClick={() =>
-                            navigate("/home")
+                            navigate("/learning")
                         }
                     >
-                        Back to Home
+                        <span>
+                            ←
+                        </span>
+
+                        Review Learning
+
                     </button>
 
 
                     <button
                         className="result-primary-button"
                         onClick={() =>
-                            navigate("/learning")
+                            navigate("/home")
                         }
                     >
-                        Review Learning
-                        <span>
-                            →
-                        </span>
+                        Back to Home
+
                     </button>
 
                 </div>
