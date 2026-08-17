@@ -84,7 +84,7 @@ export const preTestQuestions: PreTestQuestion[] = [
             "Because hashing makes passwords shorter.",
         ],
 
-        correctAnswer: 1,
+        correctAnswer: 2,
     },
 
     {
@@ -100,7 +100,7 @@ export const preTestQuestions: PreTestQuestion[] = [
             "Compression",
         ],
 
-        correctAnswer: 2,
+        correctAnswer: 1,
     },
 
 ];
