@@ -75,13 +75,13 @@ export const preTestQuestions: PreTestQuestion[] = [
         id: 5,
 
         question:
-            "What is the purpose of the message schedule in SHA-256?",
+            "Why are cryptographic hash functions useful when storing passwords?",
 
         options: [
-            "To encrypt the original message.",
-            "To generate the words used during the compression process.",
-            "To decrypt the final hash value.",
-            "To reduce the final hash to a shorter value.",
+            "Because the original password can be recovered from the hash when needed.",
+            "Because hashing allows the password to be decrypted with a key.",
+            "Because the original password is not directly stored and the hash is designed to be one-way.",
+            "Because hashing makes passwords shorter.",
         ],
 
         correctAnswer: 1,
@@ -91,13 +91,13 @@ export const preTestQuestions: PreTestQuestion[] = [
         id: 6,
 
         question:
-            "Why are cryptographic hash functions useful when storing passwords?",
+            "A website wants to verify that a downloaded file has not been modified. Which technique is most appropriate?",
 
         options: [
-            "Because the original password can be recovered from the hash when needed.",
-            "Because hashing allows the password to be decrypted with a key.",
-            "Because the original password is not directly stored and the hash is designed to be one-way.",
-            "Because hashing makes passwords shorter.",
+            "Encryption",
+            "Cryptographic hashing",
+            "Decryption",
+            "Compression",
         ],
 
         correctAnswer: 2,
